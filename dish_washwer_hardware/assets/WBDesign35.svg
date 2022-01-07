@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wb="http://www.ti.com/webench" version="1.1" width="100%" height="100%" viewBox="0 0 2915.0 1165.0" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <g id="WB_CONTINUATION">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="0" y1="10" x2="0" y2="-10" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-10" y1="-10" x2="10" y2="-10" />
+    </g>
+    <g id="WB_CURRENT_PROBE">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line stroke="#CC0000" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" x1="-16" y1="0" x2="-10" y2="0" />
+      <polyline stroke="#CC0000" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" points="6,0 3,-3.5 3,3.5 6,0 -6,0 " />
+      <line stroke="#CC0000" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" x1="10" y1="0" x2="16" y2="0" />
+      <rect stroke-width="1" x="-9.5" y="-7" fill="none" stroke="#CC0000" width="19" height="14" />
+    </g>
+    <g id="WB_BLOCK_IO">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line stroke="#CC0000" fill="none" stroke-width="2" x1="-5" y1="0" x2="5" y2="0" />
+    </g>
+    <g id="WB_LOAD_RESISTOR">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <polyline fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="30,0 20,0 15,-6 7.5,6 0,-6 -7.5,6 -15,-6 -20,0 -30,0" />
+    </g>
+    <g id="WB_GND">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line fill="none" stroke="black" stroke-width="2" x1="0" y1="-10" x2="0" y2="0" />
+      <line fill="none" stroke="black" stroke-width="2" x1="-13" y1="0" x2="13" y2="0" />
+      <line fill="none" stroke="black" stroke-width="2" x1="-9" y1="4" x2="9" y2="4" />
+      <line fill="none" stroke="black" stroke-width="2" x1="-3" y1="8" x2="3" y2="8" />
+    </g>
+    <g id="WB_HEATSINK_USFP">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="20" y1="-35" x2="29" y2="-49" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="36" y1="-18" x2="51" y2="-26" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="7" y1="-40" x2="10" y2="-56" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="39" y1="-6" x2="57" y2="-9" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="29" y1="-27" x2="42" y2="-39" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="40" y1="0" x2="30" y2="0" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M 40,-0 C40.57,-21.18 21.72,-40.28 0.54,-40" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="38" y1="1" x2="38" y2="1" />
+    </g>
+    <g id="WB_PRIM_SIN_VOLTAGE_SOURCE">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <circle fill-opacity="0.01" fill="#CC0000" stroke="#CC0000" stroke-width="2" cx="0" cy="0" r="14" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" d="M0,-9c5.1,0.6,7.8,2,8,4.4c-0.2,2.2-2.9,3.8-8,4.6   c-5.2,0.7-7.9,2.3-8,4.5c0.1,2.4,2.8,3.8,8,4.5" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="16" y1="-12" x2="16" y2="-18" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-17" y1="-12" x2="-17" y2="-18" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-14" y1="-15" x2="-20" y2="-15" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-15" y1="0" x2="-30" y2="0" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="30" y1="0" x2="15" y2="0" />
+    </g>
+    <g id="WB_RESISTOR">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <polyline fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="30,0 20,0 15,-6 7.5,6 0,-6 -7.5,6 -15,-6 -20,0 -30,0" />
+    </g>
+    <g id="WB_CAPACITOR">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line y1="0" x2="20" stroke="#115566" x1="30" fill="none" stroke-width="2" y2="0" />
+      <line y1="0" x2="-20" stroke="#115566" x1="-30" fill="none" stroke-width="2" y2="0" />
+      <polyline stroke="#115566" points="3,12 3,-12  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-20,0 -3,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="3,0 20,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-3,12 -3,-12  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <g id="WB_GND_SIGNAL">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <polygon fill="black" stroke="black" stroke-width="2" points="12.5,0 0,10 -12.5,0 12.5,0" />
+      <line fill="none" stroke="black" stroke-width="2" x1="0" y1="-10" x2="0" y2="0" />
+    </g>
+    <g id="WB_CAP_POLARIZED">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <path fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-6.5,12c0.2,0,1.1 -1,2.5 -3c1.5 -2,2.3 -5,2.5 -9c-0.2 -4 -1 -7 -2.5 -9c-1.4 -2 -2.3 -3 -2.5 -3" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="4" y1="13" x2="4" y2="-13" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="-30" y1="0" x2="-2" y2="0" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="4" y1="0" x2="30" y2="0" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="14" y1="10" x2="14" y2="6" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="12" y1="8" x2="16" y2="8" />
+    </g>
+    <g id="WB_PRIMITIVE_CAPACITOR">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line y1="0" x2="20" stroke="#CC0000" x1="30" fill="none" stroke-width="2" y2="0" />
+      <line y1="0" x2="-20" stroke="#CC0000" x1="-30" fill="none" stroke-width="2" y2="0" />
+      <polyline stroke="#CC0000" points="3,12 3,-12  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#CC0000" points="-20,0 -3,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#CC0000" points="3,0 20,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#CC0000" points="-3,12 -3,-12  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <g id="WB_DIODE">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <path fill="#115566" d="M-11,0L10,-12,10,12 -11,0" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="30" y1="0" x2="-30" y2="0" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="-10" y1="12" x2="-10" y2="-12" />
+    </g>
+    <g id="WB_ZENER">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <path fill="#115566" d="M-11,0L10,-12,10,12 -11,0" />
+      <line fill="none" stroke="#115566" stroke-width="2" x1="30" y1="0" x2="-30" y2="0" />
+      <polyline fill="none" stroke="#115566" stroke-width="2" points="-8,-12 -10,-10 -10,10 -12,12" />
+    </g>
+    <g id="WB_N_MOSFET">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line y1="0" x2="-5" stroke="#115566" x1="-15" fill="none" stroke-width="2" y2="0" />
+      <line y1="-30" x2="15" stroke="#115566" x1="15" fill="none" stroke-width="2" y2="-20" />
+      <line y1="30" x2="15" stroke="#115566" x1="15" fill="none" stroke-width="2" y2="20" />
+      <polyline stroke="#115566" points="4,-10 4,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,-10 15,-8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,-8 5,-8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="11,0 15,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,0 15,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="5,8 14,8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,-10 15,-8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,-8 4,-8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="4,-10 4,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="4,8 15,8  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="4,0 9,-5  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="9,-5 9,5  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="9,5 4,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="9,0 15,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,0 15,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-5,0 0,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="0,10 0,-10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,-20 15,-10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="15,10 15,20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <g id="WB_VOLTAGE_PROBE">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <rect stroke-width="1" width="20" stroke="#CC0000" x="-10" height="19.5" y="-30" fill="#CC0000" fill-opacity="0.01" />
+      <polyline stroke="#CC0000" points="7,-27 4,-22 3,-26 0,-18 -1,-22 -5,-14  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <line y1="0" x2="0" stroke="#CC0000" x1="0" fill="none" stroke-width="2" y2="-10" />
+    </g>
+    <g id="WB_DIODE_BRIDGE">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line y1="-50" x2="0" stroke="#115566" x1="0" fill="none" stroke-width="2" y2="-30" />
+      <line y1="0" x2="30" stroke="#115566" x1="50" fill="none" stroke-width="2" y2="0" />
+      <line y1="50" x2="0" stroke="#115566" x1="0" fill="none" stroke-width="2" y2="30" />
+      <line y1="0" x2="-30" stroke="#115566" x1="-50" fill="none" stroke-width="2" y2="0" />
+      <polyline stroke="#115566" points="12,18 0,30  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="30,0 17,13  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-16,-14 -30,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="0,-30 -13,-17  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="18,-12 30,0  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="0,-30 13,-17  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-12,18 0,30  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-30,0 -17,13  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="-27,-18 -12,-18 -12,-3  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="2,-13 17,-13 17,-28  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="1,14 16,14 16,29  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="-11,19 -11,3 -27,19  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-17,-25 -6,-14  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-6,-14 -6,-15 -16,-25 -17,-25  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="23,-18 23,-17 13,-7 12,-7 23,-18  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="22,19 22,18 12,8 11,8 22,19  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-5,14 -5,15 -15,25 -16,25 -5,14  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <text x="4" y="-26" style="font-family: arial; font-size: 10;text-anchor: end;" transform="rotate(270, 4, -26)">~</text>
+      <text x="4" y="26" style="font-family: arial; font-size: 10;text-anchor: start;" transform="rotate(270, 4, 26)">~</text>
+      <text x="-26" y="4" style="font-family: arial; font-size: 10;text-anchor: start;">-</text>
+      <text x="26" y="4" style="font-family: arial; font-size: 10;text-anchor: end;">+</text>
+    </g>
+    <g id="WB_REFERENCE_USFP">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <path fill="#115566" d="M0,0 L10,-10 10,10 0,0" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="10" y1="10" x2="0" y2="0" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="0" y1="0" x2="10" y2="-10" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="10" y1="-10" x2="10" y2="10" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-4" y1="10" x2="0" y2="6" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="0" y1="6" x2="0" y2="-6" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="0" y1="-6" x2="4" y2="-10" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="5" y1="20" x2="5" y2="5" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="0" y1="20" x2="5" y2="20" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="30" y1="0" x2="10" y2="0" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-20" y1="20" x2="0" y2="20" />
+      <line fill="none" stroke="#115566" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-20" y1="0" x2="0" y2="0" />
+    </g>
+    <g id="WB_LM5023DGK">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-60" y1="70" x2="60" y2="70" />
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="60" y1="70" x2="60" y2="-70" />
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="60" y1="-70" x2="-60" y2="-70" />
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-60" y1="-70" x2="-60" y2="70" />
+      <text id="partNumber_label" x="5" y="-57" style="font-family:arial;font-weight:bold;font-size:10px;text-anchor:middle;">LM5023DGK</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="80" y1="-50" x2="60" y2="-50" />
+      <text id="1" x="56" y="-46" transform="rotate(0,56,-46)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:end;">QR</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-80" y1="-10" x2="-60" y2="-10" />
+      <text id="2" x="-56" y="-6" transform="rotate(0,-56,-6)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:start;">VSD</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-80" y1="20" x2="-60" y2="20" />
+      <text id="3" x="-56" y="24" transform="rotate(0,-56,24)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:start;">SS</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="80" y1="20" x2="60" y2="20" />
+      <text id="4" x="56" y="24" transform="rotate(0,56,24)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:end;">COMP</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="80" y1="0" x2="60" y2="0" />
+      <text id="5" x="56" y="4" transform="rotate(0,56,4)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:end;">CS</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="80" y1="50" x2="60" y2="50" />
+      <text id="6" x="56" y="54" transform="rotate(0,56,54)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:end;">GND</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="80" y1="-20" x2="60" y2="-20" />
+      <text id="7" x="56" y="-16" transform="rotate(0,56,-16)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:end;">OUT</text>
+      <line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-80" y1="-50" x2="-60" y2="-50" />
+      <text id="8" x="-56" y="-46" transform="rotate(0,-56,-46)" style="font-family:arial;font-weight:normal;font-size:9px;text-anchor:start;">VCC</text>
+    </g>
+    <g id="WB_DIODE_SCHOTTKY">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#115566" fill="none" stroke-width="2" />
+      <polygon stroke="#115566" points="8,-10 -8,0 8,10" stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-11,-8 -11,-10 -8,-10 -8,10 -5,10 -5,8" stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <g id="WB_INDUCTOR_COUPLED">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-10,-19 c-0,0.6-0.2,1.8-0.6,3.3c-0.5,2.4-2,3.7-4.4,4c-2.4-0.3-3.8-1.6-4.3-4c-0.6-2.3-0.8-3.6-0.7-4H-30" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,-19 c0,0.6-0.2,1.8-0.6,3.3c-0.5,2.4-2,3.7-4.4,4c-2.4-0.3-3.8-1.6-4.3-4c-0.4-1.5-0.6-2.7-0.7-3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M30,-20H20 c0.1,0.4-0.1,1.7-0.6,4c-0.5,2.4-2,3.7-4.4,4c-2.4-0.3-3.8-1.6-4.3-4c-0.4-1.5-0.6-2.7-0.7-3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,-19 c0,0.6-0.2,1.8-0.6,3.3c-0.5,2.4-2,3.7-4.4,4c-2.4-0.3-3.9-1.6-4.4-4c-0.3-1.5-0.5-2.7-0.6-3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,-19 c0.1-0.4,0.1-0.601,0-0.7" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,-20 c0.1,0.1,0.1,0.3,0,0.7" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-10,-19 c0.1-0.4,0.1-0.601,0-0.7" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-27" y1="-5" x2="27" y2="-5" />
+      <line fill="none" stroke="#CC0000" stroke-width="2" x1="-27" y1="5" x2="27" y2="5" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-10,19 c0-0.6-0.2-1.8-0.6-3.3c-0.5-2.4-2-3.7-4.4-4c-2.4,0.3-3.8,1.6-4.3,4c-0.6,2.3-0.8,3.6-0.7,4H-30" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,19 c0-0.6-0.2-1.8-0.6-3.3c-0.5-2.4-2-3.7-4.4-4c-2.4,0.3-3.9,1.6-4.4,4c-0.3,1.5-0.5,2.7-0.6,3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,19 c0-0.6-0.2-1.8-0.6-3.3c-0.5-2.4-2-3.7-4.4-4c-2.4,0.3-3.8,1.6-4.3,4c-0.4,1.5-0.6,2.7-0.7,3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M30,19H20 c0.1-0.4-0.1-1.7-0.6-4c-0.5-2.4-2-3.7-4.4-4c-2.4,0.3-3.8,1.6-4.3,4c-0.4,1.5-0.6,2.7-0.7,3.3" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-10,19 c0.1,0.4,0.1,0.601,0,0.7" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,20 c0.1-0.1,0.1-0.3,0-0.7" />
+      <path fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,19 c0.1,0.4,0.1,0.601,0,0.7" />
+      <circle fill="none" stroke="#CC0000" stroke-width="2" cx="23" cy="-25" r="1" />
+      <circle fill="none" stroke="#CC0000" stroke-width="2" cx="23" cy="25" r="1" />
+    </g>
+    <g id="WB_OPTO">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line y1="-10" x2="40" stroke="#115566" x1="50" fill="none" stroke-width="2" y2="-10" />
+      <line y1="10" x2="40" stroke="#115566" x1="50" fill="none" stroke-width="2" y2="10" />
+      <line y1="-10" x2="-40" stroke="#115566" x1="-50" fill="none" stroke-width="2" y2="-10" />
+      <line y1="10" x2="-40" stroke="#115566" x1="-50" fill="none" stroke-width="2" y2="10" />
+      <polyline stroke="#115566" points="-18,-4 -24,-10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="10,2 16,-4  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="10,7 16,1  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-17,3 -24,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-40,10 -40,-20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="27,-10 27,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="40,10 40,-20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="40,-20 -40,-20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-24,-10 -40,-10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="27,10 40,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-24,10 -40,10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="27,-10 40,-10  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="40,20 -40,20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="19,-5 35,-5 27,3  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="35,4 35,5 19,5 19,4  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="10,5 10,7 12,7  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="10,0 10,2 12,2  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="-18,9 -17,9 -17,-9 -18,-9  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polygon stroke="#115566" points="-20,9 -23,9 -23,6  " stroke-linejoin="round" fill="#115566" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="-40,10 -40,20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <polyline stroke="#115566" points="40,10 40,20  " stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+    </g>
+    <g id="WB_2P1_TRANSFORMER">
+      <circle xmlns="" opacity="0.01" fill="#ffffff" stroke="#000000" stroke-width="0" cx="0" cy="0" r="14" />
+      <line stroke="#115566" x1="-2" y1="-55" x2="-2" y2="55" stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <line stroke="#115566" x1="2" y1="-55" x2="2" y2="55" stroke-linejoin="round" fill="none" stroke-width="2" stroke-linecap="round" />
+      <line x2="-30" y1="-55" stroke="#115566" x1="-10" y2="-55" fill="none" stroke-width="2" />
+      <path stroke="#115566" d="M-10,-45A5,5 0 0,0 -10 -55 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,-35A5,5 0 0,0 -10 -45 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,-25A5,5 0 0,0 -10 -35 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,-15A5,5 0 0,0 -10 -25 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <ellipse ry="1" stroke="#115566" rx="1" cx="-12" cy="-20" fill="#115566" stroke-width="2" />
+      <line x2="-10" y1="-15" stroke="#115566" x1="-30" y2="-15" fill="none" stroke-width="2" />
+      <line x2="30" y1="-20" stroke="#115566" x1="10" y2="-20" fill="none" stroke-width="2" />
+      <ellipse ry="1" stroke="#115566" rx="1" cx="12" cy="-15" fill="#115566" stroke-width="2" />
+      <path stroke="#115566" d="M10-10A5,5 0 1,0 10,0 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M10-20A5,5 0 1,0 10-10 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M10,0A5,5 0 1,0 10,10 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M10,10A5,5 0 1,0 10,20 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <line x2="30" y1="20" stroke="#115566" x1="10" y2="20" fill="none" stroke-width="2" />
+      <line x2="-10" y1="15" stroke="#115566" x1="-30" y2="15" fill="none" stroke-width="2" />
+      <path stroke="#115566" d="M-10,25A5,5 0 0,0 -10 15 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,35A5,5 0 0,0 -10 25 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,45A5,5 0 0,0 -10 35 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <path stroke="#115566" d="M-10,55A5,5 0 0,0 -10 45 " fill="none" stroke-width="2" stroke-linecap="round" />
+      <ellipse ry="1" stroke="#115566" rx="1" cx="-12" cy="50" fill="#115566" stroke-width="2" />
+      <line x2="-10" y1="55" stroke="#115566" x1="-30" y2="55" fill="none" stroke-width="2" />
+    </g>
+  </defs>
+  <use id="Rdrv" class="comp" xlink:href="#WB_RESISTOR" x="1980.0" y="750.0" transform="rotate(-180, 1980.0, 750.0)" partNo="CRCW04024R75FKED" thermalId="0402" resistance="4.75Ohm" manufacturer="Vishay-Dale" />
+  <text for="Rdrv" x="1960.0" y="735.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rdrv</text>
+  <text for="Rdrv" x="1960.0" y="770.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">4.75Ohm</text>
+  <use id="GND23" class="other" xlink:href="#WB_GND" x="1490.0" y="565.0" />
+  <use id="Cd" class="comp" xlink:href="#WB_CAPACITOR" x="1910.0" y="640.0" transform="rotate(-90, 1910.0, 640.0)" cap="56pF" partNo="CL21C560JBANNNC" thermalId="0805" esr="0Ohm" manufacturer="Samsung Electro-Mechanics" />
+  <text for="Cd" x="1925.0" y="640.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cd</text>
+  <text for="Cd" x="1925.0" y="650.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">56pF</text>
+  <text for="Cd" x="1925.0" y="660.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">0Ohm</text>
+  <use id="GND27" class="other" xlink:href="#WB_GND_SIGNAL" x="2350.0" y="425.0" />
+  <use id="Cin" class="comp" xlink:href="#WB_CAP_POLARIZED" x="1020.0" y="265.0" transform="rotate(-90, 1020.0, 265.0)" cap="47uF" partNo="EEUED2G470S" thermalId="CAPPR7.5-18X20" esr="609.529mOhm" manufacturer="Panasonic" />
+  <text for="Cin" x="1035.0" y="265.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cin</text>
+  <text for="Cin" x="1035.0" y="275.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">47uF</text>
+  <text for="Cin" x="1035.0" y="285.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">609.529mOhm</text>
+  <use id="Cx" class="other" xlink:href="#WB_PRIMITIVE_CAPACITOR" x="240.0" y="215.0" transform="rotate(-90, 240.0, 215.0)" />
+  <text for="Cx" x="255.0" y="215.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Cx</text>
+  <use id="Dsec2" class="comp" xlink:href="#WB_DIODE" x="2400.0" y="290.0" transform="rotate(-180, 2400.0, 290.0)" vfatio="950mV" partNo="SBRD10200TR" io="10A" thermalId="DPAK" vrrm="" manufacturer="SMC Diode Solutions" />
+  <text for="Dsec2" x="2380.0" y="275.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Dsec2</text>
+  <text for="Dsec2" x="2380.0" y="310.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">950mV</text>
+  <text for="Dsec2" x="2380.0" y="320.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">10A</text>
+  <use id="GND20" class="other" xlink:href="#WB_GND" x="1020.0" y="335.0" />
+  <use id="Cvcc2" class="comp" xlink:href="#WB_CAPACITOR" x="1660.0" y="510.0" transform="rotate(-90, 1660.0, 510.0)" cap="22uF" partNo="C2012X5R1V226M125AC" thermalId="0805" esr="2.05mOhm" manufacturer="TDK" />
+  <text for="Cvcc2" x="1675.0" y="510.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cvcc2</text>
+  <text for="Cvcc2" x="1675.0" y="520.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">22uF</text>
+  <text for="Cvcc2" x="1675.0" y="530.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">2.05mOhm</text>
+  <use id="Dz4" class="comp" xlink:href="#WB_ZENER" x="1250.0" y="515.0" transform="rotate(-270, 1250.0, 515.0)" partNo="MMBZ5244BLT1G" thermalId="SOT-23" manufacturer="ON Semiconductor" />
+  <text for="Dz4" x="1265.0" y="515.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Dz4</text>
+  <use id="Rsense" class="comp" xlink:href="#WB_RESISTOR" x="2150.0" y="875.0" transform="rotate(-90, 2150.0, 875.0)" partNo="MCR25JZHFLR430" thermalId="1210" resistance="430mOhm" manufacturer="Rohm" />
+  <text for="Rsense" x="2165.0" y="875.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rsense</text>
+  <text for="Rsense" x="2165.0" y="885.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">430mOhm</text>
+  <use id="Cy1" class="other" xlink:href="#WB_PRIMITIVE_CAPACITOR" x="690.0" y="215.0" transform="rotate(-90, 690.0, 215.0)" />
+  <text for="Cy1" x="705.0" y="215.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Cy1</text>
+  <use id="GND17" class="other" xlink:href="#WB_GND" x="2150.0" y="995.0" />
+  <use id="M2" class="comp" xlink:href="#WB_N_MOSFET" x="1135.0" y="365.0" partNo="BSP135H6327XTSA1" thermalId="SOT-223" vdsmax="600V" idsmax="120mAmps" manufacturer="Infineon Technologies" />
+  <text for="M2" x="1115.0" y="350.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">M2</text>
+  <text for="M2" x="1115.0" y="385.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">600V</text>
+  <text for="M2" x="1115.0" y="395.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">120mAmps</text>
+  <use id="Cvcc1" class="comp" xlink:href="#WB_CAPACITOR" x="1490.0" y="510.0" transform="rotate(-90, 1490.0, 510.0)" cap="4.7uF" partNo="C1608X5R1V475K080AC" thermalId="0603" esr="3.728mOhm" manufacturer="TDK" />
+  <text for="Cvcc1" x="1505.0" y="510.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cvcc1</text>
+  <text for="Cvcc1" x="1505.0" y="520.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">4.7uF</text>
+  <text for="Cvcc1" x="1505.0" y="530.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">3.728mOhm</text>
+  <use id="GND26" class="other" xlink:href="#WB_GND_SIGNAL" x="2300.0" y="525.0" />
+  <use id="Rx2" class="other" xlink:href="#WB_RESISTOR" x="395.0" y="270.0" transform="rotate(-90, 395.0, 270.0)" />
+  <text for="Rx2" x="410.0" y="270.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Rx2</text>
+  <use id="Rsnub2" class="comp" xlink:href="#WB_RESISTOR" x="1590.0" y="290.0" transform="rotate(-270, 1590.0, 290.0)" partNo="CRCW251249K9FKEG" thermalId="2512" resistance="49.9kOhm" manufacturer="Vishay-Dale" />
+  <text for="Rsnub2" x="1605.0" y="290.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rsnub2</text>
+  <text for="Rsnub2" x="1605.0" y="300.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">49.9kOhm</text>
+  <use id="GND" class="other" xlink:href="#WB_GND" x="1510.0" y="935.0" />
+  <use id="Dac" class="comp" xlink:href="#WB_DIODE_BRIDGE" x="885.0" y="200.0" vfatio="1V" partNo="HD06-T" io="800mA" thermalId="MiniDIP" vrrm="" manufacturer="Diodes Inc." />
+  <text for="Dac" x="865.0" y="185.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Dac</text>
+  <text for="Dac" x="865.0" y="220.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1V</text>
+  <text for="Dac" x="865.0" y="230.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">800mA</text>
+  <use id="Cfb" class="comp" xlink:href="#WB_CAPACITOR" x="2405.0" y="885.0" transform="rotate(-90, 2405.0, 885.0)" cap="10nF" partNo="GRM033R70J103KA01D" thermalId="0201" esr="1mOhm" manufacturer="MuRata" />
+  <text for="Cfb" x="2420.0" y="885.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cfb</text>
+  <text for="Cfb" x="2420.0" y="895.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">10nF</text>
+  <text for="Cfb" x="2420.0" y="905.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1mOhm</text>
+  <use id="GND16" class="other" xlink:href="#WB_GND" x="2175.0" y="420.0" />
+  <use id="Rfbb" class="comp" xlink:href="#WB_RESISTOR" x="2580.0" y="875.0" transform="rotate(-90, 2580.0, 875.0)" partNo="CRCW040214K7FKED" thermalId="0402" resistance="14.7kOhm" manufacturer="Vishay-Dale" />
+  <text for="Rfbb" x="2595.0" y="875.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rfbb</text>
+  <text for="Rfbb" x="2595.0" y="885.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">14.7kOhm</text>
+  <use id="VR" class="comp" xlink:href="#WB_REFERENCE_USFP" x="2505.0" y="985.0" transform="scale(1,-1) translate(0,-1970.0)" />
+  <text for="VR" x="2485.0" y="970.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">VR</text>
+  <use id="GND21" class="other" xlink:href="#WB_GND" x="2150.0" y="925.0" />
+  <use id="Cvcc" class="comp" xlink:href="#WB_CAPACITOR" x="1360.0" y="510.0" transform="rotate(-90, 1360.0, 510.0)" cap="100nF" partNo="C0805C104M5RACTU" thermalId="0805" esr="64mOhm" manufacturer="Kemet" />
+  <text for="Cvcc" x="1375.0" y="510.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cvcc</text>
+  <text for="Cvcc" x="1375.0" y="520.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">100nF</text>
+  <text for="Cvcc" x="1375.0" y="530.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">64mOhm</text>
+  <use id="Rsnub1" class="comp" xlink:href="#WB_RESISTOR" x="1755.0" y="285.0" transform="rotate(-270, 1755.0, 285.0)" partNo="CRCW251249K9FKEG" thermalId="2512" resistance="49.9kOhm" manufacturer="Vishay-Dale" />
+  <text for="Rsnub1" x="1770.0" y="285.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rsnub1</text>
+  <text for="Rsnub1" x="1770.0" y="295.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">49.9kOhm</text>
+  <use id="GND18" class="other" xlink:href="#WB_GND" x="2175.0" y="525.0" />
+  <use id="U1" class="comp" xlink:href="#WB_LM5023DGK" x="1625.0" y="770.0" />
+  <text for="U1" x="1605.0" y="770.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">U1</text>
+  <use id="D3" class="comp" xlink:href="#WB_DIODE_SCHOTTKY" x="1835.0" y="450.0" vfatio="1.1V" partNo="ST1300ATR" io="1A" thermalId="SMA" vrrm="" manufacturer="SMC Diode Solutions" />
+  <text for="D3" x="1815.0" y="435.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">D3</text>
+  <text for="D3" x="1815.0" y="470.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1.1V</text>
+  <text for="D3" x="1815.0" y="480.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1A</text>
+  <use id="Rvin" class="comp" xlink:href="#WB_RESISTOR" x="1150.0" y="255.0" transform="rotate(-90, 1150.0, 255.0)" partNo="PR03000201002JAC00" thermalId="PR03" resistance="10kOhm" manufacturer="Vishay-Bccomponents" />
+  <text for="Rvin" x="1165.0" y="255.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rvin</text>
+  <text for="Rvin" x="1165.0" y="265.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">10kOhm</text>
+  <use id="GND15" class="other" xlink:href="#WB_GND" x="1930.0" y="930.0" />
+  <use id="GND13" class="other" xlink:href="#WB_GND" x="1705.0" y="875.0" />
+  <use id="GND10" class="other" xlink:href="#WB_GND" x="1250.0" y="570.0" />
+  <use id="Rvcc" class="comp" xlink:href="#WB_RESISTOR" x="1570.0" y="450.0" transform="rotate(180, 1570.0, 450.0)" partNo="CRCW0402150RFKED" thermalId="0402" resistance="150Ohm" manufacturer="Vishay-Dale" />
+  <text for="Rvcc" x="1550.0" y="435.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rvcc</text>
+  <text for="Rvcc" x="1550.0" y="470.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">150Ohm</text>
+  <use id="GND22" class="other" xlink:href="#WB_GND" x="1360.0" y="565.0" />
+  <use id="GND28" class="other" xlink:href="#WB_GND_SIGNAL" x="2580.0" y="995.0" />
+  <use id="L1" class="other" xlink:href="#WB_INDUCTOR_COUPLED" x="575.0" y="215.0" />
+  <text for="L1" x="555.0" y="200.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">L1</text>
+  <use id="Rcs" class="comp" xlink:href="#WB_RESISTOR" x="2055.0" y="825.0" transform="rotate(-180, 2055.0, 825.0)" partNo="CRCW040232R4FKED" thermalId="0402" resistance="32.4Ohm" manufacturer="Vishay-Dale" />
+  <text for="Rcs" x="2035.0" y="810.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rcs</text>
+  <text for="Rcs" x="2035.0" y="845.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">32.4Ohm</text>
+  <use id="O1" class="comp" xlink:href="#WB_OPTO" x="2240.0" y="975.0" />
+  <text for="O1" x="2220.0" y="960.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">O1</text>
+  <use id="Rx1" class="other" xlink:href="#WB_RESISTOR" x="395.0" y="175.0" transform="rotate(-90, 395.0, 175.0)" />
+  <text for="Rx1" x="410.0" y="175.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Rx1</text>
+  <use id="Ccs" class="comp" xlink:href="#WB_CAPACITOR" x="1930.0" y="875.0" transform="rotate(-90, 1930.0, 875.0)" cap="100pF" partNo="CL21C101JBANNNC" thermalId="0805" esr="0Ohm" manufacturer="Samsung Electro-Mechanics" />
+  <text for="Ccs" x="1945.0" y="875.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Ccs</text>
+  <text for="Ccs" x="1945.0" y="885.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">100pF</text>
+  <text for="Ccs" x="1945.0" y="895.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">0Ohm</text>
+  <use id="Ccomp" class="comp" xlink:href="#WB_CAPACITOR" x="1795.0" y="1005.0" transform="rotate(-90, 1795.0, 1005.0)" cap="1nF" partNo="GRM1555C1H102JA01J" thermalId="0402" esr="0Ohm" manufacturer="MuRata" />
+  <text for="Ccomp" x="1810.0" y="1005.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Ccomp</text>
+  <text for="Ccomp" x="1810.0" y="1015.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1nF</text>
+  <text for="Ccomp" x="1810.0" y="1025.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">0Ohm</text>
+  <use id="GND24" class="other" xlink:href="#WB_GND" x="1660.0" y="565.0" />
+  <use id="GND14" class="other" xlink:href="#WB_GND" x="1795.0" y="1065.0" />
+  <use id="Ropto" class="comp" xlink:href="#WB_RESISTOR" x="2345.0" y="755.0" transform="rotate(-90, 2345.0, 755.0)" partNo="RC0201FR-0710KL" thermalId="0201" resistance="10kOhm" manufacturer="Yageo" />
+  <text for="Ropto" x="2360.0" y="755.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Ropto</text>
+  <text for="Ropto" x="2360.0" y="765.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">10kOhm</text>
+  <use id="T1" class="comp" xlink:href="#WB_2P1_TRANSFORMER" x="2240.0" y="395.0" />
+  <text for="T1" x="2220.0" y="380.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">T1</text>
+  <use id="Rfbt" class="comp" xlink:href="#WB_RESISTOR" x="2580.0" y="705.0" transform="rotate(-90, 2580.0, 705.0)" partNo="RR1220P-563-D" thermalId="0805" resistance="56kOhm" manufacturer="Susumu Co Ltd" />
+  <text for="Rfbt" x="2595.0" y="705.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rfbt</text>
+  <text for="Rfbt" x="2595.0" y="715.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">56kOhm</text>
+  <use id="Cy2" class="other" xlink:href="#WB_CAPACITOR" x="2240.0" y="515.0" />
+  <text for="Cy2" x="2220.0" y="500.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Cy2</text>
+  <use id="Rqrb" class="comp" xlink:href="#WB_RESISTOR" x="2070.0" y="640.0" transform="rotate(-90, 2070.0, 640.0)" partNo="CRCW04026K19FKED" thermalId="0402" resistance="6.19kOhm" manufacturer="Vishay-Dale" />
+  <text for="Rqrb" x="2085.0" y="640.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rqrb</text>
+  <text for="Rqrb" x="2085.0" y="650.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">6.19kOhm</text>
+  <use id="GND7" class="other" xlink:href="#WB_GND" x="1990.0" y="695.0" />
+  <use id="Rqrt" class="comp" xlink:href="#WB_RESISTOR" x="1990.0" y="525.0" transform="rotate(-90, 1990.0, 525.0)" partNo="RC0201FR-0718K7L" thermalId="0201" resistance="18.7kOhm" manufacturer="Yageo" />
+  <text for="Rqrt" x="2005.0" y="525.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rqrt</text>
+  <text for="Rqrt" x="2005.0" y="535.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">18.7kOhm</text>
+  <use id="Css" class="comp" xlink:href="#WB_CAPACITOR" x="1510.0" y="875.0" transform="rotate(-90, 1510.0, 875.0)" cap="150nF" partNo="ECPU1C154MA5" thermalId="1206" esr="0Ohm" manufacturer="Panasonic" />
+  <text for="Css" x="1525.0" y="875.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Css</text>
+  <text for="Css" x="1525.0" y="885.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">150nF</text>
+  <text for="Css" x="1525.0" y="895.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">0Ohm</text>
+  <use id="GND19" class="other" xlink:href="#WB_GND" x="835.0" y="260.0" />
+  <use id="Cout" class="comp" xlink:href="#WB_CAP_POLARIZED" x="2660.0" y="470.0" transform="rotate(-90, 2660.0, 470.0)" cap="82uF" partNo="35SVPF82M" thermalId="CAPSMT_62_E12" esr="20mOhm" manufacturer="Panasonic" />
+  <text for="Cout" x="2675.0" y="470.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Cout</text>
+  <text for="Cout" x="2675.0" y="480.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">82uF</text>
+  <text for="Cout" x="2675.0" y="490.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">20mOhm</text>
+  <text for="Cout" x="2675.0" y="500.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">Qty=2</text>
+  <use id="Dsnub" class="comp" xlink:href="#WB_DIODE" x="2050.0" y="380.0" vfatio="1.2V" partNo="UFS180JE3/TR13" io="1A" thermalId="DO-214BA" vrrm="" manufacturer="Microsemi" />
+  <text for="Dsnub" x="2030.0" y="365.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Dsnub</text>
+  <text for="Dsnub" x="2030.0" y="400.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1.2V</text>
+  <text for="Dsnub" x="2030.0" y="410.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1A</text>
+  <use id="Csnub" class="comp" xlink:href="#WB_CAPACITOR" x="1900.0" y="290.0" transform="rotate(-270, 1900.0, 290.0)" cap="22nF" partNo="GRM32QR72J223KW01L" thermalId="1210" esr="1mOhm" manufacturer="MuRata" />
+  <text for="Csnub" x="1915.0" y="290.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Csnub</text>
+  <text for="Csnub" x="1915.0" y="300.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">22nF</text>
+  <text for="Csnub" x="1915.0" y="310.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1mOhm</text>
+  <use id="GND25" class="other" xlink:href="#WB_GND_SIGNAL" x="2690.0" y="605.0" />
+  <use id="Dsec" class="comp" xlink:href="#WB_DIODE" x="2400.0" y="375.0" transform="rotate(180, 2400.0, 375.0)" vfatio="950mV" partNo="SBRD10200TR" io="10A" thermalId="DPAK" vrrm="" manufacturer="SMC Diode Solutions" />
+  <text for="Dsec" x="2380.0" y="360.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Dsec</text>
+  <text for="Dsec" x="2380.0" y="395.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">950mV</text>
+  <text for="Dsec" x="2380.0" y="405.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">10A</text>
+  <use id="M1" class="comp" xlink:href="#WB_N_MOSFET" x="2185.0" y="750.0" partNo="STD3NK80Z-1" thermalId="IPAK" vdsmax="800V" idsmax="2.5Amps" manufacturer="STMicroelectronics" />
+  <text for="M1" x="2165.0" y="735.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">M1</text>
+  <text for="M1" x="2165.0" y="770.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">800V</text>
+  <text for="M1" x="2165.0" y="780.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">2.5Amps</text>
+  <use id="Rvsd" class="comp" xlink:href="#WB_RESISTOR" x="1190.0" y="795.0" transform="rotate(-90, 1190.0, 795.0)" partNo="CRCW08051M00FKEA" thermalId="0805" resistance="1MOhm" manufacturer="Vishay-Dale" />
+  <text for="Rvsd" x="1205.0" y="795.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#115566;fill:#115566;">Rvsd</text>
+  <text for="Rvsd" x="1205.0" y="805.0" style="font-family:arial;font-size:10px;stroke-width:0.1;stroke:#CC0000;fill:#CC0000;">1MOhm</text>
+  <use id="Vin" class="other" xlink:href="#WB_PRIM_SIN_VOLTAGE_SOURCE" x="100.0" y="200.0" transform="rotate(-270, 100.0, 200.0)" />
+  <text for="Vin" x="115.0" y="200.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Vin</text>
+  <use id="Rload" class="other" xlink:href="#WB_LOAD_RESISTOR" x="2795.0" y="525.0" transform="rotate(-90, 2795.0, 525.0)" />
+  <text for="Rload" x="2810.0" y="525.0" style="font-family:arial;font-size:13px;stroke-width:0.5;stroke:#CC0000;fill:#CC0000;">Rload</text>
+  <line x1="240.0" y1="245.0" x2="240.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="240.0" y1="185.0" x2="240.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="395.0" y1="300.0" x2="395.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="395.0" y1="205.0" x2="395.0" y2="240.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="395.0" y1="145.0" x2="395.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="515.0" y1="235.0" x2="515.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="515.0" y1="195.0" x2="515.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="545.0" y1="235.0" x2="515.0" y2="235.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="545.0" y1="195.0" x2="515.0" y2="195.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="605.0" y1="235.0" x2="630.0" y2="235.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="605.0" y1="195.0" x2="635.0" y2="195.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="630.0" y1="330.0" x2="885.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="630.0" y1="235.0" x2="630.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="635.0" y1="195.0" x2="635.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="690.0" y1="245.0" x2="690.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="690.0" y1="185.0" x2="690.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="835.0" y1="200.0" x2="835.0" y2="250.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="885.0" y1="330.0" x2="885.0" y2="250.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="885.0" y1="150.0" x2="885.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="885.0" y1="110.0" x2="635.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="935.0" y1="200.0" x2="2210.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1020.0" y1="295.0" x2="1020.0" y2="325.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1020.0" y1="235.0" x2="1020.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1050.0" y1="905.0" x2="1050.0" y2="365.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1050.0" y1="905.0" x2="1435.0" y2="905.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1050.0" y1="365.0" x2="1120.0" y2="365.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1150.0" y1="720.0" x2="1150.0" y2="395.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1150.0" y1="720.0" x2="1545.0" y2="720.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1150.0" y1="335.0" x2="1150.0" y2="285.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1150.0" y1="225.0" x2="1150.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1190.0" y1="905.0" x2="1190.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1190.0" y1="765.0" x2="1190.0" y2="720.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1250.0" y1="545.0" x2="1250.0" y2="560.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1250.0" y1="485.0" x2="1250.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1360.0" y1="540.0" x2="1360.0" y2="555.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1360.0" y1="480.0" x2="1360.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1435.0" y1="905.0" x2="1435.0" y2="760.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1490.0" y1="555.0" x2="1490.0" y2="540.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1490.0" y1="480.0" x2="1490.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1510.0" y1="905.0" x2="1510.0" y2="925.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1510.0" y1="845.0" x2="1510.0" y2="790.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1540.0" y1="450.0" x2="1150.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1545.0" y1="790.0" x2="1510.0" y2="790.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1545.0" y1="760.0" x2="1435.0" y2="760.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1590.0" y1="380.0" x2="2020.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1590.0" y1="320.0" x2="1590.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1590.0" y1="260.0" x2="1590.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1660.0" y1="540.0" x2="1660.0" y2="555.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1660.0" y1="480.0" x2="1660.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1705.0" y1="820.0" x2="1705.0" y2="865.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1705.0" y1="790.0" x2="1795.0" y2="790.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1705.0" y1="770.0" x2="1860.0" y2="770.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1705.0" y1="750.0" x2="1950.0" y2="750.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1755.0" y1="315.0" x2="1755.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1755.0" y1="255.0" x2="1755.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1795.0" y1="1055.0" x2="1795.0" y2="1035.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1795.0" y1="965.0" x2="2190.0" y2="965.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1795.0" y1="790.0" x2="1795.0" y2="975.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1805.0" y1="450.0" x2="1600.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1820.0" y1="720.0" x2="1705.0" y2="720.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1820.0" y1="720.0" x2="1820.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1820.0" y1="595.0" x2="2070.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1860.0" y1="825.0" x2="1860.0" y2="770.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1900.0" y1="320.0" x2="1900.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1900.0" y1="260.0" x2="1900.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1910.0" y1="685.0" x2="1910.0" y2="670.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1910.0" y1="685.0" x2="2070.0" y2="685.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1910.0" y1="610.0" x2="1910.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1930.0" y1="905.0" x2="1930.0" y2="920.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1930.0" y1="845.0" x2="1930.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1990.0" y1="555.0" x2="1990.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="1990.0" y1="450.0" x2="1990.0" y2="495.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2025.0" y1="825.0" x2="1860.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2070.0" y1="670.0" x2="2070.0" y2="685.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2070.0" y1="610.0" x2="2070.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2080.0" y1="380.0" x2="2210.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2150.0" y1="905.0" x2="2150.0" y2="915.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2150.0" y1="845.0" x2="2150.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2150.0" y1="720.0" x2="2150.0" y2="380.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2150.0" y1="720.0" x2="2200.0" y2="720.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2170.0" y1="750.0" x2="2010.0" y2="750.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2190.0" y1="985.0" x2="2150.0" y2="985.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2200.0" y1="825.0" x2="2085.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2200.0" y1="780.0" x2="2200.0" y2="825.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2210.0" y1="515.0" x2="2175.0" y2="515.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2210.0" y1="450.0" x2="1865.0" y2="450.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2210.0" y1="410.0" x2="2175.0" y2="410.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2210.0" y1="340.0" x2="2210.0" y2="200.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2270.0" y1="515.0" x2="2300.0" y2="515.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2270.0" y1="375.0" x2="2370.0" y2="375.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2290.0" y1="985.0" x2="2485.0" y2="985.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2330.0" y1="290.0" x2="2330.0" y2="375.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2345.0" y1="965.0" x2="2290.0" y2="965.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2345.0" y1="785.0" x2="2345.0" y2="965.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2345.0" y1="615.0" x2="2345.0" y2="725.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2345.0" y1="615.0" x2="2580.0" y2="615.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2350.0" y1="415.0" x2="2270.0" y2="415.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2370.0" y1="290.0" x2="2330.0" y2="290.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2405.0" y1="985.0" x2="2405.0" y2="915.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2405.0" y1="790.0" x2="2405.0" y2="855.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2405.0" y1="790.0" x2="2580.0" y2="790.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2470.0" y1="375.0" x2="2470.0" y2="290.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2470.0" y1="290.0" x2="2430.0" y2="290.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2485.0" y1="965.0" x2="2485.0" y2="790.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2535.0" y1="985.0" x2="2580.0" y2="985.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2580.0" y1="905.0" x2="2580.0" y2="985.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2580.0" y1="735.0" x2="2580.0" y2="845.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2580.0" y1="375.0" x2="2580.0" y2="675.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2660.0" y1="595.0" x2="2660.0" y2="500.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2660.0" y1="440.0" x2="2660.0" y2="375.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2430.0" y1="375.0" x2="2795.0" y2="375.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2660.0" y1="595.0" x2="2795.0" y2="595.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="100.0" y1="330.0" x2="515.0" y2="330.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="100.0" y1="330.0" x2="100.0" y2="230.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="100.0" y1="110.0" x2="100.0" y2="170.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="100.0" y1="110.0" x2="515.0" y2="110.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2795.0" y1="495.0" x2="2795.0" y2="375.0" stroke="#000000" stroke-width="2" fill="none" />
+  <line x1="2795.0" y1="595.0" x2="2795.0" y2="555.0" stroke="#000000" stroke-width="2" fill="none" />
+  <circle cx="690.0" cy="330.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="690.0" cy="110.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1020.0" cy="200.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1150.0" cy="200.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1590.0" cy="200.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1755.0" cy="200.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1900.0" cy="200.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1190.0" cy="905.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1150.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1190.0" cy="720.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1250.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1360.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1490.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1755.0" cy="380.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1900.0" cy="380.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1795.0" cy="965.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1660.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1910.0" cy="595.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1990.0" cy="595.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1930.0" cy="825.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2150.0" cy="380.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2150.0" cy="825.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1990.0" cy="450.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2330.0" cy="375.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2405.0" cy="985.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2485.0" cy="790.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2580.0" cy="790.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2580.0" cy="615.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2470.0" cy="375.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2580.0" cy="375.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="2660.0" cy="375.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="240.0" cy="330.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="395.0" cy="330.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="240.0" cy="110.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="395.0" cy="110.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+  <circle cx="1990.0" cy="685.0" r="5" stroke="#000000" stroke-width="0" fill="#000000" />
+</svg>
+
