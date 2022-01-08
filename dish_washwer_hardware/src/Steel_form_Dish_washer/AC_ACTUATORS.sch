@@ -45,7 +45,7 @@ AR Path="/638C1171" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C1171" Ref="R27"  Part="1" 
 F 0 "R27" V 7345 7855 50  0000 C CNN
 F 1 "200R" V 7545 7855 50  0000 C CNN
-F 2 "" V 7485 7845 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7485 7845 50  0001 C CNN
 F 3 "~" H 7445 7855 50  0001 C CNN
 	1    7445 7855
 	0    1    1    0   
@@ -82,7 +82,7 @@ AR Path="/638C1183" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C1183" Ref="R29"  Part="1" 
 F 0 "R29" H 8950 7710 50  0000 C CNN
 F 1 "10K" H 8950 7610 50  0000 C CNN
-F 2 "" V 8840 7650 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8840 7650 50  0001 C CNN
 F 3 "~" H 8800 7660 50  0001 C CNN
 	1    8800 7660
 	1    0    0    -1  
@@ -139,13 +139,13 @@ AR Path="/638C11A0" Ref="J?"  Part="1"
 AR Path="/6384DF38/638C11A0" Ref="J13"  Part="1" 
 F 0 "J13" H 10413 8986 50  0000 C CNN
 F 1 "TANK HEATER" H 10405 8905 50  0000 C CNN
-F 2 "" H 10305 8805 50  0001 C CNN
+F 2 "greencharge-footprints:6PCV02006" H 10305 8805 50  0001 C CNN
 F 3 "~" H 10305 8805 50  0001 C CNN
 	1    10305 8805
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	9705 8605 9705 8805
+	9705 8605 9705 8770
 Wire Wire Line
 	10105 8805 9705 8805
 Wire Wire Line
@@ -195,7 +195,7 @@ AR Path="/63950BBE" Ref="Q?"  Part="1"
 AR Path="/6384DF38/63950BBE" Ref="Q3"  Part="1" 
 F 0 "Q3" H 2270 7546 50  0000 L CNN
 F 1 "WST2N7002K" H 2270 7455 50  0000 L CNN
-F 2 "" H 2265 7600 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2265 7600 50  0001 C CNN
 F 3 "~" H 2065 7500 50  0001 C CNN
 	1    2065 7500
 	1    0    0    -1  
@@ -208,7 +208,7 @@ AR Path="/63950BC4" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950BC4" Ref="R21"  Part="1" 
 F 0 "R21" H 1793 7761 50  0000 L CNN
 F 1 "10K" H 1793 7670 50  0000 L CNN
-F 2 "" V 1765 7705 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1765 7705 50  0001 C CNN
 F 3 "~" H 1725 7715 50  0001 C CNN
 	1    1725 7715
 	1    0    0    -1  
@@ -268,19 +268,15 @@ AR Path="/63950BE1" Ref="J?"  Part="1"
 AR Path="/6384DF38/63950BE1" Ref="J9"  Part="1" 
 F 0 "J9" H 3900 7195 50  0000 R CNN
 F 1 "SOLENOID CONNECTOR" H 4210 7290 50  0000 R CNN
-F 2 "" H 3830 7510 50  0001 C CNN
+F 2 "greencharge-footprints:SHDR2W100P0X508_1X2_1070X900X1380P" H 3830 7510 50  0001 C CNN
 F 3 "~" H 3830 7510 50  0001 C CNN
 	1    3830 7510
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	3415 7410 3630 7410
-Wire Wire Line
 	3415 7200 3415 7410
 Text Label 3455 7510 2    39   ~ 0
 NEUTRAL
-Wire Wire Line
-	3630 7510 3455 7510
 Wire Wire Line
 	1070 7500 1395 7500
 Text Label 1070 7500 0    39   ~ 0
@@ -295,7 +291,7 @@ AR Path="/63950BEE" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950BEE" Ref="R18"  Part="1" 
 F 0 "R18" V 1620 7445 50  0000 L CNN
 F 1 "1K" V 1450 7420 50  0000 L CNN
-F 2 "" V 1585 7490 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1585 7490 50  0001 C CNN
 F 3 "~" H 1545 7500 50  0001 C CNN
 	1    1545 7500
 	0    -1   -1   0   
@@ -322,7 +318,7 @@ AR Path="/63950BFF" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950BFF" Ref="R19"  Part="1" 
 F 0 "R19" V 1705 2390 50  0000 L CNN
 F 1 "1K" V 1535 2365 50  0000 L CNN
-F 2 "" V 1670 2435 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1670 2435 50  0001 C CNN
 F 3 "~" H 1630 2445 50  0001 C CNN
 	1    1630 2445
 	0    -1   -1   0   
@@ -368,7 +364,7 @@ AR Path="/63950C15" Ref="Q?"  Part="1"
 AR Path="/6384DF38/63950C15" Ref="Q4"  Part="1" 
 F 0 "Q4" H 2365 2491 50  0000 L CNN
 F 1 "WST2N7002K" H 2365 2400 50  0000 L CNN
-F 2 "" H 2360 2545 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2360 2545 50  0001 C CNN
 F 3 "~" H 2160 2445 50  0001 C CNN
 	1    2160 2445
 	1    0    0    -1  
@@ -381,7 +377,7 @@ AR Path="/63950C1B" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950C1B" Ref="R22"  Part="1" 
 F 0 "R22" H 1888 2706 50  0000 L CNN
 F 1 "10K" H 1888 2615 50  0000 L CNN
-F 2 "" V 1860 2650 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1860 2650 50  0001 C CNN
 F 3 "~" H 1820 2660 50  0001 C CNN
 	1    1820 2660
 	1    0    0    -1  
@@ -433,27 +429,8 @@ Text Label 3530 1550 0    39   ~ 0
 L1
 Wire Wire Line
 	3440 2145 3510 2145
-$Comp
-L Connector:Conn_01x02_Male J?
-U 1 1 63950C38
-P 3925 2455
-AR Path="/63950C38" Ref="J?"  Part="1" 
-AR Path="/6384DF38/63950C38" Ref="J10"  Part="1" 
-F 0 "J10" H 4060 2165 50  0000 R CNN
-F 1 "DRAIN PUMP CONNECTOR" H 4335 2250 50  0000 R CNN
-F 2 "" H 3925 2455 50  0001 C CNN
-F 3 "~" H 3925 2455 50  0001 C CNN
-	1    3925 2455
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
-	3510 2355 3725 2355
-Wire Wire Line
-	3510 2145 3510 2355
-Text Label 3550 2455 2    39   ~ 0
-NEUTRAL
-Wire Wire Line
-	3725 2455 3550 2455
+	3510 2145 3510 2675
 $Comp
 L 9-1440003-0:9-1440003-0 K?
 U 1 1 63950C44
@@ -493,7 +470,7 @@ AR Path="/63950C52" Ref="Q?"  Part="1"
 AR Path="/6384DF38/63950C52" Ref="Q5"  Part="1" 
 F 0 "Q5" H 2385 5101 50  0000 L CNN
 F 1 "WST2N7002K" H 2385 5010 50  0000 L CNN
-F 2 "" H 2380 5155 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2380 5155 50  0001 C CNN
 F 3 "~" H 2180 5055 50  0001 C CNN
 	1    2180 5055
 	1    0    0    -1  
@@ -506,7 +483,7 @@ AR Path="/63950C58" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950C58" Ref="R23"  Part="1" 
 F 0 "R23" H 1908 5316 50  0000 L CNN
 F 1 "10K" H 1908 5225 50  0000 L CNN
-F 2 "" V 1880 5260 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1880 5260 50  0001 C CNN
 F 3 "~" H 1840 5270 50  0001 C CNN
 	1    1840 5270
 	1    0    0    -1  
@@ -566,7 +543,7 @@ AR Path="/63950C75" Ref="J?"  Part="1"
 AR Path="/6384DF38/63950C75" Ref="J11"  Part="1" 
 F 0 "J11" H 4015 4750 50  0000 R CNN
 F 1 "WASH PUMP CONNECTOR" H 4345 4845 50  0000 R CNN
-F 2 "" H 3945 5065 50  0001 C CNN
+F 2 "greencharge-footprints:SHDR2W100P0X508_1X2_1070X900X1380P" H 3945 5065 50  0001 C CNN
 F 3 "~" H 3945 5065 50  0001 C CNN
 	1    3945 5065
 	-1   0    0    1   
@@ -577,8 +554,6 @@ Wire Wire Line
 	3530 4755 3530 4965
 Text Label 3570 5065 2    39   ~ 0
 NEUTRAL
-Wire Wire Line
-	3745 5065 3570 5065
 Wire Wire Line
 	1175 5055 1485 5055
 Text Label 1195 5055 0    39   ~ 0
@@ -593,7 +568,7 @@ AR Path="/63950C82" Ref="R?"  Part="1"
 AR Path="/6384DF38/63950C82" Ref="R20"  Part="1" 
 F 0 "R20" V 1710 5000 50  0000 L CNN
 F 1 "1K" V 1540 4975 50  0000 L CNN
-F 2 "" V 1675 5045 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1675 5045 50  0001 C CNN
 F 3 "~" H 1635 5055 50  0001 C CNN
 	1    1635 5055
 	0    -1   -1   0   
@@ -624,7 +599,7 @@ AR Path="/638C12EC" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C12EC" Ref="R34"  Part="1" 
 F 0 "R34" H 14145 4465 50  0000 C CNN
 F 1 "10K" H 14145 4365 50  0000 C CNN
-F 2 "" V 14035 4405 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 14035 4405 50  0001 C CNN
 F 3 "~" H 13995 4415 50  0001 C CNN
 	1    13995 4415
 	1    0    0    -1  
@@ -647,16 +622,14 @@ Wire Wire Line
 	13530 2280 14775 2280
 Text Label 11675 2080 0    39   ~ 0
 peristaltic_pump_1
-Wire Wire Line
-	15155 2680 14925 2680
 Text Label 14925 2680 2    39   ~ 0
 NEUTRAL
 Wire Wire Line
-	14925 2330 14925 2580
+	14925 2330 14925 2360
 Wire Wire Line
 	15155 2580 14925 2580
 Wire Wire Line
-	14895 5115 14895 5855
+	14895 5115 14895 5555
 $Comp
 L Connector:Conn_01x02_Male J?
 U 1 1 638C12CA
@@ -665,7 +638,7 @@ AR Path="/638C12CA" Ref="J?"  Part="1"
 AR Path="/6384DF38/638C12CA" Ref="J15"  Part="1" 
 F 0 "J15" H 15463 2761 50  0000 C CNN
 F 1 "peristaltic_pump_1" H 15285 2700 50  0000 C CNN
-F 2 "" H 15355 2580 50  0001 C CNN
+F 2 "greencharge-footprints:SHDR2W100P0X508_1X2_1070X900X1380P" H 15355 2580 50  0001 C CNN
 F 3 "~" H 15355 2580 50  0001 C CNN
 	1    15355 2580
 	-1   0    0    -1  
@@ -700,7 +673,7 @@ AR Path="/638C12B5" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C12B5" Ref="R33"  Part="1" 
 F 0 "R33" V 12430 2080 50  0000 C CNN
 F 1 "200R" V 12630 2080 50  0000 C CNN
-F 2 "" V 12570 2070 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 12570 2070 50  0001 C CNN
 F 3 "~" H 12530 2080 50  0001 C CNN
 	1    12530 2080
 	0    1    1    0   
@@ -733,7 +706,7 @@ AR Path="/638C12A5" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C12A5" Ref="R35"  Part="1" 
 F 0 "R35" H 14180 1980 50  0000 C CNN
 F 1 "10K" H 14180 1880 50  0000 C CNN
-F 2 "" V 14070 1920 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 14070 1920 50  0001 C CNN
 F 3 "~" H 14030 1930 50  0001 C CNN
 	1    14030 1930
 	1    0    0    -1  
@@ -796,7 +769,7 @@ AR Path="/638C1282" Ref="R?"  Part="1"
 AR Path="/6384DF38/638C1282" Ref="R32"  Part="1" 
 F 0 "R32" V 12395 4565 50  0000 C CNN
 F 1 "200R" V 12595 4565 50  0000 C CNN
-F 2 "" V 12535 4555 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 12535 4555 50  0001 C CNN
 F 3 "~" H 12495 4565 50  0001 C CNN
 	1    12495 4565
 	0    1    1    0   
@@ -847,348 +820,97 @@ Wire Wire Line
 	11765 4565 12345 4565
 Text Label 11765 4565 0    39   ~ 0
 peristaltic_pump_2
-Wire Notes Line
-	4855 1500 4855 6350
-Wire Notes Line
-	4855 6350 10590 6350
-Text Label 9340 1800 0    39   ~ 0
+Text Label 9340 1360 0    39   ~ 0
 L1
-Text Notes 9720 2595 0    39   ~ 0
+Text Notes 9720 2155 0    39   ~ 0
 triac
 Wire Wire Line
-	8290 2350 8790 2350
+	8290 1910 8790 1910
 Wire Wire Line
-	8790 2350 8790 2650
+	8790 1910 8790 2210
 Wire Wire Line
-	8790 2650 9540 2650
+	8790 2210 9540 2210
 $Comp
 L Device:Q_TRIAC_A1A2G D?
 U 1 1 638C11B3
-P 9690 2550
+P 9690 2110
 AR Path="/638C11B3" Ref="D?"  Part="1" 
 AR Path="/6384DF38/638C11B3" Ref="D1"  Part="1" 
-F 0 "D1" H 9818 2596 50  0000 L CNN
-F 1 "Q_TRIAC_A1A2G" H 9818 2505 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9765 2575 50  0001 C CNN
-F 3 "~" V 9690 2550 50  0001 C CNN
-F 4 "BTA30-600CW3G" H 9690 2550 50  0001 C CNN "MPN"
-	1    9690 2550
+F 0 "D1" H 9818 2156 50  0000 L CNN
+F 1 "Q_TRIAC_A1A2G" H 9818 2065 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9765 2135 50  0001 C CNN
+F 3 "~" V 9690 2110 50  0001 C CNN
+F 4 "BTA30-600CW3G" H 9690 2110 50  0001 C CNN "MPN"
+	1    9690 2110
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8790 2150 8290 2150
+	8790 1710 8290 1710
 Wire Wire Line
-	8790 1800 8790 1850
+	8790 1360 8790 1410
 $Comp
 L Device:R_US R?
 U 1 1 638C11BB
-P 8790 2000
+P 8790 1560
 AR Path="/638C11BB" Ref="R?"  Part="1" 
 AR Path="/6384DF38/638C11BB" Ref="R28"  Part="1" 
-F 0 "R28" H 8940 2050 50  0000 C CNN
-F 1 "10K" H 8940 1950 50  0000 C CNN
-F 2 "" V 8830 1990 50  0001 C CNN
-F 3 "~" H 8790 2000 50  0001 C CNN
-	1    8790 2000
+F 0 "R28" H 8940 1610 50  0000 C CNN
+F 1 "10K" H 8940 1510 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8830 1550 50  0001 C CNN
+F 3 "~" H 8790 1560 50  0001 C CNN
+	1    8790 1560
 	1    0    0    -1  
 $EndComp
-NoConn ~ 8290 2250
+NoConn ~ 8290 1810
 Wire Wire Line
-	7540 2350 7540 2400
+	7540 1910 7540 1960
 Wire Wire Line
-	7690 2350 7540 2350
+	7690 1910 7540 1910
 $Comp
 L power:GND #PWR?
 U 1 1 638C11C4
-P 7540 2400
+P 7540 1960
 AR Path="/638C11C4" Ref="#PWR?"  Part="1" 
 AR Path="/6384DF38/638C11C4" Ref="#PWR0168"  Part="1" 
-F 0 "#PWR0168" H 7540 2150 50  0001 C CNN
-F 1 "GND" H 7545 2227 50  0000 C CNN
-F 2 "" H 7540 2400 50  0001 C CNN
-F 3 "" H 7540 2400 50  0001 C CNN
-	1    7540 2400
+F 0 "#PWR0168" H 7540 1710 50  0001 C CNN
+F 1 "GND" H 7545 1787 50  0000 C CNN
+F 2 "" H 7540 1960 50  0001 C CNN
+F 3 "" H 7540 1960 50  0001 C CNN
+	1    7540 1960
 	1    0    0    -1  
 $EndComp
 $Comp
 L dk_Optoisolators-Triac-SCR-Output:MOC3021 U?
 U 1 1 638C11DA
-P 7990 2250
+P 7990 1810
 AR Path="/638C11DA" Ref="U?"  Part="1" 
 AR Path="/6384DF38/638C11DA" Ref="U7"  Part="1" 
-F 0 "U7" H 7990 2612 60  0000 C CNN
-F 1 "MOC3021" H 7990 2506 60  0000 C CNN
-F 2 "digikey-footprints:DIP-6_W7.62mm" H 8190 2450 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8190 2550 60  0001 L CNN
-F 4 "160-1374-5-ND" H 8190 2650 60  0001 L CNN "Digi-Key_PN"
-F 5 "MOC3021" H 8190 2750 60  0001 L CNN "MPN"
-F 6 "Isolators" H 8190 2850 60  0001 L CNN "Category"
-F 7 "Optoisolators - Triac, SCR Output" H 8190 2950 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8190 3050 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8190 3150 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8190 3250 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 8190 3350 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 8190 3450 60  0001 L CNN "Status"
-	1    7990 2250
+F 0 "U7" H 7990 2172 60  0000 C CNN
+F 1 "MOC3021" H 7990 2066 60  0000 C CNN
+F 2 "digikey-footprints:DIP-6_W7.62mm" H 8190 2010 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8190 2110 60  0001 L CNN
+F 4 "160-1374-5-ND" H 8190 2210 60  0001 L CNN "Digi-Key_PN"
+F 5 "MOC3021" H 8190 2310 60  0001 L CNN "MPN"
+F 6 "Isolators" H 8190 2410 60  0001 L CNN "Category"
+F 7 "Optoisolators - Triac, SCR Output" H 8190 2510 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8190 2610 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8190 2710 60  0001 L CNN "DK_Detail_Page"
+F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8190 2810 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8190 2910 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8190 3010 60  0001 L CNN "Status"
+	1    7990 1810
 	1    0    0    -1  
 $EndComp
-Text Label 9390 3100 0    39   ~ 0
-L2
-Text Notes 9770 3895 0    39   ~ 0
-triac
-Wire Wire Line
-	6290 3450 7190 3450
-Text Label 6290 3450 0    39   ~ 0
-L2_3phase_heater_pwm
-Wire Wire Line
-	8340 3650 8840 3650
-Wire Wire Line
-	8840 3650 8840 3950
-Wire Wire Line
-	8840 3950 9590 3950
-$Comp
-L Device:Q_TRIAC_A1A2G D?
-U 1 1 638C11EA
-P 9740 3850
-AR Path="/638C11EA" Ref="D?"  Part="1" 
-AR Path="/6384DF38/638C11EA" Ref="D3"  Part="1" 
-F 0 "D3" H 9868 3896 50  0000 L CNN
-F 1 "Q_TRIAC_A1A2G" H 9868 3805 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9815 3875 50  0001 C CNN
-F 3 "~" V 9740 3850 50  0001 C CNN
-F 4 "BTA30-600CW3G" H 9740 3850 50  0001 C CNN "MPN"
-	1    9740 3850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8840 3450 8340 3450
-Wire Wire Line
-	8840 3100 8840 3150
-$Comp
-L Device:R_US R?
-U 1 1 638C11F2
-P 8840 3300
-AR Path="/638C11F2" Ref="R?"  Part="1" 
-AR Path="/6384DF38/638C11F2" Ref="R30"  Part="1" 
-F 0 "R30" H 8990 3350 50  0000 C CNN
-F 1 "10K" H 8990 3250 50  0000 C CNN
-F 2 "" V 8880 3290 50  0001 C CNN
-F 3 "~" H 8840 3300 50  0001 C CNN
-	1    8840 3300
-	1    0    0    -1  
-$EndComp
-NoConn ~ 8340 3550
-Wire Wire Line
-	7590 3650 7590 3700
-Wire Wire Line
-	7740 3650 7590 3650
-$Comp
-L power:GND #PWR?
-U 1 1 638C11FB
-P 7590 3700
-AR Path="/638C11FB" Ref="#PWR?"  Part="1" 
-AR Path="/6384DF38/638C11FB" Ref="#PWR0169"  Part="1" 
-F 0 "#PWR0169" H 7590 3450 50  0001 C CNN
-F 1 "GND" H 7595 3527 50  0000 C CNN
-F 2 "" H 7590 3700 50  0001 C CNN
-F 3 "" H 7590 3700 50  0001 C CNN
-	1    7590 3700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7740 3450 7490 3450
-$Comp
-L Device:R_US R?
-U 1 1 638C1202
-P 7340 3450
-AR Path="/638C1202" Ref="R?"  Part="1" 
-AR Path="/6384DF38/638C1202" Ref="R25"  Part="1" 
-F 0 "R25" V 7240 3450 50  0000 C CNN
-F 1 "200R" V 7440 3450 50  0000 C CNN
-F 2 "" V 7380 3440 50  0001 C CNN
-F 3 "~" H 7340 3450 50  0001 C CNN
-	1    7340 3450
-	0    1    1    0   
-$EndComp
-$Comp
-L dk_Optoisolators-Triac-SCR-Output:MOC3021 U?
-U 1 1 638C1211
-P 8040 3550
-AR Path="/638C1211" Ref="U?"  Part="1" 
-AR Path="/6384DF38/638C1211" Ref="U9"  Part="1" 
-F 0 "U9" H 8040 3912 60  0000 C CNN
-F 1 "MOC3021" H 8040 3806 60  0000 C CNN
-F 2 "digikey-footprints:DIP-6_W7.62mm" H 8240 3750 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8240 3850 60  0001 L CNN
-F 4 "160-1374-5-ND" H 8240 3950 60  0001 L CNN "Digi-Key_PN"
-F 5 "MOC3021" H 8240 4050 60  0001 L CNN "MPN"
-F 6 "Isolators" H 8240 4150 60  0001 L CNN "Category"
-F 7 "Optoisolators - Triac, SCR Output" H 8240 4250 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8240 4350 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8240 4450 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8240 4550 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 8240 4650 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 8240 4750 60  0001 L CNN "Status"
-	1    8040 3550
-	1    0    0    -1  
-$EndComp
-Text Label 9390 4350 0    39   ~ 0
-L3
-Wire Wire Line
-	8840 4350 9740 4350
-Text Notes 9770 4945 0    39   ~ 0
-triac
-Wire Wire Line
-	6290 4700 7190 4700
-Text Label 6290 4700 0    39   ~ 0
-L3_3phase_heater_pwm
-Wire Wire Line
-	8340 4900 8840 4900
-Wire Wire Line
-	9740 4350 9740 4950
-Wire Wire Line
-	8840 4900 8840 5200
-Wire Wire Line
-	8840 5200 9590 5200
-$Comp
-L Device:Q_TRIAC_A1A2G D?
-U 1 1 638C1221
-P 9740 5100
-AR Path="/638C1221" Ref="D?"  Part="1" 
-AR Path="/6384DF38/638C1221" Ref="D4"  Part="1" 
-F 0 "D4" H 9868 5146 50  0000 L CNN
-F 1 "Q_TRIAC_A1A2G" H 9868 5055 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9815 5125 50  0001 C CNN
-F 3 "~" V 9740 5100 50  0001 C CNN
-F 4 "BTA30-600CW3G" H 9740 5100 50  0001 C CNN "MPN"
-	1    9740 5100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8840 4700 8340 4700
-Wire Wire Line
-	8840 4350 8840 4400
-$Comp
-L Device:R_US R?
-U 1 1 638C1229
-P 8840 4550
-AR Path="/638C1229" Ref="R?"  Part="1" 
-AR Path="/6384DF38/638C1229" Ref="R31"  Part="1" 
-F 0 "R31" H 8990 4600 50  0000 C CNN
-F 1 "10K" H 8990 4500 50  0000 C CNN
-F 2 "" V 8880 4540 50  0001 C CNN
-F 3 "~" H 8840 4550 50  0001 C CNN
-	1    8840 4550
-	1    0    0    -1  
-$EndComp
-NoConn ~ 8340 4800
-Wire Wire Line
-	7590 4900 7590 4950
-Wire Wire Line
-	7740 4900 7590 4900
-$Comp
-L power:GND #PWR?
-U 1 1 638C1232
-P 7590 4950
-AR Path="/638C1232" Ref="#PWR?"  Part="1" 
-AR Path="/6384DF38/638C1232" Ref="#PWR0170"  Part="1" 
-F 0 "#PWR0170" H 7590 4700 50  0001 C CNN
-F 1 "GND" H 7595 4777 50  0000 C CNN
-F 2 "" H 7590 4950 50  0001 C CNN
-F 3 "" H 7590 4950 50  0001 C CNN
-	1    7590 4950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7740 4700 7490 4700
-$Comp
-L Device:R_US R?
-U 1 1 638C1239
-P 7340 4700
-AR Path="/638C1239" Ref="R?"  Part="1" 
-AR Path="/6384DF38/638C1239" Ref="R26"  Part="1" 
-F 0 "R26" V 7240 4700 50  0000 C CNN
-F 1 "200R" V 7440 4700 50  0000 C CNN
-F 2 "" V 7380 4690 50  0001 C CNN
-F 3 "~" H 7340 4700 50  0001 C CNN
-	1    7340 4700
-	0    1    1    0   
-$EndComp
-$Comp
-L dk_Optoisolators-Triac-SCR-Output:MOC3021 U?
-U 1 1 638C1248
-P 8040 4800
-AR Path="/638C1248" Ref="U?"  Part="1" 
-AR Path="/6384DF38/638C1248" Ref="U10"  Part="1" 
-F 0 "U10" H 8040 5162 60  0000 C CNN
-F 1 "MOC3021" H 8040 5056 60  0000 C CNN
-F 2 "digikey-footprints:DIP-6_W7.62mm" H 8240 5000 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8240 5100 60  0001 L CNN
-F 4 "160-1374-5-ND" H 8240 5200 60  0001 L CNN "Digi-Key_PN"
-F 5 "MOC3021" H 8240 5300 60  0001 L CNN "MPN"
-F 6 "Isolators" H 8240 5400 60  0001 L CNN "Category"
-F 7 "Optoisolators - Triac, SCR Output" H 8240 5500 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8240 5600 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8240 5700 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8240 5800 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 8240 5900 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 8240 6000 60  0001 L CNN "Status"
-	1    8040 4800
-	1    0    0    -1  
-$EndComp
-Text Notes 4855 1650 0    39   ~ 0
+Text Notes 4855 1210 0    39   ~ 0
 BOILER HEATER\nTRIAC HEATER CONTROL AND DRIVER
 Wire Notes Line
-	10590 6350 10590 1500
-Wire Notes Line
-	10590 1500 4855 1500
-$Comp
-L Connector:Conn_01x04_Male J?
-U 1 1 638C1253
-P 7990 6250
-AR Path="/638C1253" Ref="J?"  Part="1" 
-AR Path="/6384DF38/638C1253" Ref="J12"  Part="1" 
-F 0 "J12" V 8144 5962 50  0000 R CNN
-F 1 "BOILER HEATER CONNECTOR" V 8053 5962 50  0000 R CNN
-F 2 "" H 7990 6250 50  0001 C CNN
-F 3 "~" H 7990 6250 50  0001 C CNN
-	1    7990 6250
-	0    -1   -1   0   
-$EndComp
+	10590 1060 4855 1060
 Wire Wire Line
-	9690 2700 9690 2800
+	9690 2260 9690 2360
 Wire Wire Line
-	9690 2800 9940 2800
-Wire Wire Line
-	9740 4000 9740 4150
-Wire Wire Line
-	9740 4150 10040 4150
-Wire Wire Line
-	9740 5250 9740 5400
-Wire Wire Line
-	7890 6050 7890 5850
-Wire Wire Line
-	7990 6050 7990 5850
-Wire Wire Line
-	8090 6050 8090 5850
-Wire Wire Line
-	8190 6050 8190 5850
-Text Label 9940 2800 0    50   ~ 0
+	9690 2360 9940 2360
+Text Label 9940 2360 0    50   ~ 0
 ELEMENT_1
-Text Label 10040 4150 0    50   ~ 0
-ELEMENT_2
-Text Label 10090 5400 0    50   ~ 0
-ELEMENT_3
-Wire Wire Line
-	10090 5400 9740 5400
-Text Label 8090 5850 1    50   ~ 0
-ELEMENT_3
-Text Label 7990 5850 1    50   ~ 0
-ELEMENT_2
-Text Label 7890 5850 1    50   ~ 0
-ELEMENT_1
-Text Label 8190 5850 1    39   ~ 0
-NEUTRAL
 Wire Wire Line
 	15080 5855 14895 5855
 Wire Notes Line
@@ -1203,15 +925,13 @@ AR Path="/638C12D0" Ref="J?"  Part="1"
 AR Path="/6384DF38/638C12D0" Ref="J14"  Part="1" 
 F 0 "J14" H 15388 6036 50  0000 C CNN
 F 1 "peristaltic_pump_2" H 15210 5975 50  0000 C CNN
-F 2 "" H 15280 5855 50  0001 C CNN
+F 2 "greencharge-footprints:SHDR2W100P0X508_1X2_1070X900X1380P" H 15280 5855 50  0001 C CNN
 F 3 "~" H 15280 5855 50  0001 C CNN
 	1    15280 5855
 	-1   0    0    -1  
 $EndComp
 Text Label 14905 5955 2    39   ~ 0
 NEUTRAL
-Wire Wire Line
-	15080 5955 14905 5955
 Wire Notes Line
 	15775 4150 15775 6000
 Wire Notes Line
@@ -1233,30 +953,26 @@ WASH_PUMP
 Text HLabel 1070 7500 0    50   Input ~ 0
 SOLENOID
 Wire Wire Line
-	7690 2150 7440 2150
+	7690 1710 7440 1710
 $Comp
 L Device:R_US R?
 U 1 1 638C11CB
-P 7290 2150
+P 7290 1710
 AR Path="/638C11CB" Ref="R?"  Part="1" 
 AR Path="/6384DF38/638C11CB" Ref="R24"  Part="1" 
-F 0 "R24" V 7190 2150 50  0000 C CNN
-F 1 "200R" V 7390 2150 50  0000 C CNN
-F 2 "" V 7330 2140 50  0001 C CNN
-F 3 "~" H 7290 2150 50  0001 C CNN
-	1    7290 2150
+F 0 "R24" V 7190 1710 50  0000 C CNN
+F 1 "200R" V 7390 1710 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7330 1700 50  0001 C CNN
+F 3 "~" H 7290 1710 50  0001 C CNN
+	1    7290 1710
 	0    1    1    0   
 $EndComp
-Text Label 6315 2150 0    39   ~ 0
+Text Label 6315 1710 0    39   ~ 0
 L1_3phase_heater_pwm
 Wire Wire Line
-	6315 2150 7140 2150
-Text HLabel 6315 2150 0    50   Input ~ 0
+	6315 1710 7140 1710
+Text HLabel 6315 1710 0    50   Input ~ 0
 L1_3phase_heater_pwm
-Text HLabel 6290 3450 0    50   Input ~ 0
-L2_3phase_heater_pwm
-Text HLabel 6290 4700 0    50   Input ~ 0
-L3_3phase_heater_pwm
 Text HLabel 6340 7855 0    50   Input ~ 0
 single_phase_heater_pwm
 Wire Wire Line
@@ -1266,27 +982,543 @@ peristaltic_pump_1
 Text HLabel 11765 4565 0    50   Input ~ 0
 peristaltic_pump_2
 Wire Wire Line
-	9690 1800 9690 2400
+	9690 1360 9690 1960
 Wire Wire Line
-	8790 1800 9690 1800
-Text GLabel 9690 1800 1    50   Input ~ 0
+	8790 1360 9690 1360
+Text GLabel 9690 1360 1    50   Input ~ 0
 L1
 Wire Wire Line
-	9740 3100 9740 3700
-Wire Wire Line
-	8840 3100 9740 3100
-Text GLabel 9740 3100 1    50   Input ~ 0
-L2
-Text GLabel 9740 4350 1    50   Input ~ 0
-L3
+	8640 3265 9540 3265
 Text GLabel 9800 8950 3    50   Input ~ 0
 NEUTRAL
 Wire Wire Line
 	9800 8950 9800 8905
 Connection ~ 9800 8905
-Wire Wire Line
-	9800 8905 9705 8905
 NoConn ~ 3440 2045
 NoConn ~ 3460 4655
 NoConn ~ 3345 7100
+$Comp
+L Device:Varistor RV?
+U 1 1 64EFA233
+P 9200 8920
+AR Path="/64EFA233" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64EFA233" Ref="RV7"  Part="1" 
+F 0 "RV7" H 9280 8960 50  0000 L CNN
+F 1 "VDR-14D181K" V 9075 8695 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 9130 8920 50  0001 C CNN
+F 3 "~" H 9200 8920 50  0001 C CNN
+F 4 "VDR-14D181K" H 9200 8920 50  0001 C CNN "MPN"
+	1    9200 8920
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 8770 9705 8770
+Connection ~ 9705 8770
+Wire Wire Line
+	9705 8770 9705 8805
+Wire Wire Line
+	9200 9070 9200 9100
+Wire Wire Line
+	9200 9100 9575 9100
+Wire Wire Line
+	9575 9100 9575 8905
+Wire Wire Line
+	9575 8905 9800 8905
+$Comp
+L Device:Varistor RV?
+U 1 1 64F0E730
+P 3065 7710
+AR Path="/64F0E730" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F0E730" Ref="RV4"  Part="1" 
+F 0 "RV4" H 3145 7750 50  0000 L CNN
+F 1 "VDR-14D181K" V 2940 7485 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 2995 7710 50  0001 C CNN
+F 3 "~" H 3065 7710 50  0001 C CNN
+F 4 "VDR-14D181K" H 3065 7710 50  0001 C CNN "MPN"
+	1    3065 7710
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3065 7410 3415 7410
+Wire Wire Line
+	3065 7410 3065 7560
+Connection ~ 3415 7410
+Wire Wire Line
+	3415 7410 3630 7410
+Wire Wire Line
+	3065 7860 3065 7910
+Wire Wire Line
+	3065 7910 3435 7910
+Wire Wire Line
+	3435 7910 3435 7510
+Wire Wire Line
+	3435 7510 3630 7510
+$Comp
+L Device:Varistor RV?
+U 1 1 64F20500
+P 3165 5220
+AR Path="/64F20500" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F20500" Ref="RV6"  Part="1" 
+F 0 "RV6" H 3245 5260 50  0000 L CNN
+F 1 "VDR-14D181K" V 3040 4995 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 3095 5220 50  0001 C CNN
+F 3 "~" H 3165 5220 50  0001 C CNN
+F 4 "VDR-14D181K" H 3165 5220 50  0001 C CNN "MPN"
+	1    3165 5220
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3165 5070 3165 4965
+Wire Wire Line
+	3165 4965 3530 4965
+Connection ~ 3530 4965
+Wire Wire Line
+	3165 5370 3165 5425
+Wire Wire Line
+	3165 5425 3455 5425
+Wire Wire Line
+	3455 5425 3455 5065
+Wire Wire Line
+	3455 5065 3745 5065
+$Comp
+L Device:Varistor RV?
+U 1 1 64F33048
+P 3140 2855
+AR Path="/64F33048" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F33048" Ref="RV5"  Part="1" 
+F 0 "RV5" H 3220 2895 50  0000 L CNN
+F 1 "VDR-14D181K" V 3015 2630 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 3070 2855 50  0001 C CNN
+F 3 "~" H 3140 2855 50  0001 C CNN
+F 4 "VDR-14D181K" H 3140 2855 50  0001 C CNN "MPN"
+	1    3140 2855
+	1    0    0    -1  
+$EndComp
+Text Label 3550 2910 2    39   ~ 0
+NEUTRAL
+Wire Wire Line
+	3510 2810 3725 2810
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 63950C38
+P 3925 2910
+AR Path="/63950C38" Ref="J?"  Part="1" 
+AR Path="/6384DF38/63950C38" Ref="J10"  Part="1" 
+F 0 "J10" H 4060 2620 50  0000 R CNN
+F 1 "DRAIN PUMP CONNECTOR" H 4335 2705 50  0000 R CNN
+F 2 "greencharge-footprints:SHDR2W100P0X508_1X2_1070X900X1380P" H 3925 2910 50  0001 C CNN
+F 3 "~" H 3925 2910 50  0001 C CNN
+F 4 " XY126V-5.0-2P" H 3925 2910 50  0001 C CNN "MPN"
+	1    3925 2910
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3140 2705 3140 2675
+Wire Wire Line
+	3140 2675 3510 2675
+Connection ~ 3510 2675
+Wire Wire Line
+	3510 2675 3510 2810
+Wire Wire Line
+	3140 3005 3140 3090
+Wire Wire Line
+	3140 3090 3500 3090
+Wire Wire Line
+	3500 3090 3500 2910
+Wire Wire Line
+	3500 2910 3725 2910
+$Comp
+L Device:Varistor RV?
+U 1 1 64F5BD49
+P 14460 5730
+AR Path="/64F5BD49" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F5BD49" Ref="RV11"  Part="1" 
+F 0 "RV11" H 14540 5770 50  0000 L CNN
+F 1 "VDR-14D181K" V 14335 5505 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 14390 5730 50  0001 C CNN
+F 3 "~" H 14460 5730 50  0001 C CNN
+F 4 "VDR-14D181K" H 14460 5730 50  0001 C CNN "MPN"
+	1    14460 5730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14460 5580 14460 5555
+Wire Wire Line
+	14460 5555 14895 5555
+Connection ~ 14895 5555
+Wire Wire Line
+	14895 5555 14895 5855
+Wire Wire Line
+	14460 5880 14460 5955
+Wire Wire Line
+	14460 5955 15080 5955
+$Comp
+L Device:Varistor RV?
+U 1 1 64F710C7
+P 14545 2535
+AR Path="/64F710C7" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F710C7" Ref="RV12"  Part="1" 
+F 0 "RV12" H 14625 2575 50  0000 L CNN
+F 1 "VDR-14D181K" H 13930 2525 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 14475 2535 50  0001 C CNN
+F 3 "~" H 14545 2535 50  0001 C CNN
+F 4 "VDR-14D181K" H 14545 2535 50  0001 C CNN "MPN"
+	1    14545 2535
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14545 2385 14545 2360
+Wire Wire Line
+	14545 2360 14925 2360
+Connection ~ 14925 2360
+Wire Wire Line
+	14925 2360 14925 2580
+Wire Wire Line
+	14545 2685 14900 2685
+Wire Wire Line
+	14900 2685 14900 2680
+Wire Wire Line
+	14900 2680 15155 2680
+Wire Notes Line
+	4855 1060 4855 6875
+Wire Notes Line
+	4855 6875 10590 6875
+Text Notes 9720 5620 0    39   ~ 0
+triac
+Wire Wire Line
+	6240 5375 7140 5375
+Text Label 6240 5375 0    39   ~ 0
+L3_3phase_heater_pwm
+Wire Wire Line
+	8290 5575 8790 5575
+Wire Wire Line
+	9690 5025 9690 5625
+Wire Wire Line
+	8790 5575 8790 5875
+Wire Wire Line
+	8790 5875 9540 5875
+$Comp
+L Device:Q_TRIAC_A1A2G D?
+U 1 1 638C1221
+P 9690 5775
+AR Path="/638C1221" Ref="D?"  Part="1" 
+AR Path="/6384DF38/638C1221" Ref="D4"  Part="1" 
+F 0 "D4" H 9818 5821 50  0000 L CNN
+F 1 "Q_TRIAC_A1A2G" H 9818 5730 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9765 5800 50  0001 C CNN
+F 3 "~" V 9690 5775 50  0001 C CNN
+F 4 "BTA30-600CW3G" H 9690 5775 50  0001 C CNN "MPN"
+	1    9690 5775
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8790 5375 8290 5375
+$Comp
+L Device:R_US R?
+U 1 1 638C1229
+P 8790 5225
+AR Path="/638C1229" Ref="R?"  Part="1" 
+AR Path="/6384DF38/638C1229" Ref="R31"  Part="1" 
+F 0 "R31" H 8940 5275 50  0000 C CNN
+F 1 "10K" H 8940 5175 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8830 5215 50  0001 C CNN
+F 3 "~" H 8790 5225 50  0001 C CNN
+	1    8790 5225
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8290 5475
+Wire Wire Line
+	7540 5575 7540 5625
+Wire Wire Line
+	7690 5575 7540 5575
+$Comp
+L power:GND #PWR?
+U 1 1 638C1232
+P 7540 5625
+AR Path="/638C1232" Ref="#PWR?"  Part="1" 
+AR Path="/6384DF38/638C1232" Ref="#PWR0170"  Part="1" 
+F 0 "#PWR0170" H 7540 5375 50  0001 C CNN
+F 1 "GND" H 7545 5452 50  0000 C CNN
+F 2 "" H 7540 5625 50  0001 C CNN
+F 3 "" H 7540 5625 50  0001 C CNN
+	1    7540 5625
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7690 5375 7440 5375
+$Comp
+L Device:R_US R?
+U 1 1 638C1239
+P 7290 5375
+AR Path="/638C1239" Ref="R?"  Part="1" 
+AR Path="/6384DF38/638C1239" Ref="R26"  Part="1" 
+F 0 "R26" V 7190 5375 50  0000 C CNN
+F 1 "200R" V 7390 5375 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7330 5365 50  0001 C CNN
+F 3 "~" H 7290 5375 50  0001 C CNN
+	1    7290 5375
+	0    1    1    0   
+$EndComp
+$Comp
+L dk_Optoisolators-Triac-SCR-Output:MOC3021 U?
+U 1 1 638C1248
+P 7990 5475
+AR Path="/638C1248" Ref="U?"  Part="1" 
+AR Path="/6384DF38/638C1248" Ref="U10"  Part="1" 
+F 0 "U10" H 7990 5837 60  0000 C CNN
+F 1 "MOC3021" H 7990 5731 60  0000 C CNN
+F 2 "digikey-footprints:DIP-6_W7.62mm" H 8190 5675 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8190 5775 60  0001 L CNN
+F 4 "160-1374-5-ND" H 8190 5875 60  0001 L CNN "Digi-Key_PN"
+F 5 "MOC3021" H 8190 5975 60  0001 L CNN "MPN"
+F 6 "Isolators" H 8190 6075 60  0001 L CNN "Category"
+F 7 "Optoisolators - Triac, SCR Output" H 8190 6175 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8190 6275 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8190 6375 60  0001 L CNN "DK_Detail_Page"
+F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8190 6475 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8190 6575 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8190 6675 60  0001 L CNN "Status"
+	1    7990 5475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J?
+U 1 1 638C1253
+P 5515 6700
+AR Path="/638C1253" Ref="J?"  Part="1" 
+AR Path="/6384DF38/638C1253" Ref="J12"  Part="1" 
+F 0 "J12" V 5669 6412 50  0000 R CNN
+F 1 "BOILER HEATER CONNECTOR" V 5578 6412 50  0000 R CNN
+F 2 "greencharge-footprints:barrier_terminal_6PCV_04_006" H 5515 6700 50  0001 C CNN
+F 3 "~" H 5515 6700 50  0001 C CNN
+	1    5515 6700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9690 5925 9690 6075
+Wire Wire Line
+	5415 6500 5415 6375
+Wire Wire Line
+	5515 6500 5515 6375
+Wire Wire Line
+	5615 6500 5615 6375
+Wire Wire Line
+	5715 6500 5715 6375
+Text Label 10040 6075 0    50   ~ 0
+ELEMENT_3
+Wire Wire Line
+	10040 6075 9690 6075
+Text Label 5615 6375 1    50   ~ 0
+ELEMENT_3
+Text Label 5515 6375 1    50   ~ 0
+ELEMENT_2
+Text Label 5415 6375 1    50   ~ 0
+ELEMENT_1
+Text Label 5715 6375 1    39   ~ 0
+NEUTRAL
+Text HLabel 6240 5375 0    50   Input ~ 0
+L3_3phase_heater_pwm
+$Comp
+L Device:Varistor RV?
+U 1 1 64F875A3
+P 9360 6335
+AR Path="/64F875A3" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64F875A3" Ref="RV10"  Part="1" 
+F 0 "RV10" H 9440 6375 50  0000 L CNN
+F 1 "VDR-14D181K" V 9235 6110 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 9290 6335 50  0001 C CNN
+F 3 "~" H 9360 6335 50  0001 C CNN
+F 4 "VDR-14D181K" H 9360 6335 50  0001 C CNN "MPN"
+	1    9360 6335
+	1    0    0    -1  
+$EndComp
+Text Label 9495 6560 0    39   ~ 0
+NEUTRAL
+Wire Wire Line
+	9360 6485 9360 6560
+Wire Wire Line
+	9410 5885 9545 5885
+Wire Wire Line
+	9360 6185 9360 6075
+Wire Wire Line
+	9360 6075 9690 6075
+Connection ~ 9690 6075
+Wire Wire Line
+	8790 5025 8790 5075
+Text GLabel 9690 5025 1    50   Input ~ 0
+L3
+Wire Wire Line
+	8790 5025 9690 5025
+Text Label 9340 5025 0    39   ~ 0
+L3
+Wire Wire Line
+	9360 6560 9495 6560
+Connection ~ 9540 4315
+Wire Wire Line
+	9210 4800 9345 4800
+Wire Wire Line
+	9210 4315 9540 4315
+Wire Wire Line
+	9210 4425 9210 4315
+Wire Wire Line
+	9210 4725 9210 4800
+Text Label 9345 4800 0    39   ~ 0
+NEUTRAL
+$Comp
+L Device:Varistor RV?
+U 1 1 64FE133B
+P 9210 4575
+AR Path="/64FE133B" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/64FE133B" Ref="RV8"  Part="1" 
+F 0 "RV8" H 9290 4615 50  0000 L CNN
+F 1 "VDR-14D181K" V 9085 4350 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 9140 4575 50  0001 C CNN
+F 3 "~" H 9210 4575 50  0001 C CNN
+F 4 "VDR-14D181K" H 9210 4575 50  0001 C CNN "MPN"
+	1    9210 4575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9540 4165 9540 4315
+Wire Wire Line
+	9540 4315 9840 4315
+Text Label 9840 4315 0    50   ~ 0
+ELEMENT_2
+Text GLabel 9540 3265 1    50   Input ~ 0
+L2
+Wire Wire Line
+	9540 3265 9540 3865
+Text HLabel 6090 3615 0    50   Input ~ 0
+L2_3phase_heater_pwm
+$Comp
+L dk_Optoisolators-Triac-SCR-Output:MOC3021 U?
+U 1 1 638C1211
+P 7840 3715
+AR Path="/638C1211" Ref="U?"  Part="1" 
+AR Path="/6384DF38/638C1211" Ref="U9"  Part="1" 
+F 0 "U9" H 7840 4077 60  0000 C CNN
+F 1 "MOC3021" H 7840 3971 60  0000 C CNN
+F 2 "digikey-footprints:DIP-6_W7.62mm" H 8040 3915 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" V 8040 4015 60  0001 L CNN
+F 4 "160-1374-5-ND" H 8040 4115 60  0001 L CNN "Digi-Key_PN"
+F 5 "MOC3021" H 8040 4215 60  0001 L CNN "MPN"
+F 6 "Isolators" H 8040 4315 60  0001 L CNN "Category"
+F 7 "Optoisolators - Triac, SCR Output" H 8040 4415 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS-70-99-0019/MOC302X%20series%20201606.pdf" H 8040 4515 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/MOC3021/160-1374-5-ND/385844" H 8040 4615 60  0001 L CNN "DK_Detail_Page"
+F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 8040 4715 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8040 4815 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8040 4915 60  0001 L CNN "Status"
+	1    7840 3715
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 638C1202
+P 7140 3615
+AR Path="/638C1202" Ref="R?"  Part="1" 
+AR Path="/6384DF38/638C1202" Ref="R25"  Part="1" 
+F 0 "R25" V 7040 3615 50  0000 C CNN
+F 1 "200R" V 7240 3615 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7180 3605 50  0001 C CNN
+F 3 "~" H 7140 3615 50  0001 C CNN
+	1    7140 3615
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7540 3615 7290 3615
+$Comp
+L power:GND #PWR?
+U 1 1 638C11FB
+P 7390 3865
+AR Path="/638C11FB" Ref="#PWR?"  Part="1" 
+AR Path="/6384DF38/638C11FB" Ref="#PWR0169"  Part="1" 
+F 0 "#PWR0169" H 7390 3615 50  0001 C CNN
+F 1 "GND" H 7395 3692 50  0000 C CNN
+F 2 "" H 7390 3865 50  0001 C CNN
+F 3 "" H 7390 3865 50  0001 C CNN
+	1    7390 3865
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7540 3815 7390 3815
+Wire Wire Line
+	7390 3815 7390 3865
+NoConn ~ 8140 3715
+$Comp
+L Device:R_US R?
+U 1 1 638C11F2
+P 8640 3465
+AR Path="/638C11F2" Ref="R?"  Part="1" 
+AR Path="/6384DF38/638C11F2" Ref="R30"  Part="1" 
+F 0 "R30" H 8790 3515 50  0000 C CNN
+F 1 "10K" H 8790 3415 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8680 3455 50  0001 C CNN
+F 3 "~" H 8640 3465 50  0001 C CNN
+	1    8640 3465
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8640 3265 8640 3315
+Wire Wire Line
+	8640 3615 8140 3615
+$Comp
+L Device:Q_TRIAC_A1A2G D?
+U 1 1 638C11EA
+P 9540 4015
+AR Path="/638C11EA" Ref="D?"  Part="1" 
+AR Path="/6384DF38/638C11EA" Ref="D3"  Part="1" 
+F 0 "D3" H 9668 4061 50  0000 L CNN
+F 1 "Q_TRIAC_A1A2G" H 9668 3970 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" V 9615 4040 50  0001 C CNN
+F 3 "~" V 9540 4015 50  0001 C CNN
+F 4 "BTA30-600CW3G" H 9540 4015 50  0001 C CNN "MPN"
+	1    9540 4015
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8640 4115 9390 4115
+Wire Wire Line
+	8640 3815 8640 4115
+Wire Wire Line
+	8140 3815 8640 3815
+Text Label 6090 3615 0    39   ~ 0
+L2_3phase_heater_pwm
+Wire Wire Line
+	6090 3615 6990 3615
+Text Notes 9570 4060 0    39   ~ 0
+triac
+Text Label 9190 3265 0    39   ~ 0
+L2
+Wire Wire Line
+	9360 2845 9495 2845
+Wire Wire Line
+	9360 2360 9690 2360
+Wire Wire Line
+	9360 2470 9360 2360
+Wire Wire Line
+	9360 2770 9360 2845
+Text Label 9495 2845 0    39   ~ 0
+NEUTRAL
+$Comp
+L Device:Varistor RV?
+U 1 1 65009AD7
+P 9360 2620
+AR Path="/65009AD7" Ref="RV?"  Part="1" 
+AR Path="/6384DF38/65009AD7" Ref="RV9"  Part="1" 
+F 0 "RV9" H 9440 2660 50  0000 L CNN
+F 1 "VDR-14D181K" V 9235 2395 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm" V 9290 2620 50  0001 C CNN
+F 3 "~" H 9360 2620 50  0001 C CNN
+F 4 "VDR-14D181K" H 9360 2620 50  0001 C CNN "MPN"
+	1    9360 2620
+	1    0    0    -1  
+$EndComp
+Connection ~ 9690 2360
+Wire Notes Line
+	4860 3010 10590 3010
+Wire Notes Line
+	4850 4845 10590 4845
+Wire Notes Line
+	10590 1060 10590 6875
 $EndSCHEMATC
