@@ -4,6 +4,16 @@
 
   (paper "A3")
 
+  (title_block
+    (title "DISHWASHER")
+    (date "2022-02-01")
+    (rev "1")
+    (company "STEEL FORM")
+    (comment 2 "Reviewed by:")
+    (comment 3 "Designed by: Robert Mutura Macharia")
+    (comment 4 "STEEL FORM - DISHWASHER")
+  )
+
   (lib_symbols
     (symbol "9-1440003-0:9-1440003-0" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
       (property "Reference" "K" (id 0) (at -7.62 5.588 0)
