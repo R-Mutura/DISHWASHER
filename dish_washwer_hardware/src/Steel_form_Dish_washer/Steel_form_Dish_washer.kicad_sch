@@ -6434,10 +6434,10 @@
       (reference "D7") (unit 1) (value "MB6S") (footprint "Package_TO_SOT_SMD:TO-269AA")
     )
     (path "/00000000-0000-0000-0000-00006384df38/7924a5e8-d854-4750-8f08-8bf7af812f94"
-      (reference "F1") (unit 1) (value "Polyfuse") (footprint "")
+      (reference "F1") (unit 1) (value "Polyfuse") (footprint "greencharge-footprints:BK250-600")
     )
     (path "/00000000-0000-0000-0000-00006384df38/1d15ee52-30cc-414b-a2eb-2dc9dd43446f"
-      (reference "F2") (unit 1) (value "Polyfuse") (footprint "")
+      (reference "F2") (unit 1) (value "Polyfuse") (footprint "greencharge-footprints:BK250-600")
     )
     (path "/dab3b635-129e-4561-8546-e374aa73302a"
       (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_4.3mm_M4")
