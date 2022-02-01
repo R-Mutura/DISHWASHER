@@ -6633,7 +6633,7 @@
       (reference "J6") (unit 1) (value "Conn_01x04_Male") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-00006384df38/b577364f-7708-442c-b5c1-b0dcb8db2a65"
-      (reference "J7") (unit 1) (value "BOILER HEATER CONNECTOR") (footprint "greencharge-footprints:barrier_terminal_6PCV_04_006")
+      (reference "J7") (unit 1) (value "Water sensor connector") (footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-4_1x04_P5.00mm_Horizontal")
     )
     (path "/3202fded-24a5-4b6f-a0a0-90630a938a4b/ea73f353-6b03-47bf-a289-ca3d0ad21c8e"
       (reference "J8") (unit 1) (value "Conn_01x10_Male") (footprint "greencharge-footprints:custom_connector_0.83pitch")

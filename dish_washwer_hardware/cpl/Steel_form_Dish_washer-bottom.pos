@@ -1,0 +1,10 @@
+### Module positions - created on Tue Feb  1 19:37:10 2022 ###
+### Printed by Pcbnew version (6.0.0)
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val                  Package                                 PosX       PosY       Rot  Side
+J8        Conn_01x10_Male      custom_connector_0.83pitch         -204.2520  -297.1800  180.0000  bottom
+J16       SCREEN_CONNECTOR     PinSocket_1x07_P2.54mm_Horizontal  -246.7000  -324.1000    0.0000  bottom
+J18       Conn_02x07_Odd_Even  IDC-Header_2x07_P2.54mm_Vertical   -248.4000  -297.8000  -90.0000  bottom
+U15       TXS0108EPW           TSSOP-20_4.4x6.5mm_P0.65mm         -262.5000  -309.2500   90.0000  bottom
+## End
