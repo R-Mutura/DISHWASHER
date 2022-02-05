@@ -4196,6 +4196,10 @@
     (effects (font (size 0.9906 0.9906)) (justify right bottom))
     (uuid bab55165-171a-4b23-8de7-b2c03cd2323f)
   )
+  (label "~{IRQ}" (at 349.758 106.426 180)
+    (effects (font (size 0.9906 0.9906)) (justify right bottom))
+    (uuid bb592bb9-55e8-4d38-a31d-1f5649592279)
+  )
   (label "L1" (at 315.341 210.947 180)
     (effects (font (size 0.9906 0.9906)) (justify right bottom))
     (uuid bc9e3a42-889e-4883-8307-5bab782ffaea)
@@ -6024,24 +6028,6 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 349.758 106.426 0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid 7de3525f-7aee-4887-8241-61c946621ca2)
-    (property "Reference" "#PWR0123" (id 0) (at 349.758 112.776 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (id 1) (at 347.726 110.236 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "" (id 2) (at 349.758 106.426 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (id 3) (at 349.758 106.426 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 2d28f178-5b50-49d5-b91f-691a1e722380))
-  )
-
   (symbol (lib_id "Switch:SW_Push") (at 160.02 31.75 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 92659140-daf7-49e8-a9bb-a0602f97751a)
@@ -6487,17 +6473,11 @@
     (path "/2214a197-e598-47bf-823e-c8bb19c34adc"
       (reference "#PWR0122") (unit 1) (value "+3.3V") (footprint "")
     )
-    (path "/7de3525f-7aee-4887-8241-61c946621ca2"
-      (reference "#PWR0123") (unit 1) (value "GND") (footprint "")
-    )
     (path "/bce3dee9-75d9-4aed-9ba7-1fe47ab50a52"
       (reference "#PWR0124") (unit 1) (value "GND") (footprint "")
     )
     (path "/3202fded-24a5-4b6f-a0a0-90630a938a4b/17115e34-842d-4d18-8f69-8f1c082a8db7"
       (reference "#PWR0125") (unit 1) (value "+5V") (footprint "")
-    )
-    (path "/3202fded-24a5-4b6f-a0a0-90630a938a4b/ce3aea4c-4d56-4db6-99ec-ef0d38f47f73"
-      (reference "#PWR0126") (unit 1) (value "GND") (footprint "")
     )
     (path "/3202fded-24a5-4b6f-a0a0-90630a938a4b/6c2a4954-85b9-4079-a438-8448b7c5ec1f"
       (reference "#PWR0127") (unit 1) (value "+3.3V") (footprint "")
