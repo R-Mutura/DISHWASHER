@@ -2366,6 +2366,9 @@
   (junction (at 32.766 117.602) (diameter 0) (color 0 0 0 0)
     (uuid 355fafb6-6319-4abe-9d7d-da5dfaacaed5)
   )
+  (junction (at 117.983 31.496) (diameter 0) (color 0 0 0 0)
+    (uuid 38741ad3-9ef6-4e9a-9ccc-cea34215ec0c)
+  )
   (junction (at 86.106 212.852) (diameter 0) (color 0 0 0 0)
     (uuid 43740148-8112-49ba-9a1f-d7d7d6022086)
   )
@@ -3503,7 +3506,7 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 9a347de9-8767-4bc3-b083-137a8c8694a6)
   )
-  (wire (pts (xy 118.11 23.622) (xy 118.11 23.368))
+  (wire (pts (xy 117.983 23.876) (xy 118.11 23.368))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 9b0807e4-ed4a-4dbc-9072-e8011d45a80e)
   )
@@ -4010,7 +4013,7 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid fc8dde6c-5595-429a-ab77-aa7ac52c89e3)
   )
-  (wire (pts (xy 118.11 31.623) (xy 118.11 31.242))
+  (wire (pts (xy 118.11 31.623) (xy 117.983 31.496))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid fccca0cd-c8a6-455b-989f-10428d676fe6)
   )
@@ -6229,22 +6232,22 @@
     (pin "2" (uuid ac99600d-8b38-4e5a-b8ce-986e2ef08220))
   )
 
-  (symbol (lib_id "Device:C_Polarized_US") (at 118.11 27.432 0) (unit 1)
+  (symbol (lib_id "Device:C_Polarized_US") (at 117.983 27.686 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 60d2342d-574e-4678-8e92-d4ead9b5cca4)
-    (property "Reference" "C24" (id 0) (at 121.412 25.5269 0)
+    (property "Reference" "C24" (id 0) (at 121.285 25.7809 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100uF" (id 1) (at 121.412 28.0669 0)
+    (property "Value" "100uF" (id 1) (at 121.285 28.3209 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4" (id 2) (at 118.11 27.432 0)
+    (property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4" (id 2) (at 117.983 27.686 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "RVT1A101M0505" (id 3) (at 118.11 27.432 0)
+    (property "Datasheet" "RVT1A101M0505" (id 3) (at 117.983 27.686 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MPN" "RVT1A101M0505" (id 4) (at 118.11 27.432 0)
+    (property "MPN" "RVT1A101M0505" (id 4) (at 117.983 27.686 0)
       (effects (font (size 0.9906 0.9906)) hide)
     )
     (pin "1" (uuid 97d5f647-ef48-4962-b884-a253e0f7456d))
@@ -6775,6 +6778,12 @@
     (path "/00000000-0000-0000-0000-00006384df38/7c17657f-f6e9-44b4-ba20-9f25636c2cc0"
       (reference "#PWR034") (unit 1) (value "GND") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-00006384df38/7a6338a7-0d7e-4021-b6fb-f86fd5ca18fa"
+      (reference "#PWR035") (unit 1) (value "+5V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-00006384df38/33d4b003-1d60-4215-9c18-f093191346c9"
+      (reference "#PWR036") (unit 1) (value "+5V") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-000061d0afb6"
       (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
     )
@@ -6933,12 +6942,6 @@
     )
     (path "/00000000-0000-0000-0000-0000648ecfba"
       (reference "#PWR0175") (unit 1) (value "GND") (footprint "")
-    )
-    (path "/00000000-0000-0000-0000-00006384df38/33d4b003-1d60-4215-9c18-f093191346c9"
-      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
-    )
-    (path "/00000000-0000-0000-0000-00006384df38/7a6338a7-0d7e-4021-b6fb-f86fd5ca18fa"
-      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
     )
     (path "/bec2222d-e897-45a4-9a97-9dfbdc08b2b2"
       (reference "BZ1") (unit 1) (value "PS1240P02BT") (footprint "digikey-footprints:Piezo_Transducer_THT_PS1240P02BT")
@@ -7144,6 +7147,9 @@
     (path "/00000000-0000-0000-0000-000061e17d90"
       (reference "PS1") (unit 1) (value "HLK-5M05") (footprint "greencharge-footprints:CONV_HLK-5M05")
     )
+    (path "/00000000-0000-0000-0000-00006384df38/636af961-6bdd-40dc-8c8d-f2869df59c64"
+      (reference "Q1") (unit 1) (value "DMP6023LE-13") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
+    )
     (path "/00000000-0000-0000-0000-00006384df38/00000000-0000-0000-0000-000063950bbe"
       (reference "Q3") (unit 1) (value "WST2N7002K") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
@@ -7152,9 +7158,6 @@
     )
     (path "/00000000-0000-0000-0000-00006384df38/00000000-0000-0000-0000-000063950c52"
       (reference "Q5") (unit 1) (value "WST2N7002K") (footprint "Package_TO_SOT_SMD:SOT-23")
-    )
-    (path "/00000000-0000-0000-0000-00006384df38/636af961-6bdd-40dc-8c8d-f2869df59c64"
-      (reference "Q?") (unit 1) (value "DMP6023LE-13") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
     )
     (path "/00000000-0000-0000-0000-000061d2b257"
       (reference "R1") (unit 1) (value "10K") (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -7279,23 +7282,23 @@
     (path "/6b5b8115-df91-4836-9d72-20a5867876b8"
       (reference "R41") (unit 1) (value "500R") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
-    (path "/00000000-0000-0000-0000-00006384df38/0d98f57d-b03b-4e47-aaf1-17eb8b4de9b8"
-      (reference "R?") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
-    )
     (path "/00000000-0000-0000-0000-00006384df38/28c2bb44-7430-47c0-aff9-c4e621c5f657"
-      (reference "R?") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
+      (reference "R42") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
-    (path "/00000000-0000-0000-0000-00006384df38/73372fdf-6195-4000-b2a8-17162811f0ed"
-      (reference "R?") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
-    )
-    (path "/00000000-0000-0000-0000-00006384df38/9ba637b8-d8e7-4399-ac06-ea07dde56d6a"
-      (reference "R?") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
+    (path "/00000000-0000-0000-0000-00006384df38/0d98f57d-b03b-4e47-aaf1-17eb8b4de9b8"
+      (reference "R43") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/00000000-0000-0000-0000-00006384df38/b6fd5f4d-ac5b-4ccb-b5a2-7392a8f5b844"
-      (reference "R?") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
+      (reference "R44") (unit 1) (value "1K") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/00000000-0000-0000-0000-00006384df38/dac80e5b-60c3-4a02-8599-a161dad8d1dc"
-      (reference "R?") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
+      (reference "R45") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/00000000-0000-0000-0000-00006384df38/73372fdf-6195-4000-b2a8-17162811f0ed"
+      (reference "R46") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/00000000-0000-0000-0000-00006384df38/9ba637b8-d8e7-4399-ac06-ea07dde56d6a"
+      (reference "R47") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/00000000-0000-0000-0000-000064bca22e"
       (reference "RV1") (unit 1) (value "VDR-14D181K") (footprint "Varistor:RV_Disc_D16.5mm_W6.7mm_P7.5mm")
