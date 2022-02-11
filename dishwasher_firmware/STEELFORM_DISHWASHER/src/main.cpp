@@ -70,7 +70,7 @@ void getNumber();
 void water_filling_process();
 void commissioning();
 void door_open_ISR();
-
+void getting_ready();
 void setup() {
   // put your setup code here, to run once:
   
@@ -113,7 +113,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   float tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
   float boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
-  
+  //WE WRITE THE PID CONTROL
 
 }
 
@@ -201,14 +201,23 @@ commissioning_flag=1;
 
 //start filling process 
 //THE TANK IS EMPTY
-water_filling_process();
+water_filling_process(); //process 1
+getting_ready();
 
 
 }
 
 void water_filling_process(){
  filling_flag=1; //set to high to be used in the ISR routines
- //digitalRead(water_lvl_low);
+ //set screen to filling
+    
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(2);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(20,10);
+    mydisplay.println("FILLING");
+    mydisplay.display();
+
  while(digitalRead(water_lvl_high))//initially the pin is high(1) => we wait for it to go low
  {
    //TURN ON THE SOLENOID UNTIL THE WATER LEVEL HIGH PROBE READS LOW(INDICATING THE TANK IS FULL)
@@ -217,8 +226,16 @@ void water_filling_process(){
 
  }
  filling_flag=0;//reset the filling flag to low 
+ digitalWrite(solenoid, LOW);
 return;//once done we return
 //end of filling process
+}
+
+void getting_ready()
+{
+  //getting ready process involves heating / maintainig water temperature in the tank and otherwise
+
+
 }
 
 void door_open_ISR()
@@ -250,4 +267,109 @@ void door_open_ISR()
   }
   
   return; //break from the ISR and return to where the program left off
+}
+
+//PID tank variables
+float previous_error = 0;
+float elapsedTime, Time, timePrev;
+//PID constants
+int kp = 203;   int ki= 7.2;   int kd = 1.04;
+
+//PID Boiler variables
+float previous_error_b = 0;
+float elapsedTime_b, Time_b, timePrev_b;
+
+
+//PID FUNCTION CONTROL THE HEATERS
+int pid_tank_control(int real_temperature, int setpoint)
+{
+  //local variable declerations
+  float PID_error = 0;
+  int PID_value = 0;
+  int PID_p = 0;    int PID_i = 0;    int PID_d = 0;
+    PID_error = setpoint - real_temperature;
+    
+    if(PID_error > 30)                              //integral constant will only affect errors below 30ºC             
+    {
+      PID_i = 0;
+    }
+    
+   PID_p = kp * PID_error;                         //Calculate the P value
+   PID_i = PID_i + (ki * PID_error);               //Calculate the I value
+    timePrev_b = Time_b;                    // the previous time is stored before the actual time read
+    Time_b = millis();                    // actual time read
+    elapsedTime = (Time_b - timePrev_b) / 1000;   
+    PID_d = kd*((PID_error - previous_error_b)/elapsedTime);  //Calculate the D value
+    PID_value = PID_p + PID_i + PID_d;                      //Calculate total PID value
+    
+    //We define firing delay range between 0 and 7400. Read above why 7400!!!!!!!
+    if(PID_value < 0)
+    { 
+           PID_value = 0; 
+    }
+    if(PID_value > 7400)
+    {    
+        PID_value = 7400; 
+    }
+    //Printe the values on the LCD
+    
+    debugln(" ");
+    debug("Setpoint: ");
+    debugln(setpoint);
+    
+    debug("Real temp: ");
+    debugln(real_temperature);
+
+    previous_error_b = PID_error; //Remember to store the previous error.
+  
+
+
+ return PID_value;
+}
+
+int pid_boiler_control(int real_temperature, int setpoint)
+{
+    //local variable declerations
+  float PID_error = 0;
+  int PID_value = 0;
+  int PID_p = 0;    int PID_i = 0;    int PID_d = 0;
+    PID_error = setpoint - real_temperature;
+    
+    if(PID_error > 30)                              //integral constant will only affect errors below 30ºC             
+    {
+      PID_i = 0;
+    }
+    
+   PID_p = kp * PID_error;                         //Calculate the P value
+   PID_i = PID_i + (ki * PID_error);               //Calculate the I value
+    timePrev = Time;                    // the previous time is stored before the actual time read
+    Time = millis();                    // actual time read
+    elapsedTime = (Time - timePrev) / 1000;   
+    PID_d = kd*((PID_error - previous_error)/elapsedTime);  //Calculate the D value
+    PID_value = PID_p + PID_i + PID_d;                      //Calculate total PID value
+    
+    //We define firing delay range between 0 and 7400. Read above why 7400!!!!!!!
+    if(PID_value < 0)
+    { 
+           PID_value = 0; 
+    }
+    if(PID_value > 7400)
+    {    
+        PID_value = 7400; 
+    }
+    //Printe the values on the LCD
+    
+    debugln(" ");
+    debug("Setpoint: ");
+    debugln(setpoint);
+    
+    debug("Real temp: ");
+    debugln(real_temperature);
+
+    previous_error = PID_error; //Remember to store the previous error.
+  
+
+
+ return PID_value;
+
 }
