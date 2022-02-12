@@ -24,8 +24,9 @@
 #define solenoid 35//pc2
 #define perilistic_pump_1 37 //pc0
 #define perilistic_pump_2 36//pc1
-#define drain_pump 17 //PH0  //not exposed
-#define wash_pump 16//PH1  //note exposed
+
+#define drain_pump 17 //PH0 
+#define wash_pump 16//PH1  
 
 #define tank_heater 6//ph3
 
@@ -36,9 +37,10 @@
 #define rgb_onoff_blu A0 //pf0
 #define rgb_onoff_red A1//pf1
 #define rgb_onoff_grn A2//pf2
-#define start_blu A3//pf3
-#define start_red  A4//pf4
-#define start_grn  A5//pf5
+
+#define start_blu PF3 //A3//pf3
+#define start_red PF4 //A4//pf4
+#define start_grn  PF5 //A5//pf5
 
 
 void pin_init(){
@@ -79,8 +81,18 @@ pinMode(boiler_heater_l3, OUTPUT);
 pinMode(rgb_onoff_blu , OUTPUT);
 pinMode(rgb_onoff_red, OUTPUT);
 pinMode(rgb_onoff_grn , OUTPUT);
-pinMode(start_blu , OUTPUT);
-pinMode(start_red , OUTPUT);
-pinMode(start_grn , OUTPUT);
+
+//we ll use register manipulation for these pins which will used inside an ISR ROUTINE
+//pinMode(start_blu , OUTPUT);
+//pinMode(start_red , OUTPUT);
+//pinMode(start_grn , OUTPUT);
+//START LEDS IN REGISTER SETTING AS OUTPUT
+/*#define start_blu A3//pf3
+#define start_red  A4//pf4
+#define start_grn  A5//pf5*/
+DDRF |=(1<<start_blu); //SETTING PFx PIN AS OUTPUT in the DDRF register
+DDRF |=(1<<start_red); //SETTING PFx PIN AS OUTPUT in the DDRF register
+DDRF |=(1<<start_grn); //SETTING PFx PIN AS OUTPUT in the DDRF register
+
 
 }

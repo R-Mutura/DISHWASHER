@@ -54,28 +54,75 @@ Adafruit_MPR121 panel = Adafruit_MPR121();
 Adafruit_SSD1305 mydisplay(128, 64, &Wire, OLED_RESET);
 /*end of screen */
 //*********************************************************************************************
-/*FLAGS FOR INTERRUPTS*/
+/*FLAGS variables FOR INTERRUPTS*/
 volatile int installer_menu_flag = 0;
 volatile int start_flag = 0;
 volatile int on_off_flag = 0;
 volatile int menu_flag = 0;
 volatile int back_flag = 0;
+volatile int pump_counter=0;
 
 /**/
+//variables to be used in function first
 volatile int commissioning_flag=0;
 volatile int filling_flag=0;
+volatile int getting_ready_flag =0;
+int full=0;
+int pump_1_on=0;
+int detergent_time=0;
+
+
+//constants to be set and read from perment storage of the atmega
+int setpoint_tank = 45; //degrees 
+int setpoint_boiler =72; //degrees
+int detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
 //...........................................................................................
+
+//TIMER3 FUNCTION CONSTANTS
+const uint16_t t3_load=0;
+const uint16_t t3_comp=62500;//this value will be loaded to the compare register of the timer. so the timer upon reachin this value an interrupt is generated.
+
 //FUNCTION PROTOTYPES
 void getNumber();
 void water_filling_process();
 void commissioning();
 void door_open_ISR();
 void getting_ready();
+
+
+
 void setup() {
   // put your setup code here, to run once:
   
   pin_init();
   //start the the temp measurement function
+
+ //timer3 initialization
+  
+  TCCR3A =0; //re initialize the timer to its default state(set everything to 0)
+  
+  //BITS TO ENSURE THAT THE TIMER REGISTER TIMSK3 RESETS AFTER IT REACHES THE MAX VALUE IN THE COMPARE REGISTER
+  TCCR3B &= ~(1<<WGM13); //SENDING A ZERO TO THE REGISTER POSITION WGM13 TO SENSURE ITS ZERO
+  TCCR3B |= (1<<WGM32); //THIS WILL RESET THE TIMER TO 0 ONCE THE VALUE IN THE COMPARE REGISTER AND THE TIMER MATCH
+
+  //to set our prescalar value of 256 (1 0 0 => cs32 cs31 cs30) located in the TCCR3B regiter
+  TCCR3B |= (1<<CS32); //the or bit wise opration sets the register to at position cs32 to 1
+  TCCR3B &= (1<<CS31); //and bitwise operation with zero = zero so the default state of zero is maintained in this registers
+  TCCR3B &= (1<<CS30); //and bitwise operation with zero = zero so the default state of zero is maintained in this registers
+  //prescalar set
+  
+  //reset timer and set the pcompare value register eith the value such that interrupts occur every 1 second
+  TCNT3 = t3_load;
+  OCR3A = t3_comp;
+  
+  //to set timer3 compare interrupt
+  TIMSK3 |= (1<<OCIE3A);
+ //ENABLE GLOBAL INTERRUPTS
+ sei();
+
+ // end of timer 3 init
+
+
   tank_rtd.begin(MAX31865_3WIRE);
   boiler_rtd.begin(MAX31865_3WIRE);
  //initializing ACRYLIC PANEL COMPONENTS
@@ -114,9 +161,40 @@ void loop() {
   float tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
   float boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
   //WE WRITE THE PID CONTROL
+ if ( filling_flag=1 )
+ {
+  //check if the tank level is okay and then start the heating elements
+   int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
+   int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
 
+   //now to update the trigger in the heater element pins
+
+ }
 }
+ 
+ ISR(TIMER3_COMPA_vect)
+ {//THIS IS THE FUNCTION THAT GETS CALLED EVERYTIME THE TIMER3 INTERRUPT OCCURS ACCORDING TI THE DATASHEET ITS ADDRESS IS $0040 PRIORITY NUMNER 33
 
+ if (commissioning_flag ==1)
+ { //perform toggling of these pins everytime the isr is triggered using exclusive or bitwise operation
+   PORTF ^= (1<<start_blu);
+   PORTF ^= (1<<start_red);
+   PORTF ^= (1<<start_grn);
+ }
+  if(getting_ready_flag ==1 && pump_1_on==1)
+  { 
+    if(pump_counter < detergent_time)
+    {
+      digitalWrite(perilistic_pump_1, HIGH);
+      pump_counter++; //this will be used to check timing in the priming stage without causing polling action
+    }
+    else{
+      digitalWrite(perilistic_pump_1, LOW);
+      pump_counter=0;
+    }
+  }
+  //AUTOMATIC RETURN
+ }
 void getNumber(){
 
   int touchNumber = 0;
@@ -195,14 +273,15 @@ void getNumber(){
 
 }
 
-void commissioning(){
-commissioning_flag=1;
-//implement timer software interrupt to turn on/off the led
+void commissioning()
+{
+  commissioning_flag=1;
+  //implement timer software interrupt to turn on/off the led
 
-//start filling process 
-//THE TANK IS EMPTY
-water_filling_process(); //process 1
-getting_ready();
+  //start filling process 
+  //THE TANK IS EMPTY
+  water_filling_process(); //process 1
+  getting_ready();
 
 
 }
@@ -227,6 +306,7 @@ void water_filling_process(){
  }
  filling_flag=0;//reset the filling flag to low 
  digitalWrite(solenoid, LOW);
+ full=1;
 return;//once done we return
 //end of filling process
 }
@@ -234,8 +314,12 @@ return;//once done we return
 void getting_ready()
 {
   //getting ready process involves heating / maintainig water temperature in the tank and otherwise
-
-
+  //feeding detergent into the tank
+  getting_ready_flag=1;
+  //TO CALCULATE THE TIME THE PUMP WILL STAY ON:  SPECS 3L/HR == 0.83333mL/SECOND
+  detergent_time = (detergent_dose/0.833333); //thi is the timw the pump will stay on in seconds //usig int will automatically truncate the decimal giving an accurracy og 1 in dosing
+  pump_1_on=1;
+ return;
 }
 
 void door_open_ISR()
