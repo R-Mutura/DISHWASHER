@@ -18,6 +18,7 @@
 #endif
 
 #include "Pin_init.h"
+#include "processes.h"
 
 //temperature measurement using MAX31865 parameter initialization
 Adafruit_MAX31865 tank_rtd = Adafruit_MAX31865(rtd_cs); //temp sensor 1
@@ -74,13 +75,14 @@ volatile int getting_ready_flag =0;
 int full=0;
 int pump_1_on=0;
 int ready_flag=0;
+int in_process_flag=0;
 
 
-
-//constants to be set and read from perment storage of the atmega
+//constants to be set and read from permanent storage of the atmega
 int setpoint_tank = 45; //degrees 
 int setpoint_boiler =72; //degrees
 int detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
+int menu_screen_2 = 0; //will store the menu position selected(such that the menu in use is persistent even after power down)
 //...........................................................................................
 //global variables
 int detergent_time=0;
@@ -104,6 +106,8 @@ void getting_ready();
 void zero_cross();
 int pid_tank_control(int real_temperature, int setpoint);
 int pid_boiler_control(int real_temperature, int setpoint);
+void update_screen_2();
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -514,5 +518,100 @@ int pid_boiler_control(int real_temperature, int setpoint)
 
 }
 
-//FUNCION FOR SCREEN 2 PROCESS SELECTION
-//TO SHOW THE MENU AND SELECT THE DESIRED PROCESS FROM THE MENU.
+void update_screen_2()
+{//FUNCION FOR SCREEN 2 PROCESS SELECTION
+ //TO SHOW THE MENU AND SELECT THE DESIRED PROCESS FROM THE MENU.
+ //this happens if the ready flag is set and will be handled(called) in the flag_handler function
+ menu_screen_2 = 0;
+ switch (menu_screen_2)
+ {
+ case 0: { /* constant-expression */
+     menu_screen_2=0;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("=> NORMAL 120 sec");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("Intensive 180 sec");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.display();
+    
+  
+   break;
+  }
+   case 1: { /* constant-expression */
+      menu_screen_2=1;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("NORMAL 120 sec");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("=> Intensive 180 sec");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.display();
+   
+   break;
+  }
+   case 2: { /* constant-expression */
+       menu_screen_2=2;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("NORMAL 120 sec");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("Intensive 180 sec");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("=> Utensils and Cookware 300 sec");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.display();
+  
+   break;
+  }
+   case 3: { /* constant-expression */
+       menu_screen_2=3;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("NORMAL 120 sec");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("Intensive 180 sec");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("=> Sensitive Glassware 200 sec");
+    mydisplay.display();
+  
+   break;
+  }
+ default:
+  menu_screen_2=0;
+   break;
+ }
+ return;
+}
+//all processes will be written in this section. then the flag handler will call them appropriately
+void normal_process()
+{  long current_time=0;
+   long wash_time =90000; // 90 seconds => 90000ms
+  if (ready_flag==1 && start_flag==2)
+  {
+    in_process_flag=1;
+    current_time=millis();
+    while()
+      digitalWrite(wash_pump, HIGH);
+  }
+  
+  
+
+}
