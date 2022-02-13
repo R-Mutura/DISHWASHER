@@ -62,14 +62,19 @@ volatile int menu_flag = 0;
 volatile int back_flag = 0;
 volatile int pump_counter=0;
 
+volatile int last_CH1_state = 0;
+volatile bool zero_cross_detected=false;
+
 /**/
 //variables to be used in function first
 volatile int commissioning_flag=0;
 volatile int filling_flag=0;
 volatile int getting_ready_flag =0;
+
 int full=0;
 int pump_1_on=0;
-int detergent_time=0;
+int ready_flag=0;
+
 
 
 //constants to be set and read from perment storage of the atmega
@@ -77,10 +82,18 @@ int setpoint_tank = 45; //degrees
 int setpoint_boiler =72; //degrees
 int detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
 //...........................................................................................
-
+//global variables
+int detergent_time=0;
+float tank_temp = 0;
+float boiler_temp=0;
+//end of global vars
 //TIMER3 FUNCTION CONSTANTS
 const uint16_t t3_load=0;
 const uint16_t t3_comp=62500;//this value will be loaded to the compare register of the timer. so the timer upon reachin this value an interrupt is generated.
+
+// TRIAC CONTROL CONSTAnts
+const int firing_delay = 7400;
+const int maximum_firing_delay = 7400;
 
 //FUNCTION PROTOTYPES
 void getNumber();
@@ -88,8 +101,9 @@ void water_filling_process();
 void commissioning();
 void door_open_ISR();
 void getting_ready();
-
-
+void zero_cross();
+int pid_tank_control(int real_temperature, int setpoint);
+int pid_boiler_control(int real_temperature, int setpoint);
 
 void setup() {
   // put your setup code here, to run once:
@@ -135,18 +149,21 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(irq),getNumber,LOW); //PD2 == 19 IS INTERRUPT NUMBER 4
  //DONE WITH ACRYLIC TOUCH PANEL 
 
-//ADDING A DOOR INTERRUPT SO THAT WHEN IT IS OPENED AND A PROCESS IS ON GOING, THE PROCESS IS INTERRUPTED.
- attachInterrupt(digitalPinToInterrupt(door_sensor),door_open_ISR, HIGH);
-// initializing mydisplay
-if ( ! mydisplay.begin(0x3C) ) {
-     Serial.println("Unable to initialize OLED");
-     while (1) yield();
-  }
+  //ADDING A DOOR INTERRUPT SO THAT WHEN IT IS OPENED AND A PROCESS IS ON GOING, THE PROCESS IS INTERRUPTED.
+  attachInterrupt(digitalPinToInterrupt(door_sensor),door_open_ISR, HIGH);
+  // zero crossing detection
+  attachInterrupt(digitalPinToInterrupt(zero_cross_detect),zero_cross, HIGH);
 
-  mydisplay.display(); // show splashscreen
-  delay(1000);
-  mydisplay.clearDisplay();   // clears the screen and buffer
-  mydisplay.setTextSize(1);
+  // initializing mydisplay
+  if ( ! mydisplay.begin(0x3C) ) {
+      Serial.println("Unable to initialize OLED");
+      while (1) yield();
+    }
+
+    mydisplay.display(); // show splashscreen
+    delay(1000);
+    mydisplay.clearDisplay();   // clears the screen and buffer
+    mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
     mydisplay.setCursor(0,0);
     mydisplay.println("test test!");
@@ -158,24 +175,40 @@ if ( ! mydisplay.begin(0x3C) ) {
 void loop() {
 
   // put your main code here, to run repeatedly:
-  float tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-  float boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+   tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
+   boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
   //WE WRITE THE PID CONTROL
- if ( filling_flag=1 )
+ if ( full==1 )
  {
   //check if the tank level is okay and then start the heating elements
    int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
    int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
 
    //now to update the trigger in the heater element pins
-
+   if (zero_cross_detected)     
+    {
+      delayMicroseconds(maximum_firing_delay - tank_pid); //This delay controls the power
+      //control tank heater
+      digitalWrite(tank_heater,HIGH);
+      //boiler heater
+      digitalWrite(boiler_heater_l1,HIGH);
+      digitalWrite(boiler_heater_l2,HIGH);
+      digitalWrite(boiler_heater_l2,HIGH);
+      delayMicroseconds(100);//wait for 1ooms the write them all low
+      digitalWrite(tank_heater,LOW);
+      //boiler heater
+      digitalWrite(boiler_heater_l1,LOW);
+      digitalWrite(boiler_heater_l2,LOW);
+      digitalWrite(boiler_heater_l2,LOW);
+      zero_cross_detected = false;
+    } 
  }
 }
  
  ISR(TIMER3_COMPA_vect)
  {//THIS IS THE FUNCTION THAT GETS CALLED EVERYTIME THE TIMER3 INTERRUPT OCCURS ACCORDING TI THE DATASHEET ITS ADDRESS IS $0040 PRIORITY NUMNER 33
 
- if (commissioning_flag ==1)
+ if (commissioning_flag ==1 && ready_flag==0)
  { //perform toggling of these pins everytime the isr is triggered using exclusive or bitwise operation
    PORTF ^= (1<<start_blu);
    PORTF ^= (1<<start_red);
@@ -195,6 +228,19 @@ void loop() {
   }
   //AUTOMATIC RETURN
  }
+
+void zero_cross()
+{
+
+  if(last_CH1_state == 0){       //If the last state was 0, then we have a state change...
+      zero_cross_detected = true;  //We have detected a state change! We need both falling and rising edges
+    }
+  else if(last_CH1_state == 1){    //If pin 8 is LOW and the last state was HIGH then we have a state change      
+    zero_cross_detected = true;    //We haev detected a state change!  We need both falling and rising edges.
+    last_CH1_state = 0;            //Store the current state into the last state for the next loop
+    }
+
+}
 void getNumber(){
 
   int touchNumber = 0;
@@ -283,7 +329,7 @@ void commissioning()
   water_filling_process(); //process 1
   getting_ready();
 
-
+ 
 }
 
 void water_filling_process(){
@@ -307,7 +353,7 @@ void water_filling_process(){
  filling_flag=0;//reset the filling flag to low 
  digitalWrite(solenoid, LOW);
  full=1;
-return;//once done we return
+ return;//once done we return
 //end of filling process
 }
 
@@ -319,6 +365,16 @@ void getting_ready()
   //TO CALCULATE THE TIME THE PUMP WILL STAY ON:  SPECS 3L/HR == 0.83333mL/SECOND
   detergent_time = (detergent_dose/0.833333); //thi is the timw the pump will stay on in seconds //usig int will automatically truncate the decimal giving an accurracy og 1 in dosing
   pump_1_on=1;
+  if(tank_temp>=35 && boiler_temp >=70){
+  //we read the temperature status of the tan and boiler
+  ready_flag=1;
+   PORTF |= (1<<start_blu);//setting these pin to 1 using bitwise OR
+   PORTF |= (1<<start_red);  //setting these pin to 1 using bitwise OR
+   PORTF |= (1<<start_grn);  //setting these pin to 1 using bitwise OR
+  getting_ready_flag=0;
+  }
+  
+ 
  return;
 }
 
@@ -457,3 +513,6 @@ int pid_boiler_control(int real_temperature, int setpoint)
  return PID_value;
 
 }
+
+//FUNCION FOR SCREEN 2 PROCESS SELECTION
+//TO SHOW THE MENU AND SELECT THE DESIRED PROCESS FROM THE MENU.
