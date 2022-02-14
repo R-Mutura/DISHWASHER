@@ -20,6 +20,8 @@
 #include "Pin_init.h"
 //#include "processes.h"
 
+int drainpump_on=1; //drain pump is present is present or not
+
 //temperature measurement using MAX31865 parameter initialization
 Adafruit_MAX31865 tank_rtd = Adafruit_MAX31865(rtd_cs); //temp sensor 1
 Adafruit_MAX31865 boiler_rtd = Adafruit_MAX31865(rtd_cs_1); //temp sensor 2
@@ -80,6 +82,8 @@ int rinse_aid_pump=0;
 int done_refilling=0;
 int rinsing=0;
 int sensitive_wash_ready=0;
+int water_change_flag=0;
+int sanitize =0;
 
 //constants to be set and read from permanent storage of the atmega
 int setpoint_tank = 45; //degrees 
@@ -195,7 +199,7 @@ void loop() {
    tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
    boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
   //WE WRITE THE PID CONTROL
- if ( full==1 )
+ if ( full==1 && water_change_flag==0 && sanitize==0 )
  {
   //check if the tank level is okay and then start the heating elements
    int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
@@ -248,7 +252,7 @@ void loop() {
     }
   }
   
-  if(in_process_flag ==1 && rinse_aid_pump==1)
+  if((in_process_flag ==1 && rinse_aid_pump==1) || (sanitize ==1 && rinse_aid_pump==1))
   { 
     if(pump_counter < rinse_aid_time)
     {
@@ -282,7 +286,6 @@ void getNumber(){
 
   int touchNumber = 0;
   uint16_t touchstatus;
-  char digits;
 
   touchstatus = panel.touched();
   for (int j=0; j<6; j++)  // Check how many electrodes were pressed
@@ -839,7 +842,7 @@ void glassware()
       while(millis()-current_time<=wash_time)
       {//this will keep the wash pump on for 90 seconds
         digitalWrite(wash_pump, HIGH);
-        unsigned int time_display = wash_time_sec-mysecond;
+        unsigned int time_display = (wash_time_sec-mysecond);
         mydisplay.clearDisplay();
         mydisplay.setTextSize(1);
         mydisplay.setTextColor(WHITE);
@@ -903,7 +906,7 @@ void glassware()
      mysecond=0;
      if(done_refilling==0)
      {
-        while(millis()-current_time<=30000)
+        while(millis()-current_time<=50000)
         {
           digitalWrite(wash_pump,HIGH);
           mydisplay.clearDisplay();
@@ -913,7 +916,7 @@ void glassware()
           mydisplay.println("RINSING");
           mydisplay.setTextSize(2);
           mydisplay.setCursor(2,1);
-          mydisplay.println(30-mysecond);
+          mydisplay.println(50-mysecond);
           mydisplay.display();
         }
         //NORMAL_DONE=1;
@@ -925,3 +928,137 @@ void glassware()
  }
   }
 }
+
+void water_exchange()
+{
+ water_change_flag=1;
+  float tank_temp= 0;
+  float boiler_temp=0;
+ //turn on drain pump
+  if(drainpump_on ==1)
+ {
+    while (digitalRead(water_lvl_low))
+    {
+      digitalWrite(drain_pump, HIGH);
+    }
+  }
+}
+
+void sanitization()
+{//decommissioning
+  sanitize=1;
+  int current_time=0;
+  //check if the door is closed 
+  int closed = digitalRead(door_sensor);
+  mysecond=0;
+  if(closed ==1)
+  {
+    //check if the drain pump is present
+    if(drainpump_on == 1)
+    {
+
+    }
+    else
+    {
+      //check if the door is closed
+      current_time = millis();
+      if(!digitalRead(door_sensor))//check if the door is closed(reading zero)
+      {
+        while((millis()-current_time)<=5000)
+        {
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("CLEANING");
+          mydisplay.setTextSize(1);
+          mydisplay.setCursor(2,3);
+          mydisplay.println(mysecond);
+          mydisplay.display();   
+        }
+       current_time = millis();
+        while ((millis()-current_time)<=30000)
+        {
+        digitalWrite(solenoid, HIGH);
+          mydisplay.setCursor(2,3);
+          mydisplay.println(mysecond);
+          mydisplay.display();   
+        }
+       digitalWrite(solenoid, LOW);
+       //turn on boiler
+       tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
+       boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+       while(tank_temp<30 && boiler_temp<70)
+       {  
+            tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
+            boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+            int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
+            if (zero_cross_detected)     
+          {
+            delayMicroseconds(maximum_firing_delay - tank_pid); //This delay controls the power
+            //control tank heater
+            digitalWrite(tank_heater,HIGH);
+          }
+          int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
+          //now to update the trigger in the heater element pins
+          if (zero_cross_detected)     
+          {
+            delayMicroseconds(maximum_firing_delay - boiler_pid);
+            //boiler heater
+            digitalWrite(boiler_heater_l1,HIGH);
+            digitalWrite(boiler_heater_l2,HIGH);
+            digitalWrite(boiler_heater_l2,HIGH);
+            delayMicroseconds(50);//wait for 1ooms the write them all low
+            digitalWrite(tank_heater,LOW);
+            //boiler heater
+            digitalWrite(boiler_heater_l1,LOW);
+            digitalWrite(boiler_heater_l2,LOW);
+            digitalWrite(boiler_heater_l2,LOW);
+            zero_cross_detected = false;
+          }
+        }
+        //turn on the ml
+        rinse_aid_time=5/peristalitic_feedrate;
+        rinse_aid_pump=1;
+        current_time=millis();
+        while ((millis()-current_time)<20000)
+        {
+          digitalWrite(solenoid, HIGH);
+        }
+        digitalWrite(solenoid,LOW);
+        //DISPLAY FINISH FOR 2 SECONDS
+        while ((millis()-current_time)<2000)
+        {
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("FINISH");
+         /*  mydisplay.setTextSize(1);
+          mydisplay.setCursor(2,3);
+          mydisplay.println(mysecond);
+          mydisplay.display();  */ 
+        }
+ 
+        //DISPLAY OFF FOR 2 SECONDS
+        while ((millis()-current_time)<2000)
+        {
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("OFF");
+         /*  mydisplay.setTextSize(1);
+          mydisplay.setCursor(2,3);
+          mydisplay.println(mysecond);
+          mydisplay.display();  */ 
+        }
+        //TURN OFF
+        
+      }
+      
+    }
+  }
+}
+
+ 
