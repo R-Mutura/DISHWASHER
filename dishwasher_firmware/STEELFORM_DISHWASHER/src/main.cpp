@@ -18,7 +18,7 @@
 #endif
 
 #include "Pin_init.h"
-#include "processes.h"
+//#include "processes.h"
 
 //temperature measurement using MAX31865 parameter initialization
 Adafruit_MAX31865 tank_rtd = Adafruit_MAX31865(rtd_cs); //temp sensor 1
@@ -62,7 +62,7 @@ volatile int on_off_flag = 0;
 volatile int menu_flag = 0;
 volatile int back_flag = 0;
 volatile int pump_counter=0;
-
+volatile long mysecond =0;
 volatile int last_CH1_state = 0;
 volatile bool zero_cross_detected=false;
 
@@ -76,16 +76,26 @@ int full=0;
 int pump_1_on=0;
 int ready_flag=0;
 int in_process_flag=0;
-
+int rinse_aid_pump=0;
+int done_refilling=0;
+int rinsing=0;
+int sensitive_wash_ready=0;
 
 //constants to be set and read from permanent storage of the atmega
 int setpoint_tank = 45; //degrees 
 int setpoint_boiler =72; //degrees
-int detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
+float detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
+float rinse_aid_dose=5;//ml
 int menu_screen_2 = 0; //will store the menu position selected(such that the menu in use is persistent even after power down)
+
+//processes constant time
+const int normal_time=90;
+const int intensive_time=150;
+const int cookware_time=270;
 //...........................................................................................
 //global variables
 int detergent_time=0;
+int rinse_aid_time=0;
 float tank_temp = 0;
 float boiler_temp=0;
 //end of global vars
@@ -97,6 +107,7 @@ const uint16_t t3_comp=62500;//this value will be loaded to the compare register
 const int firing_delay = 7400;
 const int maximum_firing_delay = 7400;
 
+const float peristalitic_feedrate=0.4166667;//ml
 //FUNCTION PROTOTYPES
 void getNumber();
 void water_filling_process();
@@ -107,6 +118,8 @@ void zero_cross();
 int pid_tank_control(int real_temperature, int setpoint);
 int pid_boiler_control(int real_temperature, int setpoint);
 void update_screen_2();
+void basic_process(int timing);
+void glassware();
 
 
 void setup() {
@@ -156,7 +169,7 @@ void setup() {
   //ADDING A DOOR INTERRUPT SO THAT WHEN IT IS OPENED AND A PROCESS IS ON GOING, THE PROCESS IS INTERRUPTED.
   attachInterrupt(digitalPinToInterrupt(door_sensor),door_open_ISR, HIGH);
   // zero crossing detection
-  attachInterrupt(digitalPinToInterrupt(zero_cross_detect),zero_cross, HIGH);
+  attachInterrupt(digitalPinToInterrupt(zero_cross_detect),zero_cross, CHANGE);
 
   // initializing mydisplay
   if ( ! mydisplay.begin(0x3C) ) {
@@ -186,19 +199,22 @@ void loop() {
  {
   //check if the tank level is okay and then start the heating elements
    int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
-   int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
-
-   //now to update the trigger in the heater element pins
-   if (zero_cross_detected)     
+      if (zero_cross_detected)     
     {
       delayMicroseconds(maximum_firing_delay - tank_pid); //This delay controls the power
       //control tank heater
       digitalWrite(tank_heater,HIGH);
+    }
+   int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
+   //now to update the trigger in the heater element pins
+   if (zero_cross_detected)     
+    {
+      delayMicroseconds(maximum_firing_delay - boiler_pid);
       //boiler heater
       digitalWrite(boiler_heater_l1,HIGH);
       digitalWrite(boiler_heater_l2,HIGH);
       digitalWrite(boiler_heater_l2,HIGH);
-      delayMicroseconds(100);//wait for 1ooms the write them all low
+      delayMicroseconds(50);//wait for 1ooms the write them all low
       digitalWrite(tank_heater,LOW);
       //boiler heater
       digitalWrite(boiler_heater_l1,LOW);
@@ -227,10 +243,27 @@ void loop() {
     }
     else{
       digitalWrite(perilistic_pump_1, LOW);
+      pump_1_on=0;//once done reset the pump 1 on flag to zero
       pump_counter=0;
     }
   }
-  //AUTOMATIC RETURN
+  
+  if(in_process_flag ==1 && rinse_aid_pump==1)
+  { 
+    if(pump_counter < rinse_aid_time)
+    {
+      digitalWrite(perilistic_pump_2, HIGH);
+      pump_counter++; //this will be used to check timing in the priming stage without causing polling action
+    }
+    else{
+      digitalWrite(perilistic_pump_2, LOW);
+      rinse_aid_pump=0; //resest the rinse aid pump on flag
+      pump_counter=0;
+
+    }
+  }
+  mysecond++;
+  //AUTOMATIC RETURN from interrupt
  }
 
 void zero_cross()
@@ -531,13 +564,13 @@ void update_screen_2()
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
     mydisplay.setCursor(2,0);
-    mydisplay.println("=> NORMAL 120 sec");
+    mydisplay.println("=> NORMAL");
     mydisplay.setCursor(2,1);
-    mydisplay.println("Intensive 180 sec");
+    mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,2);
-    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.println("COOKWARE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.println("HIGH TEMP CYCLE");
     mydisplay.display();
     
   
@@ -549,13 +582,13 @@ void update_screen_2()
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL 120 sec");
+    mydisplay.println("NORMAL");
     mydisplay.setCursor(2,1);
-    mydisplay.println("=> Intensive 180 sec");
+    mydisplay.println("=> INTENSIVE");
     mydisplay.setCursor(2,2);
-    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.println("COOKWARE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.println("HIGH TEMP CYCLE");
     mydisplay.display();
    
    break;
@@ -566,13 +599,13 @@ void update_screen_2()
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL 120 sec");
+    mydisplay.println("NORMAL");
     mydisplay.setCursor(2,1);
-    mydisplay.println("Intensive 180 sec");
+    mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,2);
-    mydisplay.println("=> Utensils and Cookware 300 sec");
+    mydisplay.println("=> COOKWARE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("Sensitive Glassware 200 sec");
+    mydisplay.println("HIGH TEMP CYCLE");
     mydisplay.display();
   
    break;
@@ -583,13 +616,49 @@ void update_screen_2()
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL 120 sec");
+    mydisplay.println("NORMAL");
     mydisplay.setCursor(2,1);
-    mydisplay.println("Intensive 180 sec");
+    mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,2);
-    mydisplay.println("Utensils and Cookware 300 sec");
+    mydisplay.println("COOKWARE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("=> Sensitive Glassware 200 sec");
+    mydisplay.println("=> HIGH TEMP CYCLE");
+    mydisplay.display();
+  
+   break;
+  }
+  
+  case 4: { /* constant-expression */
+       menu_screen_2=4;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("INTENSIVE");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("COOKWARE");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("HIGH TEMP CYCLE");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("=> Water Exchange");
+    mydisplay.display();
+  
+   break;
+  }
+  
+  case 5: { /* constant-expression */
+       menu_screen_2=5;
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(1);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(2,0);
+    mydisplay.println("COOKWARE");
+    mydisplay.setCursor(2,1);
+    mydisplay.println("HIGH TEMP CYCLE");
+    mydisplay.setCursor(2,2);
+    mydisplay.println("Water Exchange");
+    mydisplay.setCursor(2,3);
+    mydisplay.println("=> Self Cleaning Cycle");
     mydisplay.display();
   
    break;
@@ -601,17 +670,258 @@ void update_screen_2()
  return;
 }
 //all processes will be written in this section. then the flag handler will call them appropriately
-void normal_process()
-{  long current_time=0;
-   long wash_time =90000; // 90 seconds => 90000ms
-  if (ready_flag==1 && start_flag==2)
+void basic_process(int timing)//timing is in sconds
+{  
+   unsigned long current_time=0;
+   unsigned long wash_time =(timing*1000); // to get timin in miliseconds=> *1000
+   unsigned int wash_time_sec=timing;
+  if ((ready_flag==1 && start_flag==2) || in_process_flag==1)
   {
-    in_process_flag=1;
+   if(rinsing==0){
+      in_process_flag=1;
+      current_time=millis();
+      mysecond=0;
+      while(millis()-current_time<=wash_time)
+      {//this will keep the wash pump on for 90 seconds
+        digitalWrite(wash_pump, HIGH);
+        unsigned int time_display = wash_time_sec-mysecond;
+        mydisplay.clearDisplay();
+        mydisplay.setTextSize(1);
+        mydisplay.setTextColor(WHITE);
+        mydisplay.setCursor(2,0);
+        mydisplay.println("NORMAL");
+        mydisplay.setTextSize(1);
+        mydisplay.setCursor(2,1);
+        mydisplay.println(time_display);
+        mydisplay.display();
+      }// once the washing is done
+      //turn off wash pump
+      digitalWrite(wash_pump,LOW);
+      rinsing=1; //indicate start of rinsing process
+    }
+   else{
+    //refill reheat and rinse
+    //TURN SOLENOID VALVE ON
+    
+    ready_flag=0;
     current_time=millis();
-    while()
-      digitalWrite(wash_pump, HIGH);
-  }
-  
-  
+    mysecond=0;
+    if(done_refilling==0){
+    while(millis()-current_time<=30000)
+     {//wdo this for 30 seconds for the refilling process
+        digitalWrite(solenoid, HIGH);
+        mydisplay.clearDisplay();
+        mydisplay.setTextSize(1);
+        mydisplay.setTextColor(WHITE);
+        mydisplay.setCursor(2,0);
+        mydisplay.println("REFILLING");
+        mydisplay.setTextSize(1);
+        mydisplay.setCursor(2,1);
+        mydisplay.println(30-mysecond);
+        mydisplay.display();
+       
+      }
+      digitalWrite(solenoid, LOW);
+      //add the rinse aid
+      rinse_aid_time= rinse_aid_dose/peristalitic_feedrate;
+      rinse_aid_pump=1;//set the rinse pump flag on to be used in the ISR timer3
+      done_refilling=1;
+      
+    }
+    //AFTER EACH PROCESS CALL COMMISSIONING SO AS TO GET THE WATER LEVEL AND TEMPERATURES WITHI RANGES AGAIN
 
+    
+    
+    //read temperature to ensure all is ready
+    if((boiler_temp>=setpoint_boiler) && (tank_temp>=setpoint_tank) && (rinse_aid_pump==0))
+    {
+    ready_flag=1; //set ready flag to 1
+    }
+    //we check the ready flag to start the rinsing process
+    if(ready_flag==1 && in_process_flag==1 && done_refilling==1)
+    {
+        current_time=millis();
+      mysecond=0;
+      if(done_refilling==0)
+      {
+        while(millis()-current_time<=30000)
+        {
+          digitalWrite(wash_pump,HIGH);
+            mydisplay.clearDisplay();
+            mydisplay.setTextSize(1);
+            mydisplay.setTextColor(WHITE);
+            mydisplay.setCursor(2,0);
+            mydisplay.println("RINSING");
+            mydisplay.setTextSize(2);
+            mydisplay.setCursor(2,1);
+            mydisplay.println(30-mysecond);
+            mydisplay.display();
+        }
+            //NORMAL_DONE=1;
+          in_process_flag=0;
+          start_flag=1;//SIGNAL END OF PROCESS AND RETURN TO THE MAIN MENU SCREEN
+      }
+   }
+  }
+return;
+}
+}
+
+void glassware()
+{
+   
+   unsigned long current_time=0;
+    long wash_time =150; // to get timin in miliseconds=> *1000
+    wash_time *=1000;
+   unsigned int wash_time_sec=150;
+   float temp_boiler=0;
+   int elapsed_seconds=0;
+   int reheat_flag=0;
+  //first we check temperature
+   temp_boiler =boiler_rtd.temperature(RNOMINAL, RREF);
+  if(temp_boiler>62 && sensitive_wash_ready==0 )
+  {
+    mysecond=0; //reset myseconds counter so as to save the length of the waiting loop
+    do
+    { //polling loop
+      //we are doing nothing here...just waiting for the temperature to drop
+      //this loop will go on waiting for the temperature to drops accordingly
+      elapsed_seconds=mysecond;
+    } while ((temp_boiler=boiler_rtd.temperature(RNOMINAL, RREF))>62 );
+
+    sensitive_wash_ready=1; //once done set the ready flag
+  }
+  else if((temp_boiler<58 && sensitive_wash_ready==0) ||reheat_flag==1)
+  {
+     mysecond=0; //reset myseconds counter so as to save the length of the waiting loop
+    do
+    { 
+
+      boiler_temp=0;
+      int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
+      elapsed_seconds=mysecond;
+   //now to update the trigger in the heater element pins
+    if (zero_cross_detected)     
+    {
+      delayMicroseconds(maximum_firing_delay - boiler_pid); //This delay controls the power
+      //control tank heater
+      //boiler heater high
+      digitalWrite(boiler_heater_l1,HIGH);
+      digitalWrite(boiler_heater_l2,HIGH);
+      digitalWrite(boiler_heater_l2,HIGH);
+      delayMicroseconds(100);//wait for 1ooms the write them all low
+       //boiler heater low
+      digitalWrite(boiler_heater_l1,LOW);
+      digitalWrite(boiler_heater_l2,LOW);
+      digitalWrite(boiler_heater_l2,LOW);
+      zero_cross_detected = false;
+    } 
+    } while (tank_temp<58);
+    sensitive_wash_ready=1;
+    reheat_flag=0;
+  }
+  else
+ {
+   sensitive_wash_ready=1;
+ }
+ (20-elapsed_seconds)<=0 ? delay(0):delay(20-elapsed_seconds); //is else to set the delay of the glass washing start of 20 seconds
+ //proceeding to washing operations
+ if (sensitive_wash_ready==1 )
+ {
+   //we begin the washing process
+   if ((ready_flag==1 && start_flag==2) || in_process_flag==1)
+  {
+   if(rinsing==0)
+   {
+      in_process_flag=1;
+      current_time=millis();
+      mysecond=0;
+      while(millis()-current_time<=wash_time)
+      {//this will keep the wash pump on for 90 seconds
+        digitalWrite(wash_pump, HIGH);
+        unsigned int time_display = wash_time_sec-mysecond;
+        mydisplay.clearDisplay();
+        mydisplay.setTextSize(1);
+        mydisplay.setTextColor(WHITE);
+        mydisplay.setCursor(2,0);
+        mydisplay.println("WASHING");
+        mydisplay.setTextSize(1);
+        mydisplay.setCursor(2,1);
+        mydisplay.println(time_display);
+        mydisplay.display();
+      }// once the washing is done
+      //turn off wash pump
+      digitalWrite(wash_pump,LOW);
+      rinsing=1; //indicate start of rinsing process
+    }
+  else
+  {
+   //RINSING PROCESS
+       sensitive_wash_ready=0;
+    current_time=millis();
+    mysecond=0;
+    if(done_refilling==0)
+    {
+    while(millis()-current_time<=30000)
+     {//wdo this for 30 seconds for the refilling process
+        digitalWrite(solenoid, HIGH);
+        mydisplay.clearDisplay();
+        mydisplay.setTextSize(1);
+        mydisplay.setTextColor(WHITE);
+        mydisplay.setCursor(2,0);
+        mydisplay.println("REFILLING");
+        mydisplay.setTextSize(1);
+        mydisplay.setCursor(2,1);
+        mydisplay.println(30-mysecond);
+        mydisplay.display();
+       
+      }
+      digitalWrite(solenoid, LOW);
+      //add the rinse aid
+      rinse_aid_time= rinse_aid_dose/peristalitic_feedrate;
+      rinse_aid_pump=1;//set the rinse pump flag on to be used in the ISR timer3
+      done_refilling=1;
+      
+    }
+    
+    
+    
+    //read temperature to ensure all is ready
+    if((temp_boiler>=58) && (temp_boiler<=62) && (rinse_aid_pump==0))
+    {
+    ready_flag=1; //set ready flag to 1
+    sensitive_wash_ready=1;
+    }
+    else if((temp_boiler<58) && (rinse_aid_pump==0))
+    {//if not within the range and and tergent pump is on then we use gp to to go to the function for increasing temperature
+     reheat_flag=1;
+    }
+    //we check the ready flag to start the rinsing process
+    if(sensitive_wash_ready==1 && in_process_flag==1 && done_refilling==1 && reheat_flag==1)
+    {
+      current_time=millis();
+     mysecond=0;
+     if(done_refilling==0)
+     {
+        while(millis()-current_time<=30000)
+        {
+          digitalWrite(wash_pump,HIGH);
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(1);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,0);
+          mydisplay.println("RINSING");
+          mydisplay.setTextSize(2);
+          mydisplay.setCursor(2,1);
+          mydisplay.println(30-mysecond);
+          mydisplay.display();
+        }
+        //NORMAL_DONE=1;
+       in_process_flag=0;
+       start_flag=1;//SIGNAL END OF PROCESS AND RETURN TO THE MAIN MENU SCREEN
+    }
+  }
+  }
+ }
+  }
 }
