@@ -63,6 +63,9 @@ volatile int start_flag = 0;
 volatile int on_off_flag = 0;
 volatile int menu_flag = 0;
 volatile int back_flag = 0;
+volatile int arrow_flag=0;
+volatile int set_flag=0;
+
 volatile int pump_counter=0;
 volatile long mysecond =0;
 volatile int last_CH1_state = 0;
@@ -77,8 +80,10 @@ volatile int getting_ready_flag =0;
 int full=0;
 int pump_1_on=0;
 int ready_flag=0;
+int in_screen2=0;
 int in_process_flag=0;
 int rinse_aid_pump=0;
+int rinse_add_done=0;
 int done_refilling=0;
 int rinsing=0;
 int sensitive_wash_ready=0;
@@ -90,8 +95,8 @@ int setpoint_tank = 45; //degrees
 int setpoint_boiler =72; //degrees
 float detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
 float rinse_aid_dose=5;//ml
-int menu_screen_2 = 0; //will store the menu position selected(such that the menu in use is persistent even after power down)
-
+int menu_screen_2 = 0; //temporary process holder for screen update...once set is pressed on the desired menu then the value herein is moved to the selected_process variable and displayed on screen
+int selected_process=0;//will store the menu position selected(such that the menu in use is persistent even after power down)
 //processes constant time
 const int normal_time=90;
 const int intensive_time=150;
@@ -102,6 +107,8 @@ int detergent_time=0;
 int rinse_aid_time=0;
 float tank_temp = 0;
 float boiler_temp=0;
+
+
 //end of global vars
 //TIMER3 FUNCTION CONSTANTS
 const uint16_t t3_load=0;
@@ -124,6 +131,8 @@ int pid_boiler_control(int real_temperature, int setpoint);
 void update_screen_2();
 void basic_process(int timing);
 void glassware();
+
+void flag_handler();
 
 
 void setup() {
@@ -195,6 +204,12 @@ void setup() {
 
 void loop() {
 
+  if(on_off_flag ==1 && start_flag==0)
+  {
+    //the machine has been turned on so we
+    digitalWrite(rgb_onoff_blu, HIGH);
+
+  }
   // put your main code here, to run repeatedly:
    tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
    boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
@@ -227,6 +242,7 @@ void loop() {
       zero_cross_detected = false;
     } 
  }
+ void flag_handler();
 }
  
  ISR(TIMER3_COMPA_vect)
@@ -266,6 +282,11 @@ void loop() {
 
     }
   }
+  if ( in_process_flag==1 && (water_change_flag == 1 || sanitize==1) )
+  {
+    PORTF ^= (1<<start_blu);
+  }
+  
   mysecond++;
   //AUTOMATIC RETURN from interrupt
  }
@@ -305,30 +326,52 @@ void getNumber(){
       on_off_flag=1;
 
     }
+    else{
+      on_off_flag=0;
+    }
      //perform the on off function eg decommissioning
      //check if the machine was a sleep and wake up if it was not asleep then continue with the decommissioning process
      //the decomissioninf and any other process function is called here
-
+   
    } 
    else if(touchstatus & (1<<menu))
    {
-
+     if(menu_flag==0)
+     {
+       menu_flag=1;
+     }
+     else
+     {
+       menu_flag=0;
+     }
    }
    else if(touchstatus & (1<<back))
    {
-
+     back_flag=1;
    }
    else if(touchstatus & (1<<left))
    {
-
+     arrow_flag--;
+     if(in_screen2==1)
+     {
+     menu_screen_2--;
+     }
    }
    else if(touchstatus & (1<<set))
    {
-
+     set_flag=1;
+    if(in_screen2==1)
+     {
+     menu_screen_2--;
+     }
    }
    else if(touchstatus & (1<<right))
    {
-
+    arrow_flag++;
+    if(in_screen2==1)
+     {
+     menu_screen_2++;
+     }
    }
    else if(touchstatus & (1<<start))
    { 
@@ -336,8 +379,13 @@ void getNumber(){
     {
         start_flag=1;
     }
-   
-    
+    else if(start_flag==1 && full==1 && ready_flag==1)
+    { //this flags check that the commissioning process is complete
+      //now when one presses start, it sets a flag that can be used to start the desired process
+      start_flag=2;
+    }
+
+     
    }
   }
  else if(touchNumber == 2)
@@ -522,10 +570,10 @@ int pid_boiler_control(int real_temperature, int setpoint)
     
    PID_p = kp * PID_error;                         //Calculate the P value
    PID_i = PID_i + (ki * PID_error);               //Calculate the I value
-    timePrev = Time;                    // the previous time is stored before the actual time read
-    Time = millis();                    // actual time read
-    elapsedTime = (Time - timePrev) / 1000;   
-    PID_d = kd*((PID_error - previous_error)/elapsedTime);  //Calculate the D value
+    timePrev_b = Time_b;                    // the previous time is stored before the actual time read
+    Time_b = millis();                    // actual time read
+    elapsedTime_b = (Time - timePrev) / 1000;   
+    PID_d = kd*((PID_error - previous_error_b)/elapsedTime_b);  //Calculate the D value
     PID_value = PID_p + PID_i + PID_d;                      //Calculate total PID value
     
     //We define firing delay range between 0 and 7400. Read above why 7400!!!!!!!
@@ -546,7 +594,7 @@ int pid_boiler_control(int real_temperature, int setpoint)
     debug("Real temp: ");
     debugln(real_temperature);
 
-    previous_error = PID_error; //Remember to store the previous error.
+    previous_error_b = PID_error; //Remember to store the previous error.
   
 
 
@@ -558,6 +606,7 @@ void update_screen_2()
 {//FUNCION FOR SCREEN 2 PROCESS SELECTION
  //TO SHOW THE MENU AND SELECT THE DESIRED PROCESS FROM THE MENU.
  //this happens if the ready flag is set and will be handled(called) in the flag_handler function
+ in_screen2=1;
  menu_screen_2 = 0;
  switch (menu_screen_2)
  {
@@ -725,11 +774,14 @@ void basic_process(int timing)//timing is in sconds
        
       }
       digitalWrite(solenoid, LOW);
-      //add the rinse aid
-      rinse_aid_time= rinse_aid_dose/peristalitic_feedrate;
-      rinse_aid_pump=1;//set the rinse pump flag on to be used in the ISR timer3
       done_refilling=1;
-      
+      //add the rinse aid
+      if(rinse_add_done==0)
+      {
+        rinse_aid_time= rinse_aid_dose/peristalitic_feedrate;
+        rinse_aid_pump=1;//set the rinse pump flag on to be used in the ISR timer3
+        rinse_add_done=1;
+      }
     }
     //AFTER EACH PROCESS CALL COMMISSIONING SO AS TO GET THE WATER LEVEL AND TEMPERATURES WITHI RANGES AGAIN
 
@@ -744,7 +796,7 @@ void basic_process(int timing)//timing is in sconds
     if(ready_flag==1 && in_process_flag==1 && done_refilling==1)
     {
         current_time=millis();
-      mysecond=0;
+       mysecond=0;
       if(done_refilling==0)
       {
         while(millis()-current_time<=30000)
@@ -761,6 +813,7 @@ void basic_process(int timing)//timing is in sconds
             mydisplay.display();
         }
             //NORMAL_DONE=1;
+          rinse_add_done=0;
           in_process_flag=0;
           start_flag=1;//SIGNAL END OF PROCESS AND RETURN TO THE MAIN MENU SCREEN
       }
@@ -931,7 +984,10 @@ void glassware()
 
 void water_exchange()
 {
- water_change_flag=1;
+
+  long current_time=0;
+  in_process_flag=1;
+  water_change_flag=1;
   //float tank_temp= 0;
  // float boiler_temp=0;
   
@@ -941,12 +997,34 @@ void water_exchange()
     while (digitalRead(water_lvl_low))
     {
       digitalWrite(drain_pump, HIGH);
+          
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(1);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,0);
+          mydisplay.println("DRAINING");
+          mydisplay.display();
+    }
+    digitalWrite(drain_pump, LOW);
+    //display changes to 
+    while((millis()-current_time)<15000)
+    {
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(1);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,0);
+          mydisplay.println("Clean Filters");
+          mydisplay.display();
     }
   }
+  water_change_flag=0;
+  in_process_flag=0;
+  return;
 }
 
 void sanitization()
 {//decommissioning
+  in_process_flag=1;
   sanitize=1;
   int current_time=0;
   bool icon = 0;
@@ -993,7 +1071,7 @@ void sanitization()
 
        //turn solenoid on 
        current_time = millis();
-        while ((millis()-current_time)<=30000)
+        while ((millis() - current_time)<=30000)
         {
           digitalWrite(solenoid, HIGH);
 
@@ -1073,6 +1151,7 @@ void sanitization()
           mydisplay.println("DRAINING");
           mydisplay.display();  
        }
+       sanitize=0;
         digitalWrite(drain_pump, LOW);
          //SHOW FINISH
          mydisplay.clearDisplay();
@@ -1163,6 +1242,7 @@ void sanitization()
         }
         digitalWrite(solenoid,LOW);
         //DISPLAY FINISH FOR 2 SECONDS
+        sanitize=0;
         while ((millis()-current_time)<2000)
         {
           mydisplay.clearDisplay();
@@ -1195,12 +1275,63 @@ void sanitization()
       
     }
   }
+  in_process_flag=0;
+  sanitize=0;
+  return;
+ 
 }
 
 
 void flag_handler()
 {
-  
+//ensure to reset in_screen2 flaf to zero when starting every process
+  if(on_off_flag==1 && start_flag==1 && ready_flag==0)
+  {
+    commissioning();
+  }
+
+  else if(start_flag==1 && ready_flag==1)
+  {
+    update_screen_2();
+  }
+  else if(start_flag==2 && ready_flag==1)
+  {//this if the conditions that must be set for the processes to start
+   /*we read the selected_process variable to know which process we are going to run 
+   //and then we will reset the start variable to i at the end of this if else*/
+   switch ( selected_process)
+   {
+   case 0:
+     basic_process(normal_time); //this calls the NORMAL 120 sec process (check requirement pdf for features)
+     break;
+
+    case 1:
+     basic_process(intensive_time); //this calls the Intensive 180 sec process (check requirement pdf for features)
+     break;
+   
+    case 2:
+     basic_process(cookware_time); //this calls the Utensils and Cookware 300 sec. process (check requirement pdf for features)
+     break;
+   
+    case 3:
+     glassware(); //this calls the Sensitive Glassware 200 sec. process (check requirement pdf for features)
+     break;
+    
+    case 4:
+     water_exchange(); //this calls the Sensitive Glassware 200 sec. process (check requirement pdf for features)
+     break;
+    
+    case 5:
+     sanitization(); //this calls the Sensitive Glassware 200 sec. process (check requirement pdf for features)
+     break;
+
+   default:
+    basic_process(normal_time); //this calls the NORMAL 120 sec process (check requirement pdf for features)
+     break;
+   }
+
+
+
+  }
 }
 
  

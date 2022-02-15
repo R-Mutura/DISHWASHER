@@ -94,5 +94,8 @@ DDRF |=(1<<start_blu); //SETTING PFx PIN AS OUTPUT in the DDRF register
 DDRF |=(1<<start_red); //SETTING PFx PIN AS OUTPUT in the DDRF register
 DDRF |=(1<<start_grn); //SETTING PFx PIN AS OUTPUT in the DDRF register
 
+PORTF &=(0<<start_blu); //initialize the pin to low
+PORTF &=(0<<start_red); //initialize the pin to low
+PORTF &=(0<<start_grn); //initialize the pin to low
 
 }
