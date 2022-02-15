@@ -926,14 +926,15 @@ void glassware()
   }
   }
  }
-  }
+}
 }
 
 void water_exchange()
 {
  water_change_flag=1;
-  float tank_temp= 0;
-  float boiler_temp=0;
+  //float tank_temp= 0;
+ // float boiler_temp=0;
+  
  //turn on drain pump
   if(drainpump_on ==1)
  {
@@ -948,6 +949,7 @@ void sanitization()
 {//decommissioning
   sanitize=1;
   int current_time=0;
+  bool icon = 0;
   //check if the door is closed 
   int closed = digitalRead(door_sensor);
   mysecond=0;
@@ -955,9 +957,143 @@ void sanitization()
   {
     //check if the drain pump is present
     if(drainpump_on == 1)
-    {
+    {   
+       //turn on drain pump
+       while(!digitalRead(water_lvl_low))
+       {
+         
+         digitalWrite(drain_pump, HIGH);
+         mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("DRAINING");
+          mydisplay.display();  
+       }
+        digitalWrite(drain_pump, LOW);
+        current_time = millis();
+        while ((millis()-current_time)<=15000)
+        {
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("REMOVE AND CLEAN FILTERS");
+          mydisplay.display();  
+        }
+        //display cleaning
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("CLEANING");
+          mydisplay.display(); 
+       //DELAY 5SEC
+       delay(5000);
 
-    }
+       //turn solenoid on 
+       current_time = millis();
+        while ((millis()-current_time)<=30000)
+        {
+          digitalWrite(solenoid, HIGH);
+
+        }
+        digitalWrite(solenoid, LOW);
+        delay(10000);
+
+       ///ENSURE THE TEMPERATURE IS WITHIN THE DESIRED LEVELS
+       tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
+       boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+        mydisplay.setTextSize(1);
+        mydisplay.setTextColor(WHITE);
+        mydisplay.setCursor(2,3);
+        mydisplay.println("<TEMP>");//TEMP ICON BLINKING
+       while(tank_temp<30 && boiler_temp<70)
+       {   
+          icon=(!icon);
+           if(icon==1){
+              mydisplay.setTextSize(1);
+              mydisplay.setTextColor(WHITE);
+              mydisplay.setCursor(2,3);
+              mydisplay.println("<TEMP>");//TEMP ICON BLINKING
+           }
+           else{
+             mydisplay.setTextSize(1);
+              mydisplay.setTextColor(WHITE);
+              mydisplay.setCursor(2,3);
+              mydisplay.println("      ");//TEMP ICON BLINKING
+           }
+            tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
+            boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+
+            int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
+          if (zero_cross_detected)     
+          {
+            delayMicroseconds(maximum_firing_delay - tank_pid); //This delay controls the power
+            //control tank heater
+            digitalWrite(tank_heater,HIGH);
+          }
+          int boiler_pid =pid_boiler_control(boiler_temp, setpoint_boiler);
+          //now to update the trigger in the heater element pins
+          if (zero_cross_detected)     
+          {
+            delayMicroseconds(maximum_firing_delay - boiler_pid);
+            //boiler heater
+            digitalWrite(boiler_heater_l1,HIGH);
+            digitalWrite(boiler_heater_l2,HIGH);
+            digitalWrite(boiler_heater_l2,HIGH);
+            delayMicroseconds(50);//wait for 1ooms the write them all low
+            digitalWrite(tank_heater,LOW);
+            //boiler heater
+            digitalWrite(boiler_heater_l1,LOW);
+            digitalWrite(boiler_heater_l2,LOW);
+            digitalWrite(boiler_heater_l2,LOW);
+            zero_cross_detected = false;
+          }
+        }
+        //THEN OPEN THE SOLENOD FOR 20SEC
+        rinse_aid_time=5/peristalitic_feedrate;
+        rinse_aid_pump=1;
+       current_time = millis();
+        while ((millis()-current_time)<=20000)
+        {
+          digitalWrite(solenoid, HIGH);
+
+        }
+        digitalWrite(solenoid, LOW);
+       //turn on drain pump to drain the water completely
+              while(!digitalRead(water_lvl_low))
+       {
+         
+         digitalWrite(drain_pump, HIGH);
+         mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("DRAINING");
+          mydisplay.display();  
+       }
+        digitalWrite(drain_pump, LOW);
+         //SHOW FINISH
+         mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("FINISH");
+          mydisplay.display(); 
+          delay(2000);
+         //DISPLAY OFF
+          mydisplay.clearDisplay();
+          mydisplay.setTextSize(2);
+          mydisplay.setTextColor(WHITE);
+          mydisplay.setCursor(2,1);
+          mydisplay.println("OFF");
+          mydisplay.display(); 
+          delay(2000);
+
+ //TURN OFF FUCTION CALL
+          
+    }//END OF IF
     else
     {
       //check if the door is closed
@@ -1054,11 +1190,17 @@ void sanitization()
           mydisplay.display();  */ 
         }
         //TURN OFF
-        
+
       }
       
     }
   }
+}
+
+
+void flag_handler()
+{
+  
 }
 
  
