@@ -1550,6 +1550,6 @@ void priming()
 
     }
     digitalWrite(perilistic_pump_1, LOW);
-
+    set_flag=0;
 
 }
