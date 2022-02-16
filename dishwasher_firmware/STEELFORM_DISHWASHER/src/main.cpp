@@ -79,6 +79,7 @@ volatile int getting_ready_flag =0;
 
 int full=0;
 int pump_1_on=0;
+int detergent_on=0;
 int ready_flag=0;
 int in_screen2=0;
 int in_process_flag=0;
@@ -97,6 +98,11 @@ float detergent_dose=5;//ml //this will be read from the eeprom memory and store
 float rinse_aid_dose=5;//ml
 int menu_screen_2 = 0; //temporary process holder for screen update...once set is pressed on the desired menu then the value herein is moved to the selected_process variable and displayed on screen
 int selected_process=0;//will store the menu position selected(such that the menu in use is persistent even after power down)
+
+volatile int set_menu=0; //carries the set screen index and will be used in the next operation to set the variables of the selected menu
+int installer_screen=0;
+int menu_screen_1=0;// holds the current set-screen index
+
 //processes constant time
 const int normal_time=90;
 const int intensive_time=150;
@@ -133,6 +139,7 @@ void basic_process(int timing);
 void glassware();
 
 void flag_handler();
+void installer_menu();
 
 
 void setup() {
@@ -354,17 +361,28 @@ void getNumber(){
      arrow_flag--;
      if(in_screen2==1)
      {
-     menu_screen_2--;
+       menu_screen_2--;
+     }
+     else if(installer_screen==1)
+     {
+        menu_screen_1++;
      }
    }
+
    else if(touchstatus & (1<<set))
    {
-     set_flag=1;
+     
     if(in_screen2==1)
      {
-     menu_screen_2--;
+        selected_process =menu_screen_2;
      }
+    else if(installer_screen==1)
+    {
+      set_menu =menu_screen_1; //save the current selected settings menu to set menu variable
+      set_flag=1;//set the set flag to 1 ==> will be used to call the update submenu 
+    }
    }
+
    else if(touchstatus & (1<<right))
    {
     arrow_flag++;
@@ -372,7 +390,12 @@ void getNumber(){
      {
      menu_screen_2++;
      }
+    else if(installer_screen==1)
+    {
+      menu_screen_1++;
+    }
    }
+
    else if(touchstatus & (1<<start))
    { 
       if (start_flag==0 && on_off_flag==1)
@@ -387,24 +410,21 @@ void getNumber(){
 
      
    }
+
   }
  else if(touchNumber == 2)
  {//if two buttons are pressed then we proceed to do the relevant check of which buttons are they
    if ((touchstatus & (1<<on_off)) && (touchstatus & (1<<start)))
    {
      // GO TO THE INSTALLER MENU
-    
+     installer_menu_flag=1;
    }
- else
- {
-   //do nothing
-   return;
- }  
- 
- }
+  
+  }
   
 
-
+ //return;
+ //return from sr will be called automatically
 }
 
 void commissioning()
@@ -451,8 +471,12 @@ void getting_ready()
   //feeding detergent into the tank
   getting_ready_flag=1;
   //TO CALCULATE THE TIME THE PUMP WILL STAY ON:  SPECS 3L/HR == 0.83333mL/SECOND
+  if(detergent_on==0)
+  {
   detergent_time = (detergent_dose/0.833333); //thi is the timw the pump will stay on in seconds //usig int will automatically truncate the decimal giving an accurracy og 1 in dosing
   pump_1_on=1;
+  detergent_on=1;
+  }
   if(tank_temp>=35 && boiler_temp >=70){
   //we read the temperature status of the tan and boiler
   ready_flag=1;
@@ -460,6 +484,7 @@ void getting_ready()
    PORTF |= (1<<start_red);  //setting these pin to 1 using bitwise OR
    PORTF |= (1<<start_grn);  //setting these pin to 1 using bitwise OR
   getting_ready_flag=0;
+  detergent_on=0;
   }
   
  
@@ -607,11 +632,11 @@ void update_screen_2()
  //TO SHOW THE MENU AND SELECT THE DESIRED PROCESS FROM THE MENU.
  //this happens if the ready flag is set and will be handled(called) in the flag_handler function
  in_screen2=1;
- menu_screen_2 = 0;
+ //menu_screen_2 = 0;
  switch (menu_screen_2)
  {
  case 0: { /* constant-expression */
-     menu_screen_2=0;
+     //menu_screen_2=0;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -629,7 +654,7 @@ void update_screen_2()
    break;
   }
    case 1: { /* constant-expression */
-      menu_screen_2=1;
+     // menu_screen_2=1;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -646,7 +671,7 @@ void update_screen_2()
    break;
   }
    case 2: { /* constant-expression */
-       menu_screen_2=2;
+    //   menu_screen_2=2;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -663,7 +688,7 @@ void update_screen_2()
    break;
   }
    case 3: { /* constant-expression */
-       menu_screen_2=3;
+    //   menu_screen_2=3;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -681,7 +706,7 @@ void update_screen_2()
   }
   
   case 4: { /* constant-expression */
-       menu_screen_2=4;
+     //  menu_screen_2=4;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -699,7 +724,7 @@ void update_screen_2()
   }
   
   case 5: { /* constant-expression */
-       menu_screen_2=5;
+    //   menu_screen_2=5;
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
@@ -1328,10 +1353,203 @@ void flag_handler()
     basic_process(normal_time); //this calls the NORMAL 120 sec process (check requirement pdf for features)
      break;
    }
+   //settings menu section here goes
+   
 
-
-
+  }
+  else if(installer_menu_flag==1 && in_process_flag==0 && on_off_flag==1 )
+  {
+    installer_menu();
   }
 }
 
- 
+
+void installer_menu()
+{
+  installer_screen=1;
+  switch (menu_screen_1)
+  {
+    case 0:
+    { /* constant-expression */
+    
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("=> Rinse Aid Priming");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Detergent Priming");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Rinse Aid Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 1:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Priming");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("=> Detergent Priming");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Rinse Aid Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 2:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Priming");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Detergent Priming");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("=> Rinse Aid Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 3:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Priming");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Detergent Priming");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Rinse Aid Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("=> Detergent Dosage");
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 4:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Detergent Priming");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Rinse Aid Dosage");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("=> Detergent Startup Dosage" );
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 5:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Dosage");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Detergent Startup Dosage");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("=> Boiler Set Point" );
+      mydisplay.display();
+      
+    
+     break;
+    }
+
+    case 6:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Detergent Dosage");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Detergent Startup Dosage");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Boiler Set Point");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("=> Tank Set Point" );
+      mydisplay.display();
+      
+    
+     break;
+    }
+  default:
+   menu_screen_1=0; //if anything else is pressed or incremented past 6 then the default reset the screen_1 variable back to zero.
+    break;
+  }
+}
+
+void update_submenu(int update)//we pass the set_menu variable here
+{ //this function will be called if setfalg==1 and installer_menu_flag==1
+ switch(update)
+ {
+   case 0:
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Prime?");
+      mydisplay.display();
+     break;
+   }
+ }
+}
+ int prime_led=0;
+void priming()
+{ 
+  
+  //called if setfalg==1 and installer_menu_flag==1 start==2 set_menu==0 set_flag==1
+  prime_led=1;
+  long current_time=0;
+     mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Priming!");
+      mydisplay.display();
+    current_time=millis();
+    while((millis()-current_time <120000) && start_flag==2)
+    {
+      digitalWrite(perilistic_pump_1, HIGH);
+
+    }
+    digitalWrite(perilistic_pump_1, LOW);
+
+
+}
