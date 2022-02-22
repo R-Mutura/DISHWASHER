@@ -1,6 +1,0 @@
-Ref,Val,Package,PosX,PosY,Rot,Side
-"J18","Conn_02x07_Odd_Even","IDC-Header_2x07_P2.54mm_Vertical",-278.300000,-223.950000,-90.000000,bottom
-"J19","SCREEN CONNECTOR","PinSocket_1x07_P2.54mm_Horizontal",-276.600000,-250.250000,0.000000,bottom
-"J20","Conn_01x10_Male","custom_connector_0.83pitch",-234.175000,-223.375000,180.000000,bottom
-"R44","4.7K","R_0603_1608Metric",-286.125000,-238.200000,180.000000,bottom
-"U12","TXS0108EPW","TSSOP-20_4.4x6.5mm_P0.65mm",-283.950000,-233.850000,180.000000,bottom
