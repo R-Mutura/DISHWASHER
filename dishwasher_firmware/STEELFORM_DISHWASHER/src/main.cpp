@@ -109,6 +109,10 @@ const int intensive_time=150;
 const int cookware_time=270;
 //...........................................................................................
 //global variables
+
+volatile float settings_rom[5];
+volatile float settings_array[5];// this array holds the data that is used in the istaller sub_menu in the following order
+                    //{rinse_aid_doseage, detergent_doseage, detergent_startup_doseage, boiler_setpoint, tank_setpoint};
 int detergent_time=0;
 int rinse_aid_time=0;
 float tank_temp = 0;
@@ -125,6 +129,7 @@ const int firing_delay = 7400;
 const int maximum_firing_delay = 7400;
 
 const float peristalitic_feedrate=0.4166667;//ml
+String processes[]={"Normal", "Intensive","Cookware","High Temp Cycle","Water Exchange","Sanitization"};
 //FUNCTION PROTOTYPES
 void getNumber();
 void water_filling_process();
@@ -139,8 +144,9 @@ void basic_process(int timing);
 void glassware();
 
 void flag_handler();
+void update_submenu();
 void installer_menu();
-
+void priming(int prime_pump);
 
 void setup() {
   // put your setup code here, to run once:
@@ -249,7 +255,7 @@ void loop() {
       zero_cross_detected = false;
     } 
  }
- void flag_handler();
+  flag_handler();
 }
  
  ISR(TIMER3_COMPA_vect)
@@ -365,8 +371,43 @@ void getNumber(){
      }
      else if(installer_screen==1)
      {
-        menu_screen_1++;
+        menu_screen_1--;
      }
+
+         //handle for decrease in the value for dosing and temperature setpoint
+    if(installer_screen==1 && set_flag==1)
+    {
+      switch (set_menu)
+      {
+      case 2://setting rinse aid dose
+        settings_array[0]-=0.5;
+
+        break;
+      case 3://setting detergent dose
+        settings_array[1]-=0.5;
+        
+        break;
+      
+      case 4://setting detergent startup dose
+        settings_array[2]-=0.5;
+        
+        break;
+      
+      case 5://setting boiler setpoint
+        settings_array[3]-=1;
+        
+        break;
+      
+      case 6://setting tanks setpoint
+        settings_array[4]-=1;
+        
+        break;
+      
+      default:
+      //do nothing...just break
+        break;
+      }
+    }  
    }
 
    else if(touchstatus & (1<<set))
@@ -377,9 +418,15 @@ void getNumber(){
         selected_process =menu_screen_2;
      }
     else if(installer_screen==1)
-    {
+    { 
+
       set_menu =menu_screen_1; //save the current selected settings menu to set menu variable
       set_flag=1;//set the set flag to 1 ==> will be used to call the update submenu 
+    }
+    else if(set_flag==1)
+    {
+      settings_rom[set_menu]=settings_array[set_menu];
+      set_flag=0;
     }
    }
 
@@ -393,6 +440,41 @@ void getNumber(){
     else if(installer_screen==1)
     {
       menu_screen_1++;
+    }
+
+    //handle for increase in the value for dosing
+    if(installer_screen==1 && set_flag==1)
+    {
+      switch (set_menu)
+      {
+      case 2://setting rinse aid dose
+        settings_array[0]+=0.5;
+
+        break;
+      case 3://setting detergent dose
+        settings_array[1]+=0.5;
+        
+        break;
+      
+      case 4://setting detergent startup dose
+        settings_array[2]+=0.5;
+        
+        break;
+      
+      case 5://setting boiler setpoint
+        settings_array[3]+=1;
+        
+        break;
+      
+      case 6://setting tanks setpoint
+        settings_array[4]+=1;
+        
+        break;
+      
+      default:
+      //do nothing...just break
+        break;
+      }
     }
    }
 
@@ -640,14 +722,30 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("=> NORMAL");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
-    mydisplay.println("INTENSIVE");
+    mydisplay.println("=> NORMAL");
     mydisplay.setCursor(2,2);
-    mydisplay.println("COOKWARE");
+    mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("HIGH TEMP CYCLE");
+    mydisplay.println("COOKWARE");
+
     mydisplay.display();
     
   
@@ -658,14 +756,29 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
-    mydisplay.println("=> INTENSIVE");
+    mydisplay.println("NORMAL");
     mydisplay.setCursor(2,2);
-    mydisplay.println("COOKWARE");
+    mydisplay.println("=> INTENSIVE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("HIGH TEMP CYCLE");
+    mydisplay.println("COOKWARE");
     mydisplay.display();
    
    break;
@@ -675,14 +788,29 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
-    mydisplay.println("INTENSIVE");
+    mydisplay.println("NORMAL");
     mydisplay.setCursor(2,2);
-    mydisplay.println("=> COOKWARE");
+    mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,3);
-    mydisplay.println("HIGH TEMP CYCLE");
+    mydisplay.println("=> COOKWARE");
     mydisplay.display();
   
    break;
@@ -692,8 +820,23 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("NORMAL");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
     mydisplay.println("INTENSIVE");
     mydisplay.setCursor(2,2);
@@ -710,8 +853,23 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("INTENSIVE");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
     mydisplay.println("COOKWARE");
     mydisplay.setCursor(2,2);
@@ -728,8 +886,23 @@ void update_screen_2()
     mydisplay.clearDisplay();
     mydisplay.setTextSize(1);
     mydisplay.setTextColor(WHITE);
+     ////main menu display//////////////////////
     mydisplay.setCursor(2,0);
-    mydisplay.println("COOKWARE");
+    mydisplay.print(processes[selected_process]); 
+    mydisplay.setCursor(2,25);
+    mydisplay.print("Boiler "); 
+    mydisplay.setCursor(2,32);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,37);
+    mydisplay.print(" Deg "); 
+    
+    mydisplay.setCursor(2,45);
+    mydisplay.print("Tank "); 
+    mydisplay.setCursor(2,52);
+    mydisplay.print(boiler_temp,2); 
+    mydisplay.setCursor(2,57);
+    mydisplay.print(" Deg "); 
+    //end of main menu display///////////
     mydisplay.setCursor(2,1);
     mydisplay.println("HIGH TEMP CYCLE");
     mydisplay.setCursor(2,2);
@@ -1319,7 +1492,7 @@ void flag_handler()
   {
     update_screen_2();
   }
-  else if(start_flag==2 && ready_flag==1)
+  else if((start_flag==2 && ready_flag==1 && installer_menu_flag==0)||in_process_flag==1)
   {//this if the conditions that must be set for the processes to start
    /*we read the selected_process variable to know which process we are going to run 
    //and then we will reset the start variable to i at the end of this if else*/
@@ -1361,6 +1534,13 @@ void flag_handler()
   {
     installer_menu();
   }
+  else if(installer_menu_flag==1 && set_flag==1 && start_flag==1)
+  {
+    update_submenu();
+  }
+
+  //check if the inprocess flag has transitioned from high to low then we call the detergent add function
+
 }
 
 
@@ -1514,11 +1694,13 @@ void installer_menu()
   }
 }
 
-void update_submenu(int update)//we pass the set_menu variable here
-{ //this function will be called if setfalg==1 and installer_menu_flag==1
- switch(update)
+void update_submenu()//we pass the set_menu variable here
+{ //this function will be called if setflag==1 and installer_menu_flag==1
+//this will check what is being updated when we are in the installer submenu i.e setting the variables such ase dosage and setpoint
+  //this finction handles the screen update and maintaining the limits of each variable.
+ switch(set_menu)
  {
-   case 0:
+   case 0://rinse aid priming
    {
       mydisplay.clearDisplay();
       mydisplay.setTextSize(1);
@@ -1526,18 +1708,150 @@ void update_submenu(int update)//we pass the set_menu variable here
       mydisplay.setCursor(2,0);
       mydisplay.println("Prime?");
       mydisplay.display();
+      if(start==2 && set_flag==1)
+      {
+         priming(perilistic_pump_2);
+      }
+     break;
+   }
+
+   case 1://detergent pump priming
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Prime?");
+      mydisplay.display();
+      if(start==2 && set_flag==1)
+      {
+         priming(perilistic_pump_1);
+      }
+     break;
+   }
+
+   case 2://rinse aid dosage
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Dosage");
+     if(settings_array[(set_menu-2)]>100)
+      {
+        settings_array[(set_menu-2)]=100;
+      }
+      else if(settings_array[(set_menu-2)]<0.5)
+      {
+        settings_array[(set_menu-2)]=0.5;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
+     break;
+   }
+
+   case 3://detergent dosage
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Detergent Dosage");
+     if(settings_array[(set_menu-2)]>100)
+      {
+        settings_array[(set_menu-2)]=100;
+      }
+      else if(settings_array[(set_menu-2)]<0.5)
+      {
+        settings_array[(set_menu-2)]=0.5;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
+     break;
+   }
+   case 4://detergent startup dosage
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Detergent Startup Dosage");
+      if(settings_array[(set_menu-2)]>100)
+      {
+        settings_array[(set_menu-2)]=100;
+      }
+      else if(settings_array[(set_menu-2)]<0.5)
+      {
+        settings_array[(set_menu-2)]=0.5;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
+     break;
+   }
+    case 5://BOILER SETPOINT
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Boiler Setpoint (Deg)");
+      if(settings_array[(set_menu-2)]>80)
+      {
+        settings_array[(set_menu-2)]=80;
+      }
+      else if(settings_array[(set_menu-2)]<72)
+      {
+        settings_array[(set_menu-2)]=72;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
+     break;
+   }
+    case 6://TANK SETPOINT
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("TANK Setpoint (Deg)");
+      if(settings_array[(set_menu-2)]>65)
+      {
+        settings_array[(set_menu-2)]=65;
+      }
+      else if(settings_array[(set_menu-2)]<50)
+      {
+        settings_array[(set_menu-2)]=50;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
      break;
    }
  }
 }
  int prime_led=0;
-void priming()
+ 
+void priming(int prime_pump)//call this function with the peristaliti_pump_1(for detergent priming) and peristaliti_pump_2(for rinseAid priming)
 { 
   
-  //called if setfalg==1 and installer_menu_flag==1 start==2 set_menu==0 set_flag==1
+  //called if installer_menu_flag==1 start_flag==2 set_menu==0 set_flag==1
   prime_led=1;
   long current_time=0;
-     mydisplay.clearDisplay();
+      mydisplay.clearDisplay();
       mydisplay.setTextSize(1);
       mydisplay.setTextColor(WHITE);
       mydisplay.setCursor(2,0);
@@ -1546,10 +1860,12 @@ void priming()
     current_time=millis();
     while((millis()-current_time <120000) && start_flag==2)
     {
-      digitalWrite(perilistic_pump_1, HIGH);
+      digitalWrite(prime_pump, HIGH);
 
     }
-    digitalWrite(perilistic_pump_1, LOW);
-    set_flag=0;
+    digitalWrite(prime_pump, LOW);
+    set_flag = 0;
+    start_flag=1;
 
 }
+

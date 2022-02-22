@@ -1,897 +1,1492 @@
-209965948012579
-Package_TO_SOT_SMD
-ATPAK-2
-ATPAK SMD package, http://www.onsemi.com/pub/Collateral/ENA2192-D.PDF
-ATPAK 
+349218933573232
+greencharge-footprints
+7443550600
+
+
 0
-7
+2
+2
+greencharge-footprints
+3M_5622-6309-ML
+
+
+0
+22
+22
+greencharge-footprints
+6PCV02006
+6PCV-02-006-3
+Connector
+0
+2
+2
+greencharge-footprints
+9-1393243-3
+
+
+0
+8
+8
+greencharge-footprints
+070-5455
+
+
+0
+14
+14
+greencharge-footprints
+070-5783
+
+
+0
+14
+14
+greencharge-footprints
+3313J-1
+3313J-1
+Variable Resistor
+0
 3
-Package_TO_SOT_SMD
-Analog_KS-4
-Analog Devices KS-4, http://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/sc70ks/ks_4.pdf
-Analog Devices KS-4 (like EIAJ SC-82)
-0
-4
-4
-Package_TO_SOT_SMD
-Diodes_SOT-553
-Diodes SOT-553, https://www.diodes.com/assets/Package-Files/SOT553.pdf
-SOT-553
-0
-5
-5
-Package_TO_SOT_SMD
-HVSOF5
-HVSOF5, http://rohmfs.rohm.com/en/techdata_basic/ic/package/hvsof5_1-e.pdf, http://rohmfs.rohm.com/en/products/databook/datasheet/ic/sensor/hall/bu52001gul-e.pdf
-HVSOF5
-0
-5
-5
-Package_TO_SOT_SMD
-HVSOF6
-HVSOF6, http://rohmfs.rohm.com/en/techdata_basic/ic/package/hvsof6_1-e.pdf, http://rohmfs.rohm.com/en/products/databook/datasheet/ic/audio_video/video_amplifier/bh76106hfv-e.pdf
-HVSOF6
-0
-7
-7
-Package_TO_SOT_SMD
-Infineon_PG-HDSOP-10-1
-Infineon PG-HDSOP-10-1 (DDPAK), 20.96x6.5x2.3mm, slug up (https://www.infineon.com/cms/en/product/packages/PG-HDSOP/PG-HDSOP-10-1/)
-hdsop 10 ddpak
-0
-10
-10
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-1
-HSOF-8-1 [TOLL] power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-1/)
-mosfet hsof toll
-0
-53
 3
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-1_ThermalVias
-HSOF-8-1 [TOLL] power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-1/)
-mosfet hsof toll thermal vias
+greencharge-footprints
+3314J-1-103E
+
+
 0
-96
 3
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-2
-HSOF-8-2 [TOLL] power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-2/)
-mosfet hsof toll
+3
+greencharge-footprints
+72309-8034BLF
+
+
 0
 12
-4
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-2_ThermalVias
-HSOF-8-2 [TOLL] power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-2/)
-mosfet hsof toll thermal vias
+12
+greencharge-footprints
+252010CDMCDDS-R47MC
+
+
 0
-97
-4
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-2_ThermalVias2
-HSOF-8-2 [TOLL] power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-2/, https://www.infineon.com/dgdl/Infineon-ApplicationNote_600V_CoolMOS_C7_Gold_TOLL-AN-v01_00-EN.pdf?fileId=5546d4625b10283a015b144a1af70df6)
-mosfet hsof toll thermal vias
+2
+2
+greencharge-footprints
+387207505
+38720-7505-2
+Connector
 0
-159
-4
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-3
-HSOF-8-3 power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-3/)
-mosfet hsof
+5
+5
+greencharge-footprints
+545482071
+
+
 0
-25
+22
+21
+greencharge-footprints
+2059570271
+205957-0271-1
+Connector
+0
 4
-Package_TO_SOT_SMD
-Infineon_PG-HSOF-8-3_ThermalVias
-HSOF-8-3 power MOSFET (http://www.infineon.com/cms/en/product/packages/PG-HSOF/PG-HSOF-8-3/)
-mosfet hsof
+4
+greencharge-footprints
+A70-112-331N126
+
+
+0
+20
+20
+greencharge-footprints
+ACT510X
+
+
+0
+36
+36
+greencharge-footprints
+ACT5101
+
+
+0
+24
+24
+greencharge-footprints
+AOD4184A
+
+
+0
+3
+3
+greencharge-footprints
+AP43771
+
+
+0
+15
+15
+greencharge-footprints
+BATHLD001
+BAT-HLD-001
+Undefined or Miscellaneous
+0
+3
+2
+greencharge-footprints
+BATHLD001THM
+BAT-HLD-001-THM-1
+Undefined or Miscellaneous
+0
+5
+2
+greencharge-footprints
+BAT_CR-2032_F2N
+
+
+0
+2
+2
+greencharge-footprints
+BGA-64_8x8_7.0x7.0mm_MCDP2900
+
+
 0
 64
+64
+greencharge-footprints
+BGA-1330_38x35_15.5x14.4mm
+
+
+0
+222
+222
+greencharge-footprints
+BGA200C65P12X22_1000X1450X80
+200ball FBGA
+Integrated Circuit
+0
+200
+200
+greencharge-footprints
+BGA200C65P12X22_1000X1450X85
+IS43LQ32256A-062BLI4
+Integrated Circuit
+0
+200
+200
+greencharge-footprints
+BGA828C65P31X31_2100X2100X161N
+
+
+0
+828
+828
+greencharge-footprints
+BK250-600
+
+
+0
+2
+2
+greencharge-footprints
+BQ25600YFFR
+YFF0030
+Integrated Circuit
+0
+30
+30
+greencharge-footprints
+BQ25611DRTWT
+RTW (S-PWQFN-N24)
+Integrated Circuit
+0
+25
+25
+greencharge-footprints
+BQ25910YFFR
+YFF0036_2021_1
+Integrated Circuit
+0
+36
+36
+greencharge-footprints
+BRCS120N02ZJ
+
+
+0
+8
+6
+greencharge-footprints
+BSC0993ND
+
+
+0
+9
+9
+greencharge-footprints
+BluePill_STM32F103C
+STM32F103C8 BluePill board
+
+0
+42
+42
+greencharge-footprints
+C4AULBW5350M3JK
+C4AULBW5350M3JK-2
+Capacitor
+0
 4
-Package_TO_SOT_SMD
-Infineon_PG-TO-220-7Lead_TabPin8
-Infineon PG-TO-220-7, Tab as Pin 8, see e.g. https://www.infineon.com/dgdl/Infineon-BTS50055-1TMC-DS-v01_00-EN.pdf?fileId=5546d4625a888733015aa9b0007235e9
-Infineon PG-TO-220-7
+4
+greencharge-footprints
+CDRH6D38NP3R3NC
+CDRH6D38NP-3R3NC-2
+Inductor
+0
+2
+2
+greencharge-footprints
+CONV_HLK-5M05
+
+
+0
+4
+4
+greencharge-footprints
+CONV_R05-100B
+
+
 0
 12
-8
-Package_TO_SOT_SMD
-LFPAK33
-LFPAK33 SOT-1210 https://assets.nexperia.com/documents/outline-drawing/SOT1210.pdf
-LFPAK33 SOT-1210
+12
+greencharge-footprints
+CR2032_20mm
+
+
 0
-17
-5
-Package_TO_SOT_SMD
-LFPAK56
-LFPAK56 https://assets.nexperia.com/documents/outline-drawing/SOT669.pdf
-LFPAK56 SOT-669 Power-SO8
-0
-18
-5
-Package_TO_SOT_SMD
-Nexperia_CFP15_SOT-1289
-Nexperia CFP15 (SOT-1289), https://assets.nexperia.com/documents/outline-drawing/SOT1289.pdf
-SOT-1289 CFP15
-0
-8
-3
-Package_TO_SOT_SMD
-OnSemi_ECH8
-On Semiconductor ECH8, https://www.onsemi.com/pub/Collateral/318BF.PDF
-ECH8 SOT28-FL SOT-28-FL
-0
-8
-8
-Package_TO_SOT_SMD
-PQFN_8x8
-Low Profile 8x8mm PQFN, Dual Cool 88, https://www.onsemi.com/pub/Collateral/FDMT80080DC-D.pdf
-pqfn vdfn mosfet
-0
-9
-3
-Package_TO_SOT_SMD
-PowerMacro_M234_NoHole
-TO-50-4 Power Macro Package Style M234
-TO-50-4 Power Macro Package Style M234
-0
-4
-4
-Package_TO_SOT_SMD
-PowerMacro_M234_WithHole
-TO-50-4 Power Macro Package Style M234
-TO-50-4 Power Macro Package Style M234
-0
-4
-4
-Package_TO_SOT_SMD
-Rohm_HRP7
-Rohm HRP7 SMD package, http://rohmfs.rohm.com/en/techdata_basic/ic/package/hrp7_1-e.pdf, http://rohmfs.rohm.com/en/products/databook/datasheet/ic/motor/dc/bd621x-e.pdf
-Rohm HRP7 SMD
-0
-69
-7
-Package_TO_SOT_SMD
-SC-59
-SC-59, https://lib.chipdip.ru/images/import_diod/original/SOT-23_SC-59.jpg
-SC-59
-0
-3
-3
-Package_TO_SOT_SMD
-SC-59_Handsoldering
-SC-59, hand-soldering varaint, https://lib.chipdip.ru/images/import_diod/original/SOT-23_SC-59.jpg
-SC-59 hand-soldering
-0
-3
-3
-Package_TO_SOT_SMD
-SC-70-8
-SC70-8
-SC70-8
-0
-8
-8
-Package_TO_SOT_SMD
-SC-70-8_Handsoldering
-SC70-8, Handsoldering
-SC70-8 Handsoldering
-0
-8
-8
-Package_TO_SOT_SMD
-SC-82AA
-SC-82AA
-SC-82AA
-0
-4
-4
-Package_TO_SOT_SMD
-SC-82AA_Handsoldering
-SC-82AA
-SC-82AA
-0
-4
-4
-Package_TO_SOT_SMD
-SC-82AB
-SC-82AB
-SC-82AB
-0
-4
-4
-Package_TO_SOT_SMD
-SC-82AB_Handsoldering
-SC-82AB
-SC-82AB
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-23
-SOT, 3 Pin (https://www.jedec.org/system/files/docs/to-236h.pdf variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOT TO_SOT_SMD
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-23-5
-SOT, 5 Pin (https://www.jedec.org/sites/default/files/docs/Mo-178c.PDF variant AA), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOT TO_SOT_SMD
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-23-5_HandSoldering
-5-pin SOT23 package
-SOT-23-5 hand-soldering
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-23-6
-SOT, 6 Pin (https://www.jedec.org/sites/default/files/docs/Mo-178c.PDF variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOT TO_SOT_SMD
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-23-6_Handsoldering
-6-pin SOT-23 package, Handsoldering
-SOT-23-6 Handsoldering
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-23-8
-SOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/Mo-178c.PDF variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOT TO_SOT_SMD
-0
-8
-8
-Package_TO_SOT_SMD
-SOT-23-8_Handsoldering
-8-pin SOT-23 package, Handsoldering, http://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/sot-23rj/rj_8.pdf
-SOT-23-8 Handsoldering
-0
-8
-8
-Package_TO_SOT_SMD
-SOT-23W
-SOT-23W http://www.allegromicro.com/~/media/Files/Datasheets/A112x-Datasheet.ashx?la=en&hash=7BC461E058CC246E0BAB62433B2F1ECA104CA9D3
-SOT-23W
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-23W_Handsoldering
-SOT-23W http://www.allegromicro.com/~/media/Files/Datasheets/A112x-Datasheet.ashx?la=en&hash=7BC461E058CC246E0BAB62433B2F1ECA104CA9D3
-SOT-23W for handsoldering
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-23_Handsoldering
-SOT-23, Handsoldering
-SOT-23
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-89-3
-SOT-89-3, http://ww1.microchip.com/downloads/en/DeviceDoc/3L_SOT-89_MB_C04-029C.pdf
-SOT-89-3
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-89-3_Handsoldering
-SOT-89-3 Handsoldering
-SOT-89-3 Handsoldering
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-89-5
-SOT-89-5, http://www.e-devices.ricoh.co.jp/en/products/product_power/pkg/sot-89-5.pdf
-SOT-89-5
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-89-5_Handsoldering
-SOT-89-5, http://www.e-devices.ricoh.co.jp/en/products/product_power/pkg/sot-89-5.pdf
-SOT-89-5
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-143
-SOT-143
-SOT-143
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-143R_Reverse
-SOT-143R Reverse
-SOT-143R Reverse
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-143R_Reverse_Handsoldering
-SOT-143R Reverse Handsoldering
-SOT-143 Reverse Handsoldering
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-143_Handsoldering
-SOT-143 Handsoldering
-SOT-143 Handsoldering
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-223
-module CMS SOT223 4 pins
-CMS SOT
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-223-3_TabPin2
-module CMS SOT223 4 pins
-CMS SOT
-0
-4
-3
-Package_TO_SOT_SMD
-SOT-223-5
-module CMS SOT223 5 pins, http://ww1.microchip.com/downloads/en/DeviceDoc/51751a.pdf
-CMS SOT
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-223-6
-module CMS SOT223 6 pins, http://www.ti.com/lit/ds/symlink/tps737.pdf
-CMS SOT
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-223-6_TabPin3
-module CMS SOT223 6 pins, http://www.ti.com/lit/ds/symlink/tps737.pdf
-CMS SOT
-0
-6
-5
-Package_TO_SOT_SMD
-SOT-223-8
-module CMS SOT223 8 pins, https://www.diodes.com/assets/Datasheets/ZXSBMR16PT8.pdf
-CMS SOT
-0
-8
-8
-Package_TO_SOT_SMD
-SOT-323_SC-70
-SOT-323, SC-70
-SOT-323 SC-70
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-323_SC-70_Handsoldering
-SOT-323, SC-70 Handsoldering
-SOT-323 SC-70 Handsoldering
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-343_SC-70-4
-SOT-343, SC-70-4
-SOT-343 SC-70-4
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-343_SC-70-4_Handsoldering
-SOT-343, SC-70-4, Handsoldering
-SOT-343 SC-70-4 Handsoldering
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-353_SC-70-5
-SOT-353, SC-70-5
-SOT-353 SC-70-5
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-353_SC-70-5_Handsoldering
-SOT-353, SC-70-5, Handsoldering
-SOT-353 SC-70-5 Handsoldering
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-363_SC-70-6
-SOT-363, SC-70-6
-SOT-363 SC-70-6
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-363_SC-70-6_Handsoldering
-SOT-363, SC-70-6, Handsoldering
-SOT-363 SC-70-6 Handsoldering
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-383F
-8-pin SOT-383F, http://www.mouser.com/ds/2/80/CPDVR085V0C-HF-RevB-10783.pdf
-SOT-383F
-0
-9
-9
-Package_TO_SOT_SMD
-SOT-383FL
-8-pin SOT-383FL package, http://www.onsemi.com/pub_link/Collateral/ENA2267-D.PDF
-SOT-383FL
-0
-8
-8
-Package_TO_SOT_SMD
-SOT-416
-SOT-416, https://www.nxp.com/docs/en/package-information/SOT416.pdf
-SOT-416
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-523
-SOT523, https://www.diodes.com/assets/Package-Files/SOT523.pdf
-SOT-523
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-543
-SOT-543 4 lead surface package
-SOT-543 SC-107A EMD4
-0
-4
-4
-Package_TO_SOT_SMD
-SOT-553
-SOT553
-SOT-553
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-563
-SOT563
-SOT-563
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-665
-SOT665
-SOT-665
-0
-5
-5
-Package_TO_SOT_SMD
-SOT-666
-SOT666
-SOT-666
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-723
-http://toshiba.semicon-storage.com/info/docget.jsp?did=5879&prodName=RN1104MFV
-sot 723
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-883
-SOT-883, https://assets.nexperia.com/documents/outline-drawing/SOT883.pdf
-SOT-883
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-886
-SOT-886
-SOT-886
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-963
-SOT 963 6 pins package 1x0.8mm pitch 0.35mm
-SOT 963 6 pins package 1x0.8mm pitch 0.35mm
-0
-6
-6
-Package_TO_SOT_SMD
-SOT-1123
-SOT-1123 small outline transistor (see http://www.onsemi.com/pub/Collateral/NST3906F3-D.PDF)
-SOT-1123 transistor
-0
-3
-3
-Package_TO_SOT_SMD
-SOT-1333-1
-SOT-1333-1 
-SOT-1333-1 
-0
-9
-9
-Package_TO_SOT_SMD
-SOT-1334-1
-SOT-1334-1
-SOT-1334-1
-0
-14
-14
-Package_TO_SOT_SMD
-SuperSOT-3
-3-pin SuperSOT package https://www.fairchildsemi.com/package-drawings/MA/MA03B.pdf
-SuperSOT-3 SSOT-3
-0
-3
-3
-Package_TO_SOT_SMD
-SuperSOT-6
-6-pin SuperSOT package http://www.mouser.com/ds/2/149/FMB5551-889214.pdf
-SuperSOT-6 SSOT-6
-0
-6
-6
-Package_TO_SOT_SMD
-SuperSOT-8
-8-pin SuperSOT package, http://www.icbank.com/icbank_data/semi_package/ssot8_dim.pdf
-SuperSOT-8 SSOT-8
-0
-8
-8
-Package_TO_SOT_SMD
-TDSON-8-1
-Power MOSFET package, TDSON-8-1, 5.15x5.9mm (https://www.infineon.com/cms/en/product/packages/PG-TDSON/PG-TDSON-8-1/)
-tdson 
-0
-14
-5
-Package_TO_SOT_SMD
-TO-50-3_LongPad-NoHole_Housing
-TO-50-3 Macro T Package Style M236
-TO-50-3 Macro T Package Style M236
-0
-3
-3
-Package_TO_SOT_SMD
-TO-50-3_LongPad-WithHole_Housing
-TO-50-3 Macro T Package Style M236
-TO-50-3 Macro T Package Style M236
-0
-3
-3
-Package_TO_SOT_SMD
-TO-50-3_ShortPad-NoHole_Housing
-TO-50-3 Macro T Package Style M236
-TO-50-3 Macro T Package Style M236
-0
-3
-3
-Package_TO_SOT_SMD
-TO-50-3_ShortPad-WithHole_Housing
-TO-50-3 Macro T Package Style M236
-TO-50-3 Macro T Package Style M236
-0
-3
-3
-Package_TO_SOT_SMD
-TO-50-4_LongPad-NoHole_Housing
-TO-50-4 Macro X Package Style M238
-TO-50-4 Macro X Package Style M238
-0
-4
-4
-Package_TO_SOT_SMD
-TO-50-4_LongPad-WithHole_Housing
-TO-50-4 Macro X Package Style M238
-TO-50-4 Macro X Package Style M238
-0
-4
-4
-Package_TO_SOT_SMD
-TO-50-4_ShortPad-NoHole_Housing
-TO-50-4 Macro X Package Style M238
-TO-50-4 Macro X Package Style M238
-0
-4
-4
-Package_TO_SOT_SMD
-TO-50-4_ShortPad-WithHole_Housing
-TO-50-4 Macro X Package Style M238
-TO-50-4 Macro X Package Style M238
-0
-4
-4
-Package_TO_SOT_SMD
-TO-252-2
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
-DPAK TO-252 DPAK-3 TO-252-3 SOT-428
-0
-7
-3
-Package_TO_SOT_SMD
-TO-252-2_TabPin1
-TO-252-2, tab to pin 1 https://www.wolfspeed.com/media/downloads/87/CSD01060.pdf
-TO-252-2 diode
-0
-7
 2
-Package_TO_SOT_SMD
-TO-252-3_TabPin2
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
-DPAK TO-252 DPAK-3 TO-252-3 SOT-428
-0
-8
-3
-Package_TO_SOT_SMD
-TO-252-3_TabPin4
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
-DPAK TO-252 DPAK-3 TO-252-3 SOT-428
-0
-8
-4
-Package_TO_SOT_SMD
-TO-252-4
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
-DPAK TO-252 DPAK-5 TO-252-5
-0
-9
-5
-Package_TO_SOT_SMD
-TO-252-5_TabPin3
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
-DPAK TO-252 DPAK-5 TO-252-5
-0
-10
-5
-Package_TO_SOT_SMD
-TO-252-5_TabPin6
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
-DPAK TO-252 DPAK-5 TO-252-5
-0
-10
-6
-Package_TO_SOT_SMD
-TO-263-2
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
-D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
-0
-7
-3
-Package_TO_SOT_SMD
-TO-263-2_TabPin1
-TO-263 / D2PAK / DDPAK SMD package, tab to pin 1, https://www.wolfspeed.com/media/downloads/137/C3D06060G.pdf
-D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404 diode
-0
-7
 2
-Package_TO_SOT_SMD
-TO-263-3_TabPin2
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
-D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
+greencharge-footprints
+CSTNE16M0V530000R0
+CSTNE16M0V530000R0
+Undefined or Miscellaneous
 0
-8
 3
-Package_TO_SOT_SMD
-TO-263-3_TabPin4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
-D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
+3
+greencharge-footprints
+C_Disc_D16.5mm_W7.5mm_P10.00mm
+C, Disc series, Radial, pin pitch=10.00mm, , diameter*width=16.0*5.0mm^2, Capacitor, http://www.vishay.com/docs/28535/vy2series.pdf
+C Disc series Radial pin pitch 10.00mm  diameter 16.0mm width 5.0mm Capacitor
 0
-8
-4
-Package_TO_SOT_SMD
-TO-263-4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
-D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
+2
+2
+greencharge-footprints
+DFP1006-2L
+
+
+0
+2
+2
+greencharge-footprints
+DIODFN2_98X58X50L26X51N
+
+
+0
+2
+2
+greencharge-footprints
+Diode-TO-220-2
+
+
+0
+2
+2
+greencharge-footprints
+EAST1616RGBA8
+
+
+0
+6
+6
+greencharge-footprints
+ER-OLED0.91-7W
+
+
+0
+16
+15
+greencharge-footprints
+ESD9X5VU_DFN1006-2
+
+
+0
+2
+2
+greencharge-footprints
+ESD5304D-TP
+
+
 0
 9
-5
-Package_TO_SOT_SMD
-TO-263-5_TabPin3
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
-D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
-0
-10
-5
-Package_TO_SOT_SMD
-TO-263-5_TabPin6
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
-D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
-0
-10
 6
-Package_TO_SOT_SMD
-TO-263-6
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
-D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
+greencharge-footprints
+ESP-32S
+
+
+0
+39
+39
+greencharge-footprints
+ESP32-S
+
+
+0
+0
+0
+greencharge-footprints
+ESP32_32S_MODULE
+
+
+0
+30
+30
+greencharge-footprints
+EVP-AEBB2A
+
+
+0
+5
+5
+greencharge-footprints
+FNR4018SR47NT
+
+
+0
+2
+2
+greencharge-footprints
+FT232RL
+
+
+0
+28
+28
+greencharge-footprints
+Fuse-01530007Z
+01530007Z
+Undefined or Miscellaneous
+0
+2
+2
+greencharge-footprints
+G5LE-14
+G5LE-14
+Relay or Contactor
+0
+5
+5
+greencharge-footprints
+G5LE-14_SPDT
+G5LE-14
+Relay or Contactor
+0
+5
+5
+greencharge-footprints
+G5Q1A4DC24
+G5Q-1A4-DC24-1
+Relay or Contactor
+0
+4
+4
+greencharge-footprints
+GCT_SIM8066-6-1-14-01-A_REVA
+
+
 0
 11
-7
-Package_TO_SOT_SMD
-TO-263-7_TabPin4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
-D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
+11
+greencharge-footprints
+GCT_USB4056-03-A_REVA
+
+
 0
-12
-7
-Package_TO_SOT_SMD
-TO-263-7_TabPin8
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
-D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
+28
+28
+greencharge-footprints
+HF165FD12HY1TF
+HF165FD/12-HY1TF-2
+Relay or Contactor
 0
-12
+4
+4
+greencharge-footprints
+HRS_U.FL-R-SMT-1(10)
+
+
+0
+3
+3
+greencharge-footprints
+INA821IDGKT
+
+
+0
 8
-Package_TO_SOT_SMD
-TO-263-9_TabPin5
-TO-263 / D2PAK / DDPAK SMD package, http://www.ti.com/lit/ds/symlink/lm4755.pdf
-D2PAK DDPAK TO-263 D2PAK-9 TO-263-9
+8
+greencharge-footprints
+INDPM3630X150N
+ER
+Inductor
 0
-14
-9
-Package_TO_SOT_SMD
-TO-263-9_TabPin10
-TO-263 / D2PAK / DDPAK SMD package, http://www.ti.com/lit/ds/symlink/lm4755.pdf
-D2PAK DDPAK TO-263 D2PAK-9 TO-263-9
+2
+2
+greencharge-footprints
+INDPM172172X700N
+IHLP6767GZER470M11
+Inductor
 0
-14
+2
+2
+greencharge-footprints
+K2-1187SQ-D4SW-06
+
+
+0
+4
+2
+greencharge-footprints
+KEYSTONE-1042
+keystone-1042
+Undefined or Miscellaneous
+0
+2
+2
+greencharge-footprints
+KLMxGxGEAC-B001_BGA-196_14x14_11.5x13.0mm
+
+
+0
+153
+153
+greencharge-footprints
+L9637D
+<b>SMALL OUTLINE INTEGRATED CIRCUIT</b><p>body 3.9 mm/JEDEC MS-012AA
+
+0
+8
+8
+greencharge-footprints
+LILLYGO_ESP32_TTGO
+
+
+0
+38
+35
+greencharge-footprints
+LILYGO-T-CALL-SIM800L
+
+
+0
+42
+42
+greencharge-footprints
+LM301H
+
+
+0
+4
+2
+greencharge-footprints
+LM351H
+
+
+0
+5
+3
+greencharge-footprints
+LM25117PMHX_NOPB
+PWP0020A
+Power Supply
+0
+21
+21
+greencharge-footprints
+LoRa-G-NiceRF
+
+
+0
+32
+16
+greencharge-footprints
+Logo_pekaway
+
+
+0
+0
+0
+greencharge-footprints
+Logo_pekaway_small_2
+
+
+0
+0
+0
+greencharge-footprints
+Lora_jumper_pads
+
+
+0
+2
+2
+greencharge-footprints
+M.2-CARD-E-22
+
+
+0
+70
+70
+greencharge-footprints
+MEY333K275A01
+
+
+0
+2
+2
+greencharge-footprints
+MIC2026-1YM-TR
+8-pin SOIC (M)
+Integrated Circuit
+0
+8
+8
+greencharge-footprints
+MICRO-SD-Module
+
+
+0
+6
+6
+greencharge-footprints
+MOLEX_78800-0001
+
+
+0
 10
-Package_TO_SOT_SMD
-TO-268-2
-TO-268/D3PAK SMD package, http://www.icbank.com/icbank_data/semi_package/to268aa_dim.pdf
-D3PAK TO-268 D3PAK-3 TO-268-3
+10
+greencharge-footprints
+MOLEX_430450400
+
+
+0
+4
+4
+greencharge-footprints
+MWSA0503S-3R3MT
+
+
+0
+2
+2
+greencharge-footprints
+MWSA0518S-1R5MT
+
+
+0
+2
+2
+greencharge-footprints
+MWSA0518S-xxx
+MWSA0518S-2R2MT-1
+Inductor
+0
+2
+2
+greencharge-footprints
+MWSA1004S-3R3MT
+
+
+0
+2
+2
+greencharge-footprints
+MWSA1206-470MT
+
+
+0
+2
+2
+greencharge-footprints
+MWSA1206S-330MT
+
+
+0
+2
+2
+greencharge-footprints
+NRV2010TR47NGF
+
+
+0
+2
+2
+greencharge-footprints
+P9415_BGA-54_6x9_2.82x4.22mm
+
+
+0
+53
+53
+greencharge-footprints
+PC817SC
+
+
+0
+0
+0
+greencharge-footprints
+PCF8575TS-1,118
+SSOP24
+Integrated Circuit
+0
+24
+24
+greencharge-footprints
+PM2204.452NLT
+
+
+0
+2
+1
+greencharge-footprints
+PULSE_PA4342.332NLT
+
+
+0
+2
+2
+greencharge-footprints
+Push_btn_TC-1157-B-D
+
+
+0
+4
+4
+greencharge-footprints
+QFN-68_EP_7x7_Pitch0.35mm
+
+
+0
+84
+69
+greencharge-footprints
+QFN40P500X500X90-41N-D
+TS80003-QFNR
+Integrated Circuit
+0
+41
+41
+greencharge-footprints
+QFN50P500X500X100-29N
+TS61002-QFNR
+Integrated Circuit
+0
+29
+29
+greencharge-footprints
+QFN65P500X500X80-21N
+
+
+0
+21
+21
+greencharge-footprints
+QUECTEL_L70-R
+
+
+0
+18
+18
+greencharge-footprints
+R05-100B
+
+
+0
+12
+12
+greencharge-footprints
+RASPBERRYPIZEROW
+Raspberry Pi Zero W (v1.3)_1
+Integrated Circuit
+0
+48
+48
+greencharge-footprints
+RASPBERRY_PI_3_MODEL_B+
+
+
+0
+44
+44
+greencharge-footprints
+RF-RX-433
+
+
 0
 7
-3
-Package_TO_SOT_SMD
-TO-269AA
-SMD package TO-269AA (e.g. diode bridge), see http://www.vishay.com/docs/88854/padlayouts.pdf
-TO-269AA MBS diode bridge
+7
+greencharge-footprints
+RF1117
+
+
+0
+8
+8
+greencharge-footprints
+RJ11-55551652
+5555165-2-4
+Connector
 0
 4
 4
-Package_TO_SOT_SMD
-TO-277A
-Thermal enhanced ultra thin SMD package; 3 leads; body: 4.3x6.1x0.43mm, https://www.vishay.com/docs/95570/to-277asmpc.pdf
-TO-277A SMPC
+greencharge-footprints
+RJ45B_1_1
+RJ45-B-1*1-1
+Connector
 0
-12
+16
+15
+greencharge-footprints
+RK366_BGA-565_20x18_15.5x14.4mm
+
+
+0
+565
+565
+greencharge-footprints
+RLF12560T2R7N110
+RLF12560T-2R7N110-2
+Inductor
+0
+2
+2
+greencharge-footprints
+RPI-CM4
+
+
+0
+200
+200
+greencharge-footprints
+RPI-ZERO
+Raspberry Pi board model B+, full outline with position of big connectors &amp; drill holes
+
+0
+40
+40
+greencharge-footprints
+RTC-DS1307-Module
+
+
+0
+5
+5
+greencharge-footprints
+RTC-Module
+
+
+0
+6
+6
+greencharge-footprints
+S6125-M2-3.0A
+
+
+0
+2
+2
+greencharge-footprints
+S8421-45R_1
+S8421-45R_1
+Connector
+0
+2
+2
+greencharge-footprints
+S194146R
+S1941-46R-1
+Connector
+0
+1
+1
+greencharge-footprints
+SAFFB881MAN0F0A
+
+
+0
+5
+5
+greencharge-footprints
+SAWFD1G84AA0F0A
+
+
+0
+10
+10
+greencharge-footprints
+SAYEY1G88BA0B0A
+
+
+0
+8
+7
+greencharge-footprints
+SC-04-E50J
+
+
+0
+4
+4
+greencharge-footprints
+SC0220G
+SC-02-20G-1
+Filter
+0
+4
+4
+greencharge-footprints
+SCDS124T-180M-N
+
+
+0
+2
+2
+greencharge-footprints
+SDcard
+
+
+0
+13
+13
+greencharge-footprints
+SER2918H332KL
+SER2918H-332KL-2
+Inductor
+0
 3
-Package_TO_SOT_SMD
-TO-277B
-TO-227B https://media.digikey.com/pdf/Data%20Sheets/Littelfuse%20PDFs/DST2050S.pdf
-TO-277B
+3
+greencharge-footprints
+SHDR2W100P0X508_1X2_1070X900X1380P
+VI0221520000G
+Connector
+0
+2
+2
+greencharge-footprints
+SHDR4W114P0X1112_1X4_4628X2032X1956P
+8PCV-04-006
+Connector
+0
+4
+4
+greencharge-footprints
+SK3245SL3B
+SK-3245S-L3-B-1
+Switch
+0
+6
+6
+greencharge-footprints
+SKRPACE010
+
+
+0
+4
+4
+greencharge-footprints
+SKY5A1007
+
+
+0
+13
+13
+greencharge-footprints
+SKY77643
+
+
+0
+43
+43
+greencharge-footprints
+SKY77916
+
+
+0
+39
+39
+greencharge-footprints
+SMAG
+
+
+0
+2
+2
+greencharge-footprints
+SMC-216
+
+
+0
+8
+7
+greencharge-footprints
+SNR3015K-3R3M
+
+
+0
+2
+2
+greencharge-footprints
+SOIC127P599X175-8N
+
+
+0
+8
+8
+greencharge-footprints
+SON50P300X300X80-9N
+NGQ0008A
+Integrated Circuit
 0
 9
-3
-Package_TO_SOT_SMD
-TSOT-23
-3-pin TSOT23 package, http://www.analog.com.tw/pdf/All_In_One.pdf
-TSOT-23
-0
-3
-3
-Package_TO_SOT_SMD
-TSOT-23-5
-TSOT, 5 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py
-TSOT TO_SOT_SMD
-0
-5
-5
-Package_TO_SOT_SMD
-TSOT-23-5_HandSoldering
-5-pin TSOT23 package, http://cds.linear.com/docs/en/packaging/SOT_5_05-08-1635.pdf
-TSOT-23-5 Hand-soldering
-0
-5
-5
-Package_TO_SOT_SMD
-TSOT-23-6
-TSOT, 6 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant AA), generated with kicad-footprint-generator ipc_gullwing_generator.py
-TSOT TO_SOT_SMD
-0
-6
-6
-Package_TO_SOT_SMD
-TSOT-23-6_HandSoldering
-6-pin TSOT23 package, http://cds.linear.com/docs/en/packaging/SOT_6_05-08-1636.pdf
-TSOT-23-6 MK06A TSOT-6 Hand-soldering
-0
-6
-6
-Package_TO_SOT_SMD
-TSOT-23-8
-TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
-TSOT TO_SOT_SMD
+9
+greencharge-footprints
+SOP65P490X110-8N
+DGK
+Integrated Circuit
 0
 8
 8
-Package_TO_SOT_SMD
-TSOT-23-8_HandSoldering
-8-pin TSOT23 package, http://cds.linear.com/docs/en/packaging/SOT_8_05-08-1637.pdf
-TSOT-23-8 Hand-soldering
+greencharge-footprints
+SOT65P280X145-8N
+SOT-23-8
+Integrated Circuit
 0
 8
 8
-Package_TO_SOT_SMD
-TSOT-23_HandSoldering
-5-pin TSOT23 package, http://cds.linear.com/docs/en/packaging/SOT_5_05-08-1635.pdf
-TSOT-23 Hand-soldering
+greencharge-footprints
+SOT95P237X111-3N
+
+
 0
 3
 3
-Package_TO_SOT_SMD
-Texas_DRT-3
-Texas Instrument DRT-3 1x0.8mm Pitch 0.7mm http://www.ti.com/lit/ds/symlink/tpd2eusb30.pdf
-DRT-3 1x0.8mm Pitch 0.7mm
+greencharge-footprints
+SOTFL50P160X85-3N
+
+
 0
 3
 3
-Package_TO_SOT_SMD
-Texas_NDQ
-Texas Instruments, NDQ, 5 pin (https://www.ti.com/lit/ml/mmsf022/mmsf022.pdf)
-ti pfm dap
-0
-6
-6
-Package_TO_SOT_SMD
-Texas_NDY0011A
-TO-PMOD-11 11-pin switching regulator package, http://www.ti.com/lit/ml/mmsf025/mmsf025.pdf
-Texas TO-PMOD NDY00011A
-0
-12
-12
-Package_TO_SOT_SMD
-Texas_R-PDSO-G6
-R-PDSO-G6, http://www.ti.com/lit/ds/slis144b/slis144b.pdf
-R-PDSO-G6 SC-70-6
-0
-6
-6
-Package_TO_SOT_SMD
-VSOF5
-VSOF5
-VSOF5
+greencharge-footprints
+SRD-05VDC-SL-C
+
+
 0
 5
 5
-Package_TO_SOT_SMD
-Vishay_PowerPAK_SC70-6L_Dual
-Vishay PowerPAK SC70 dual transistor package http://www.vishay.com/docs/70487/70487.pdf
-powerpak sc70 sc-70 dual
+greencharge-footprints
+SRP6540-5R6M
+SRP6540-5R6M
+Inductor
+0
+2
+2
+greencharge-footprints
+SRR1280-150M
+
+
+0
+2
+2
+greencharge-footprints
+SRR12804R5Y
+SRR1280-4R5Y-1
+Connector
+0
+2
+2
+greencharge-footprints
+STL6P3LLH6
+
+
+0
+5
+5
+greencharge-footprints
+STUSB4500QTR
+QFN24-1
+Integrated Circuit
+0
+25
+25
+greencharge-footprints
+STWLC68
+
+
+0
+72
+72
+greencharge-footprints
+SW_SKRPACE010
+
+
+0
+4
+4
+greencharge-footprints
+SY6912A
+
+
+0
+9
+9
+greencharge-footprints
+SpringContact_Harwin_S1941-46R
+7.25mm SMT Multi-directional Spring Contact (T+R), https://cdn.harwin.com/pdfs/S1941R.pdf
+spring contact emi emc shield
+0
+1
+1
+greencharge-footprints
+Stamping_Spring
+
+
+0
+2
+1
+greencharge-footprints
+TC358779XBG
+
+
+0
+80
+80
+greencharge-footprints
+TC358860XBG
+
+
+0
+65
+65
+greencharge-footprints
+TE_1-84953-4
+
+
+0
+16
+16
+greencharge-footprints
+TE_3-1734592-0
+
+
+0
+32
+32
+greencharge-footprints
+TE_3-1734592-1
+
+
+0
+33
+33
+greencharge-footprints
+TE_9-1440003-0
+
+
+0
+5
+5
+greencharge-footprints
+TE_796136-1
+
+
+0
+2
+2
+greencharge-footprints
+TL1240GQ1JCLR
+
+
+0
+6
+6
+greencharge-footprints
+TLV62595DMQR
+TLV62595DMQR-3
+Integrated Circuit
+0
+6
+6
+greencharge-footprints
+TPS7A2633DRVR
+TPS7A2633DRVR-1
+Integrated Circuit
+0
+7
+7
+greencharge-footprints
+TPS5450DDA
+DDA0008J
+Integrated Circuit
+0
+9
+9
+greencharge-footprints
+TPS54331DR
+D (R-PDSO-G8)
+Integrated Circuit
 0
 8
-6
-Package_TO_SOT_SMD
-Vishay_PowerPAK_SC70-6L_Single
-Vishay PowerPAK SC70 single transistor package http://www.vishay.com/docs/70486/70486.pdf
-powerpak sc70 sc-70
+8
+greencharge-footprints
+TPS54332DDAR
+
+
+0
+17
+17
+greencharge-footprints
+TPS56637RPAR
+TPS56637RPAR-1
+Integrated Circuit
+0
+13
+13
+greencharge-footprints
+TPS61030PWPR
+PWP0016C
+Integrated Circuit
+0
+17
+17
+greencharge-footprints
+TPS61085xx
+DGK
+Integrated Circuit
+0
+8
+8
+greencharge-footprints
+TPS61288RQQR
+TPS61288RQQR-3
+Integrated Circuit
+0
+15
+15
+greencharge-footprints
+TPS62865RQYR
+RQY0009A_2021
+Integrated Circuit
+0
+9
+9
+greencharge-footprints
+TPS63802DLAR
+TPS63802DLAR-2
+Integrated Circuit
+0
+10
+10
+greencharge-footprints
+U254051N4BH806
+U254-051N-4BH806-2
+Connector
+0
+11
+11
+greencharge-footprints
+UG-2832HSWEG02
+
+
+0
+14
+14
+greencharge-footprints
+UK-B0206-G8-160
+
+
+0
+4
+2
+greencharge-footprints
+USB-C-MALE-104238-0110
+
+
+0
+24
+24
+greencharge-footprints
+USB_A_Molex_105057_Vertical
+https://www.molex.com/pdm_docs/sd/1050570001_sd.pdf
+USB A Vertical
+0
+7
+5
+greencharge-footprints
+USB_C_632723X00011
+Usb 3.1 Type c Receptacle Tht/Sm
+
+0
+32
+32
+greencharge-footprints
+VC02005000J0G
+VC02005000J0G-2
+Connector
+0
+4
+4
+greencharge-footprints
+VREG_TPS63802DLAR
+
+
+0
+10
+10
+greencharge-footprints
+VREG_V62_16624-01YE
+
+
+0
+15
+15
+greencharge-footprints
+VS1797SM
+
+
+0
+20
+20
+greencharge-footprints
+W3102
+W3102-1
+Antenna
+0
+2
+2
+greencharge-footprints
+WJ15EDGVC-3.81-3P
+
+
+0
+3
+3
+greencharge-footprints
+WJ15EDGVC-3.81-4P
+
+
+0
+4
+4
+greencharge-footprints
+WJ154DGVC-3.81-2P
+WJ15EDGVC-3.81-2P
+Connector
+0
+2
+2
+greencharge-footprints
+WM9364CT
+
+
+0
+14
+7
+greencharge-footprints
+WPN4020H2R2MT
+
+
+0
+2
+2
+greencharge-footprints
+WURTH_632723X00011
+Usb 3.1 Type c Receptacle Tht/Sm
+
+0
+32
+32
+greencharge-footprints
+Wemos-D1-mini
+
+
+0
+40
+40
+greencharge-footprints
+XCVR_EG25G
+
+
+0
+132
+132
+greencharge-footprints
+XCVR_EG91EFB-512-SNND
+
+
+0
+106
+106
+greencharge-footprints
+XF2M60151AH
+XF2M-6015-1AH-2
+Connector
+0
+62
+62
+greencharge-footprints
+YSPI1050-xxx
+
+
+0
+2
+2
+greencharge-footprints
+ap6256_QFN-44_12.5x12.5_Pitch0.9mm
+
+
+0
+47
+47
+greencharge-footprints
+barrier_terminal_6PCV_04_006
+6PCV-02-006-3
+Connector
+0
+4
+4
+greencharge-footprints
+coil_760308102144
+
+
+0
+2
+2
+greencharge-footprints
+custom_connector_0.83pitch
+
+
+0
+10
+10
+greencharge-footprints
+fsusb42mux
+
+
+0
+10
+10
+greencharge-footprints
+little_fuse_0157002.DR
+
+
+0
+2
+2
+greencharge-footprints
+logo-small-pekaway
+
+
+0
+0
+0
+greencharge-footprints
+logo_small_1-pekaway
+
+
+0
+0
+0
+greencharge-footprints
+molex_05024303230
+
+
+0
+32
+32
+greencharge-footprints
+mouse-bite-1mm-slot
+
+
+0
+0
+0
+greencharge-footprints
+mouse-bite-2.54mm-slot
+
+
+0
+0
+0
+greencharge-footprints
+mouse-bite-2mm-slot
+
+
+0
+0
+0
+greencharge-footprints
+oled_128x64_GDOE0240G
+
+
+0
+31
+31
+greencharge-footprints
+oled_pad
+
+
+0
+14
+14
+greencharge-footprints
+pad-io
+
+
+0
+2
+1
+greencharge-footprints
+phoenix_2pin_1803277
+1803277-2
+Connector
+0
+2
+2
+greencharge-footprints
+phoenix_3pin
+1803280-1
+Connector
+0
+3
+3
+greencharge-footprints
+push_btn_40565300
+
+
+0
+7
+2
+greencharge-footprints
+slide-switch-SK3245SL3B
+SK-3245S-L3-B-1
+Switch
 0
 6
-3
+6
+greencharge-footprints
+ufl_734120114
+
+
+0
+4
+2
