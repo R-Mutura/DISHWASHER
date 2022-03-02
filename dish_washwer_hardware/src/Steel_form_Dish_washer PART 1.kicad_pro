@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.3
+          "min_clearance": 1.0
         }
       },
       "diff_pair_dimensions": [
@@ -361,7 +361,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Steel_form_Dish_washer.kicad_pro",
+    "filename": "Steel_form_Dish_washer PART 1.kicad_pro",
     "version": 1
   },
   "net_settings": {

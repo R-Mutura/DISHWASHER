@@ -446,7 +446,7 @@
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 7f92bba9-b987-486c-9334-a1e0b352c325)
     )
-    (fp_text value "EAST1616RGBA8" (at 0.12 -4.06 90) (layer "F.Fab")
+    (fp_text value "EAST1616RGBA8" (at -2.52 0.465 180) (layer "F.Fab")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 1b22addb-6bbc-433d-945e-16edc56b8328)
     )
