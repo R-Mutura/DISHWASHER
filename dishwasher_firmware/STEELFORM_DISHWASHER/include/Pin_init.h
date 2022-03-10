@@ -1,14 +1,28 @@
 #include <Arduino.h>
 
+//and optimize code serial printing
+#define DEBUG 1
+
+#if     DEBUG == 1
+#define debug(x)      Serial.print(x)
+#define debugln(x,y)  Serial.println(x,y)
+#define debugln(x)    Serial.println(x)
+#else
+#define debug(x)
+#define debugln(x,y) 
+#define debugln(x)
+#endif
+
+
 //INITIALIZING ALL PINS AND THEIR STATESS HERE
 #define pressure_sw_1 49 //PL0
 #define pressure_sw_2 48 //pl1
 
 #define door_sensor 18
 
-#define  rtd_cs 53
-#define rtd_drdy 10
-#define  rtd_cs_1 11
+#define  rtd_cs    53
+#define rtd_drdy   10
+#define  rtd_cs_1  11
 #define rtd_drdy_1 12
 
 #define speaker 13
@@ -16,7 +30,7 @@
 #define screen_rst A6 //pf6
 
 #define irq  19 //pd2 this is the acrylic interrupt
-#define water_lvl_low 34//PC3 
+#define water_lvl_low  34//PC3 
 #define water_lvl_high 33//PC4 
 
 #define zero_cross_detect 2 //pe4 int4
@@ -38,9 +52,13 @@
 #define rgb_onoff_red A1//pf1
 #define rgb_onoff_grn A2//pf2
 
-#define start_blu PF3 //A3//pf3
-#define start_red PF4 //A4//pf4
+#define start_blu  PF3 //A3//pf3
+#define start_red  PF4 //A4//pf4
 #define start_grn  PF5 //A5//pf5
+
+//temperature reading pins
+#define tank_rtd    A8  //pk0
+#define boiler_rtd  A9 //pk1
 
 
 void pin_init(){
@@ -82,6 +100,9 @@ pinMode(rgb_onoff_blu , OUTPUT);
 pinMode(rgb_onoff_red, OUTPUT);
 pinMode(rgb_onoff_grn , OUTPUT);
 
+pinMode(tank_rtd, INPUT);
+pinMode(boiler_rtd, INPUT);
+
 //we ll use register manipulation for these pins which will used inside an ISR ROUTINE
 //pinMode(start_blu , OUTPUT);
 //pinMode(start_red , OUTPUT);
@@ -98,4 +119,26 @@ PORTF &=(0<<start_blu); //initialize the pin to low
 PORTF &=(0<<start_red); //initialize the pin to low
 PORTF &=(0<<start_grn); //initialize the pin to low
 
+}
+
+
+const float vt_factor=1.88;
+const float offset =0;
+
+float tempRead(int pin)
+{
+  int sensorvalue=0;
+  for(int i=0; i<=5; i++)
+  {
+      sensorvalue+=analogRead(pin);
+      i++;
+  }
+  sensorvalue=sensorvalue/7;
+  float value = sensorvalue * (5.0 / 1023.0);
+  float temp_c = (((value * 100) / vt_factor) + offset);
+  debug("Temp");
+  if(DEBUG == 1){ Serial.println(temp_c,2);}
+  
+  
+  return temp_c;
 }

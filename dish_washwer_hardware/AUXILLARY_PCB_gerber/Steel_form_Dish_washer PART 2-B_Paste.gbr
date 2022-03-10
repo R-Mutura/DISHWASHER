@@ -1,12 +1,12 @@
-%TF.GenerationSoftware,KiCad,Pcbnew,(6.0.2)*%
-%TF.CreationDate,2022-03-02T13:17:24+03:00*%
-%TF.ProjectId,Steel_form_Dish_washer PART 2,53746565-6c5f-4666-9f72-6d5f44697368,rev?*%
-%TF.SameCoordinates,Original*%
-%TF.FileFunction,Paste,Bot*%
-%TF.FilePolarity,Positive*%
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(6.0.2)*
+G04 #@! TF.CreationDate,2022-03-03T13:42:43+03:00*
+G04 #@! TF.ProjectId,Steel_form_Dish_washer PART 2,53746565-6c5f-4666-9f72-6d5f44697368,rev?*
+G04 #@! TF.SameCoordinates,Original*
+G04 #@! TF.FileFunction,Paste,Bot*
+G04 #@! TF.FilePolarity,Positive*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (6.0.2)) date 2022-03-02 13:17:24*
+G04 Created by KiCad (PCBNEW (6.0.2)) date 2022-03-03 13:42:43*
 %MOMM*%
 %LPD*%
 G01*
@@ -33,7 +33,6 @@ G04 Aperture macros list end*
 %ADD11R,0.500000X4.000000*%
 G04 APERTURE END LIST*
 D10*
-%TO.C,U9*%
 X291912500Y-234925000D03*
 X291912500Y-235575000D03*
 X291912500Y-236225000D03*
@@ -54,9 +53,7 @@ X286187500Y-236875000D03*
 X286187500Y-236225000D03*
 X286187500Y-235575000D03*
 X286187500Y-234925000D03*
-%TD*%
 D11*
-%TO.C,J20*%
 X234175000Y-223375000D03*
 X233345000Y-223375000D03*
 X232515000Y-223375000D03*
@@ -67,5 +64,4 @@ X229195000Y-223375000D03*
 X228365000Y-223375000D03*
 X227535000Y-223375000D03*
 X226705000Y-223375000D03*
-%TD*%
 M02*

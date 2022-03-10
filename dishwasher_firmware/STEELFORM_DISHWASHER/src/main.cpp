@@ -1,21 +1,9 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <Adafruit_MAX31865.h>
+//#include <Adafruit_MAX31865.h>
 #include "Adafruit_MPR121.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1305.h>
-
-
-
-//and optimize code serial printing
-#define DEBUG 1
-#if DEBUG == 1
-#define debug(x) Serial.print(x)
-#define debugln(x) Serial.println(x)
-#else
-#define debug(x)
-#define debugln(x)
-#endif
 
 #include "Pin_init.h"
 //#include "processes.h"
@@ -23,8 +11,8 @@
 int drainpump_on=1; //drain pump is present is present or not
 
 //temperature measurement using MAX31865 parameter initialization
-Adafruit_MAX31865 tank_rtd = Adafruit_MAX31865(rtd_cs); //temp sensor 1
-Adafruit_MAX31865 boiler_rtd = Adafruit_MAX31865(rtd_cs_1); //temp sensor 2
+//Adafruit_MAX31865 tank_rtd = Adafruit_MAX31865(rtd_cs); //temp sensor 1
+//Adafruit_MAX31865 boiler_rtd = Adafruit_MAX31865(rtd_cs_1); //temp sensor 2
 #define RREF 4300.0
 #define RNOMINAL 1000
 //end of temp initializations
@@ -59,94 +47,93 @@ Adafruit_SSD1305 mydisplay(128, 64, &Wire, OLED_RESET);
 //*********************************************************************************************
 /*FLAGS variables FOR INTERRUPTS*/
 volatile int installer_menu_flag = 0;
-volatile int start_flag = 0;
-volatile int on_off_flag = 0;
-volatile int menu_flag = 0;
-volatile int back_flag = 0;
-volatile int arrow_flag=0;
-volatile int set_flag=0;
+volatile int start_flag          = 0;
+volatile int on_off_flag         = 0;
+volatile int menu_flag           = 0;
+volatile int back_flag           = 0;
+volatile int arrow_flag          = 0;
+volatile int set_flag            = 0;
 
-volatile int pump_counter=0;
-volatile long mysecond =0;
-volatile int last_CH1_state = 0;
-volatile bool zero_cross_detected=false;
+volatile int pump_counter         = 0;
+volatile long mysecond            = 0;
+volatile int last_CH1_state       = 0;
+volatile bool zero_cross_detected = false;
 
 /**/
 //variables to be used in function first
-volatile int commissioning_flag=0;
-volatile int filling_flag=0;
-volatile int getting_ready_flag =0;
+volatile int commissioning_flag = 0;
+volatile int filling_flag       = 0;
+volatile int getting_ready_flag = 0;
 
-int full=0;
-int pump_1_on=0;
-int detergent_on=0;
-int ready_flag=0;
-int in_screen2=0;
-int in_process_flag=0;
-int rinse_aid_pump=0;
-int rinse_add_done=0;
-int done_refilling=0;
-int rinsing=0;
-int sensitive_wash_ready=0;
-int water_change_flag=0;
-int sanitize =0;
+int full                = 0;
+int pump_1_on           = 0;
+int detergent_on        = 0;
+int ready_flag          = 0;
+int in_screen2          = 0;
+int in_process_flag     = 0;
+int rinse_aid_pump      = 0;
+int rinse_add_done      = 0;
+int done_refilling      = 0;
+int rinsing             = 0;
+int sensitive_wash_ready= 0;
+int water_change_flag   = 0;
+int sanitize            = 0;
 
 //constants to be set and read from permanent storage of the atmega
-int setpoint_tank = 45; //degrees 
-int setpoint_boiler =72; //degrees
-float detergent_dose=5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
-float rinse_aid_dose=5;//ml
-int menu_screen_2 = 0; //temporary process holder for screen update...once set is pressed on the desired menu then the value herein is moved to the selected_process variable and displayed on screen
-int selected_process=0;//will store the menu position selected(such that the menu in use is persistent even after power down)
+int   setpoint_tank    = 45; //degrees 
+int   setpoint_boiler  = 72; //degrees
+float detergent_dose   = 5;//ml //this will be read from the eeprom memory and stored here to be used when calculating detergent time 
+float rinse_aid_dose   = 5;//ml
+int   menu_screen_2    = 0; //temporary process holder for screen update...once set is pressed on the desired menu then the value herein is moved to the selected_process variable and displayed on screen
+int   selected_process = 0;//will store the menu position selected(such that the menu in use is persistent even after power down)
 
-volatile int set_menu=0; //carries the set screen index and will be used in the next operation to set the variables of the selected menu
-int installer_screen=0;
-int menu_screen_1=0;// holds the current set-screen index
+volatile int set_menu= 0; //carries the set screen index and will be used in the next operation to set the variables of the selected menu
+int installer_screen = 0;
+int menu_screen_1    = 0;// holds the current set-screen index
 
 //processes constant time
-const int normal_time=90;
-const int intensive_time=150;
-const int cookware_time=270;
+const int normal_time     = 90;
+const int intensive_time  = 150;
+const int cookware_time   = 270;
 //...........................................................................................
 //global variables
 
-volatile float settings_rom[5];
-volatile float settings_array[5];// this array holds the data that is used in the istaller sub_menu in the following order
-                    //{rinse_aid_doseage, detergent_doseage, detergent_startup_doseage, boiler_setpoint, tank_setpoint};
-int detergent_time=0;
-int rinse_aid_time=0;
-float tank_temp = 0;
-float boiler_temp=0;
+volatile float settings_rom   [5];
+volatile float settings_array [6];// this array holds the data that is used in the istaller sub_menu in the following order
+//{rinse_aid_doseage, detergent_doseage, detergent_startup_doseage, boiler_setpoint, tank_setpoint};
+int   detergent_time  =  0;
+int   rinse_aid_time  =  0;
+float tank_temp       =  0;
+float boiler_temp     =  0;
 
 
 //end of global vars
 //TIMER3 FUNCTION CONSTANTS
-const uint16_t t3_load=0;
-const uint16_t t3_comp=62500;//this value will be loaded to the compare register of the timer. so the timer upon reachin this value an interrupt is generated.
+const uint16_t t3_load = 0;
+const uint16_t t3_comp = 62500;//this value will be loaded to the compare register of the timer. so the timer upon reachin this value an interrupt is generated.
 
 // TRIAC CONTROL CONSTAnts
-const int firing_delay = 7400;
-const int maximum_firing_delay = 7400;
-
-const float peristalitic_feedrate=0.4166667;//ml
-String processes[]={"Normal", "Intensive","Cookware","High Temp Cycle","Water Exchange","Sanitization"};
+const int   firing_delay          = 7400;
+const int   maximum_firing_delay  = 7400;
+const float detergent_feedrate    = 0.833333;
+const float peristalitic_feedrate = 0.11111111;//ml per second
+String processes[] = {"Normal", "Intensive","Cookware","High Temp Cycle","Water Exchange","Sanitization"};
 //FUNCTION PROTOTYPES
-void getNumber();
-void water_filling_process();
-void commissioning();
-void door_open_ISR();
-void getting_ready();
-void zero_cross();
-int pid_tank_control(int real_temperature, int setpoint);
-int pid_boiler_control(int real_temperature, int setpoint);
-void update_screen_2();
-void basic_process(int timing);
-void glassware();
-
-void flag_handler();
-void update_submenu();
-void installer_menu();
-void priming(int prime_pump);
+void getNumber             ();
+void water_filling_process ();
+void commissioning         ();
+void door_open_ISR         ();
+void getting_ready         ();
+void zero_cross            ();
+int  pid_tank_control      (int real_temperature, int setpoint);
+int  pid_boiler_control    (int real_temperature, int setpoint);
+void update_screen_2       ();
+void basic_process         (int timing);
+void glassware             ();
+void flag_handler          ();
+void update_submenu        ();
+void installer_menu        ();
+void priming               (int prime_pump);
 
 void setup() {
   // put your setup code here, to run once:
@@ -180,8 +167,8 @@ void setup() {
  // end of timer 3 init
 
 
-  tank_rtd.begin(MAX31865_3WIRE);
-  boiler_rtd.begin(MAX31865_3WIRE);
+  //tank_rtd.begin(MAX31865_3WIRE);
+  //boiler_rtd.begin(MAX31865_3WIRE);
  //initializing ACRYLIC PANEL COMPONENTS
   if (!panel.begin(0x5A)) {
     Serial.println("MPR121 not found, check wiring?");
@@ -224,8 +211,8 @@ void loop() {
 
   }
   // put your main code here, to run repeatedly:
-   tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-   boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+   tank_temp=tempRead(tank_rtd);
+   boiler_temp=tempRead(boiler_rtd);
   //WE WRITE THE PID CONTROL
  if ( full==1 && water_change_flag==0 && sanitize==0 )
  {
@@ -380,7 +367,7 @@ void getNumber(){
       switch (set_menu)
       {
       case 2://setting rinse aid dose
-        settings_array[0]-=0.5;
+        settings_array[0]-=0.1;
 
         break;
       case 3://setting detergent dose
@@ -448,7 +435,7 @@ void getNumber(){
       switch (set_menu)
       {
       case 2://setting rinse aid dose
-        settings_array[0]+=0.5;
+        settings_array[0]+=0.1;
 
         break;
       case 3://setting detergent dose
@@ -555,7 +542,7 @@ void getting_ready()
   //TO CALCULATE THE TIME THE PUMP WILL STAY ON:  SPECS 3L/HR == 0.83333mL/SECOND
   if(detergent_on==0)
   {
-  detergent_time = (detergent_dose/0.833333); //thi is the timw the pump will stay on in seconds //usig int will automatically truncate the decimal giving an accurracy og 1 in dosing
+  detergent_time = (detergent_dose/detergent_feedrate); //thi is the timw the pump will stay on in seconds //usig int will automatically truncate the decimal giving an accurracy og 1 in dosing
   pump_1_on=1;
   detergent_on=1;
   }
@@ -593,6 +580,13 @@ void door_open_ISR()
   while (digitalRead(door_sensor))
   {
     //wait for the door to be closed,,,,nothing else will be done until the door closes
+    mydisplay.clearDisplay();
+    mydisplay.setTextSize(2);
+    mydisplay.setTextColor(WHITE);
+    mydisplay.setCursor(20,10);
+    mydisplay.println("DOOR OPEN!!");
+    mydisplay.display();
+    
   }
   //the we delay for 500mS after the door is closed
   long timeon = millis();
@@ -920,7 +914,8 @@ void update_screen_2()
  return;
 }
 //all processes will be written in this section. then the flag handler will call them appropriately
-void basic_process(int timing)//timing is in sconds
+
+void basic_process(int timing)//timing is in seconds
 {  
    unsigned long current_time=0;
    unsigned long wash_time =(timing*1000); // to get timin in miliseconds=> *1000
@@ -949,15 +944,16 @@ void basic_process(int timing)//timing is in sconds
       digitalWrite(wash_pump,LOW);
       rinsing=1; //indicate start of rinsing process
     }
-   else{
+   else
+   {
     //refill reheat and rinse
     //TURN SOLENOID VALVE ON
     
     ready_flag=0;
     current_time=millis();
     mysecond=0;
-    if(done_refilling==0){
-    while(millis()-current_time<=30000)
+   if(done_refilling==0){
+     while(millis()-current_time<=30000)
      {//wdo this for 30 seconds for the refilling process
         digitalWrite(solenoid, HIGH);
         mydisplay.clearDisplay();
@@ -1015,8 +1011,8 @@ void basic_process(int timing)//timing is in sconds
           in_process_flag=0;
           start_flag=1;//SIGNAL END OF PROCESS AND RETURN TO THE MAIN MENU SCREEN
       }
+    }
    }
-  }
 return;
 }
 }
@@ -1032,7 +1028,7 @@ void glassware()
    int elapsed_seconds=0;
    int reheat_flag=0;
   //first we check temperature
-   temp_boiler =boiler_rtd.temperature(RNOMINAL, RREF);
+   temp_boiler =tempRead(boiler_rtd);
   if(temp_boiler>62 && sensitive_wash_ready==0 )
   {
     mysecond=0; //reset myseconds counter so as to save the length of the waiting loop
@@ -1041,7 +1037,7 @@ void glassware()
       //we are doing nothing here...just waiting for the temperature to drop
       //this loop will go on waiting for the temperature to drops accordingly
       elapsed_seconds=mysecond;
-    } while ((temp_boiler=boiler_rtd.temperature(RNOMINAL, RREF))>62 );
+    } while ((temp_boiler=tempRead(boiler_rtd))>62 );
 
     sensitive_wash_ready=1; //once done set the ready flag
   }
@@ -1278,8 +1274,8 @@ void sanitization()
         delay(10000);
 
        ///ENSURE THE TEMPERATURE IS WITHIN THE DESIRED LEVELS
-       tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-       boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+       tank_temp=tempRead(tank_rtd);
+       boiler_temp=tempRead(boiler_rtd);
         mydisplay.setTextSize(1);
         mydisplay.setTextColor(WHITE);
         mydisplay.setCursor(2,3);
@@ -1299,8 +1295,8 @@ void sanitization()
               mydisplay.setCursor(2,3);
               mydisplay.println("      ");//TEMP ICON BLINKING
            }
-            tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-            boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+            tank_temp=tempRead(tank_rtd);
+            boiler_temp=tempRead(boiler_rtd);
 
             int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
           if (zero_cross_detected)     
@@ -1330,7 +1326,7 @@ void sanitization()
         //THEN OPEN THE SOLENOD FOR 20SEC
         rinse_aid_time=5/peristalitic_feedrate;
         rinse_aid_pump=1;
-       current_time = millis();
+        current_time = millis();
         while ((millis()-current_time)<=20000)
         {
           digitalWrite(solenoid, HIGH);
@@ -1399,12 +1395,12 @@ void sanitization()
         }
        digitalWrite(solenoid, LOW);
        //turn on boiler
-       tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-       boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+       tank_temp=tempRead(tank_rtd);
+       boiler_temp=tempRead(boiler_rtd);
        while(tank_temp<30 && boiler_temp<70)
        {  
-            tank_temp=tank_rtd.temperature(RNOMINAL, RREF);
-            boiler_temp=boiler_rtd.temperature(RNOMINAL, RREF);
+            tank_temp=tempRead(tank_rtd);
+            boiler_temp=tempRead(boiler_rtd);
             int tank_pid = pid_tank_control(tank_temp, setpoint_tank);
             if (zero_cross_detected)     
           {
@@ -1688,6 +1684,27 @@ void installer_menu()
     
      break;
     }
+
+     case 7:
+    { /* constant-expression */
+      
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Detergent Startup Dosage");
+      mydisplay.setCursor(2,1);
+      mydisplay.println("Boiler Set Point");
+      mydisplay.setCursor(2,2);
+      mydisplay.println("Tank Set Point");
+      mydisplay.setCursor(2,3);
+      mydisplay.println("=> Rinse Aid Startup Dose" );
+      mydisplay.display();
+      
+    
+     break;
+    }
+
   default:
    menu_screen_1=0; //if anything else is pressed or incremented past 6 then the default reset the screen_1 variable back to zero.
     break;
@@ -1737,13 +1754,13 @@ void update_submenu()//we pass the set_menu variable here
       mydisplay.setTextColor(WHITE);
       mydisplay.setCursor(2,0);
       mydisplay.println("Rinse Aid Dosage");
-     if(settings_array[(set_menu-2)]>100)
+     if(settings_array[(set_menu-2)]>20)
       {
-        settings_array[(set_menu-2)]=100;
+        settings_array[(set_menu-2)]=20;
       }
-      else if(settings_array[(set_menu-2)]<0.5)
+      else if(settings_array[(set_menu-2)]<0.1)
       {
-        settings_array[(set_menu-2)]=0.5;
+        settings_array[(set_menu-2)]=0.1;
       }
       mydisplay.setTextSize(2);
       mydisplay.setCursor(2,2);
@@ -1830,9 +1847,31 @@ void update_submenu()//we pass the set_menu variable here
       {
         settings_array[(set_menu-2)]=65;
       }
-      else if(settings_array[(set_menu-2)]<50)
+      else if(settings_array[(set_menu-2)]<57)
       {
-        settings_array[(set_menu-2)]=50;
+        settings_array[(set_menu-2)]=57;
+      }
+      mydisplay.setTextSize(2);
+      mydisplay.setCursor(2,2);
+      mydisplay.println(settings_array[(set_menu-2)]);
+      mydisplay.display();
+      
+     break;
+   }
+    case 7://TANK SETPOINT
+   {
+      mydisplay.clearDisplay();
+      mydisplay.setTextSize(1);
+      mydisplay.setTextColor(WHITE);
+      mydisplay.setCursor(2,0);
+      mydisplay.println("Rinse Aid Startup Dose");
+      if(settings_array[(set_menu-2)]>20)
+      {
+        settings_array[(set_menu-2)]=20;
+      }
+      else if(settings_array[(set_menu-2)]<0.1)
+      {
+        settings_array[(set_menu-2)]=0.1;
       }
       mydisplay.setTextSize(2);
       mydisplay.setCursor(2,2);
